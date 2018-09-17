@@ -34,12 +34,18 @@ services:
       - bootnode
     cpu_quota: 50000
 
-  webstats:
-    build:
-      context: ./dockerfiles/stats
-    image: stats
-    container_name: webstats
+  webstats-backend:
+    image: zeusprotocol/eth-net-intelligence-api
+    container_name: webstats-backend
     depends_on:
-      - bootnode
+      - node1
+    environment:
+      - RPC_HOST=node1
+      - WS_SERVER=wss://192.168.20.3:3000
+      - WS_SECRET=nDs2018
+
+  webstats-frontend:
+    image: ethereumex/eth-netstats
+    container_name: webstats-frontend
     expose:
       - 3000

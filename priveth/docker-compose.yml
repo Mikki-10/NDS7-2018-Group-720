@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  bootnode:
+    build:
+      context: ./dockerfiles/bootnode
+      
+    image: bootnode
+    container_name: bootnode
+    expose:
+      - 30303
+  
+  node1:
+    build:
+      context: ./dockerfiles/node
+    image: node
+    container_name: node1
+    depends_on:
+      - bootnode
+
+  node2:
+    image: node
+    container_name: node2
+    depends_on:
+      - bootnode
+
+  miner1:
+    build:
+      context: ./dockerfiles/miner
+
+    image: miner
+    container_name: miner1
+    depends_on:
+      - bootnode
+    cpu_quota: 50000

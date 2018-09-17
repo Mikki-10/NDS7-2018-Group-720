@@ -7,14 +7,10 @@ RUN apk add git
 
 RUN git clone https://github.com/cubedro/eth-netstats.git
 
-RUN cd eth-netstats
-RUN npm install
-RUN npm install -g grunt-cli
-RUN grunt
+RUN cd /eth-netstats && npm install && npm install -g grunt-cli && grunt
 
-RUN cd ..
 RUN git clone https://github.com/cubedro/eth-net-intelligence-api.git
-ADD app.json eth-net-intelligence-api/app.json
+ADD app.json /eth-net-intelligence-api/app.json
 
 RUN npm install pm2 -g
 

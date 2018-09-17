@@ -28,7 +28,6 @@ services:
   miner1:
     build:
       context: ./dockerfiles/miner
-
     image: miner
     container_name: miner1
     depends_on:

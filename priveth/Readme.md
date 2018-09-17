@@ -34,7 +34,7 @@ docker-compose.yml is the file which defines the network setup and configures ea
 
 The directory contains three containers which are built from Dockerfiles:
 
-#### Bootnode
+##### Bootnode
 This is the meeting point where all nodes initially connects. The bootnode exchanges address information so the nodes can see each other. The bootnode needs to generate a cryptographic key, which in turn is used to generate an enode URL. The nodes use the enode URL when connecting. To make the network easier to use, the key has been pre-generated and is stored in the boot.key file. When the bootnode is built, the boot.key is included in the image.
 
 When the bootnode starts it will print its IP address and enode URL. This is controlled by the run.sh script. 

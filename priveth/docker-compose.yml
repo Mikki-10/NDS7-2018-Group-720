@@ -42,7 +42,7 @@ services:
       - node1
     environment:
       - RPC_HOST=node1
-      - WS_SERVER=wss://webstats-backend:3000
+      - WS_SERVER=wss://webstats-frontend:3000
       - WS_SECRET=nDs2018
 
   webstats-frontend:

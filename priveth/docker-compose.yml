@@ -17,8 +17,6 @@ services:
     container_name: node1
     depends_on:
       - bootnode
-    expose:
-      - 8545
 
   node2:
     image: node
@@ -35,3 +33,13 @@ services:
     depends_on:
       - bootnode
     cpu_quota: 50000
+
+  webstats:
+    build:
+      context: ./dockerfiles/stats
+    image: stats
+    container_name: webstats
+    depends_on:
+      - bootnode
+    expose:
+      - 3000

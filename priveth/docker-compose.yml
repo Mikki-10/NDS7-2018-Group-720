@@ -4,11 +4,10 @@ services:
   bootnode:
     build:
       context: ./dockerfiles/bootnode
-      
+    expose:
+      - 30303  
     image: bootnode
     container_name: bootnode
-    expose:
-      - 30303
   
   node1:
     build:

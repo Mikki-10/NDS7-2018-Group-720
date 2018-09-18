@@ -34,20 +34,20 @@ services:
       - node2
     cpu_quota: 50000
 
-  webstats-backend:
-    image: zeusprotocol/eth-net-intelligence-api
-    container_name: webstats-backend
-    depends_on:
-      - miner1
-    environment:
-      - RPC_HOST=172.18.0.3
-      - WS_SERVER=wss://webstats-frontend:3000
-      - WS_SECRET=nDs2018
+  #webstats-backend:
+    #image: zeusprotocol/eth-net-intelligence-api
+    #container_name: webstats-backend
+    #depends_on:
+      #- miner1
+    #environment:
+      #- RPC_HOST=172.18.0.3
+      #- WS_SERVER=wss://webstats-frontend:3000
+      #- WS_SECRET=nDs2018
 
-  webstats-frontend:
-    image: ethereumex/eth-netstats
-    container_name: webstats-frontend
-    depends_on:
-      - webstats-backend
-    ports:
-      - 3000:3000
+  #webstats-frontend:
+    #image: ethereumex/eth-netstats
+    #container_name: webstats-frontend
+    #depends_on:
+      #- webstats-backend
+    #ports:
+      #- 3000:3000

@@ -42,7 +42,7 @@ services:
     environment:
       - INSTANCE_NAME=nodeweb
     depends_on:
-      - node2
+      - miner1
     volumes:
       - /etc/localtime:/etc/localtime:ro
     ports:

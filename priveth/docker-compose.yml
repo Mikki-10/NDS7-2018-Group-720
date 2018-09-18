@@ -15,7 +15,9 @@ services:
     image: node
     container_name: node1
     expose:
-      - 30303
+      - 8545
+    ports:
+      - 8545
     depends_on:
       - bootnode
 

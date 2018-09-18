@@ -16,6 +16,8 @@ services:
     container_name: node1
     depends_on:
       - bootnode
+    expose:
+      - 8545
     ports:
       - 8545:8545
 
@@ -47,6 +49,8 @@ services:
       - miner1
     volumes:
       - /etc/localtime:/etc/localtime:ro
+    expose:
+      - 8545
     #ports:
       #- 8545:8545
 

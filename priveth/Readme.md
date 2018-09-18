@@ -8,7 +8,7 @@ To build the docker images, run:
 
 To start the network run:
 
-```docker-compose up````
+```docker-compose up```
 
 ## Contents
 The directory contains the following:
@@ -51,3 +51,12 @@ This is a variant of the node. It performs the mining operation but otherwise wo
 NOTE: When built, the miner will pregenerate the DAG which takes some time. This is done to save time when running miners based on the image.
 
 In the docker-compose file, the miner has been throttled by setting the cpu_quota key. This can be tweaked to make it run faster/slower.
+
+##### URLs for reading about this:
+https://hub.docker.com/r/ethereum/client-go/
+https://github.com/ethereum/go-ethereum/wiki/Private-network
+https://medium.com/cybermiles/running-a-quick-ethereum-private-network-for-experimentation-and-testing-6b1c23605bce
+
+Something about the different network types. Don't know if relevant
+https://ethereum.stackexchange.com/questions/10311/what-is-olympic-frontier-morden-homestead-and-ropsten-ethereum-blockchain
+http://ethdocs.org/en/latest/network/test-networks.html

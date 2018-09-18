@@ -16,6 +16,8 @@ services:
     container_name: node1
     depends_on:
       - bootnode
+    ports:
+      - 8545:8545
 
   node2:
     image: node
@@ -45,8 +47,6 @@ services:
       - miner1
     volumes:
       - /etc/localtime:/etc/localtime:ro
-    ports:
-      - 8545:8545
 
   #webstats-backend:
     #image: zeusprotocol/eth-net-intelligence-api

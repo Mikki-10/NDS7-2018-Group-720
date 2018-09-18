@@ -14,10 +14,6 @@ services:
       context: ./dockerfiles/node
     image: node
     container_name: node1
-    expose:
-      - 8545
-    ports:
-      - 8545:8545
     depends_on:
       - bootnode
 
@@ -35,6 +31,21 @@ services:
     depends_on:
       - node2
     cpu_quota: 50000
+
+
+  nodeweb:
+    image: 'nodeweb'
+    command: '--rpccorsdomain "*" --networkid 44686 --rpc --rpcaddr "0.0.0.0" --ipcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --rpcapi "db,personal,eth,net,web3  init /root/genesis.json --bootnodes "--bootnodes=enode://a93cc3de8693e2ad879df9b3c306c1b9752b49d1550615825e5049528c8b109b5dbdf9847f1b6cae463f4321118b6126c673890c7ad2f706c57b466bbcf66a08@172.18.0.2:30301"'
+    container_name: nodeweb
+    environment:
+      - INSTANCE_NAME=nodeweb
+    links:
+      - bootstrap
+      - statsmon
+    volumes:
+      - '/etc/localtime:/etc/localtime:ro'
+    port:
+      - 8545:8545
 
   #webstats-backend:
     #image: zeusprotocol/eth-net-intelligence-api

@@ -44,7 +44,7 @@ services:
       - statsmon
     volumes:
       - '/etc/localtime:/etc/localtime:ro'
-    port:
+    ports:
       - 8545:8545
 
   #webstats-backend:

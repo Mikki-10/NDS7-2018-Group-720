@@ -39,9 +39,8 @@ services:
     container_name: nodeweb
     environment:
       - INSTANCE_NAME=nodeweb
-    links:
-      - bootstrap
-      - statsmon
+    depends_on:
+      - node2
     volumes:
       - '/etc/localtime:/etc/localtime:ro'
     ports:

@@ -17,7 +17,7 @@ services:
     expose:
       - 8545
     ports:
-      - 8545
+      - 8545:8545
     depends_on:
       - bootnode
 

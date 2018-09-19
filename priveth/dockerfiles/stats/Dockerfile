@@ -8,4 +8,7 @@ RUN apk add git
 RUN git clone https://github.com/cubedro/eth-netstats
 RUN cd eth-netstats && npm install && npm install -g grunt-cli && grunt
 
-ENTRYPOINT ["/bin/sh", "/gethdata/run.sh"]
+RUN mkdir /webstats
+ADD run.sh /webstats
+
+ENTRYPOINT ["/bin/sh", "/webstats/run.sh"]

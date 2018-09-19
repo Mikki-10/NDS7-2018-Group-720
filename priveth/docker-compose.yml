@@ -19,19 +19,17 @@ services:
     expose:
       - 8545
 
-  node2:
-    image: node
-    container_name: node2
-    depends_on:
-      - node1
+  #node2:
+  #  image: node
+  #  container_name: node2
+  #  depends_on:
+  #    - node1
 
   miner1:
     build:
       context: ./dockerfiles/miner
     image: miner
     container_name: miner1
-    depends_on:
-      - node2
     cpu_quota: 50000
 
   webstats:

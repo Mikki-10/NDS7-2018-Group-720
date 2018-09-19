@@ -18,7 +18,7 @@ services:
       - bootnode
     expose:
       - 8545
-    ports:
+    #ports:
     #  - 8545:8545
 
   node2:
@@ -63,7 +63,7 @@ services:
       environment:
         - INSTANCE_NAME=magicnode
       depends_on:
-        - miner1
+        - nodeweb
       volumes:
         - /etc/localtime:/etc/localtime:ro
       expose:

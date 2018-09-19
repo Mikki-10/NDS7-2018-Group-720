@@ -43,8 +43,6 @@ services:
       - node1
     ports:
       - 3000:3000
-    environment:
-      - WS_SECRET=nDs2018
 
   #webstats-backend:
     #image: zeusprotocol/eth-net-intelligence-api

@@ -32,17 +32,25 @@ services:
     container_name: miner1
     cpu_quota: 50000
 
-  webstats:
+  dashboard:
     build:
-      context: ./dockerfiles/stats
-    image: stats
-    container_name: webstats
+      context: ./dockerfiles/nodedashboard
+    image: nodedashboard
+    container_name: dashboard
     depends_on:
-      - node1
-    ports:
-      - 3000:3000
-    environment:
-      - WS_SECRET=nDs2018
+      - bootnode
+
+ #webstats:
+ #  build:
+ #    context: ./dockerfiles/stats
+ #  image: stats
+ #  container_name: webstats
+ #  depends_on:
+ #    - node1
+ #  ports:
+ #    - 3000:3000
+ #  environment:
+ #    - WS_SECRET=nDs2018
 
   #webstats-backend:
     #image: zeusprotocol/eth-net-intelligence-api

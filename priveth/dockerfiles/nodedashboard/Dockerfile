@@ -7,7 +7,7 @@ RUN apk add git
 RUN apk add yarn
 
 RUN git clone https://github.com/ethereum/go-ethereum
-RUN (cd /go-ethereum/dashboard/assets && yarn install && yarn flow)
+RUN (cd /go-ethereum/dashboard/assets && yarn install)
 
 RUN mkdir /webstats
 ADD run.sh /webstats

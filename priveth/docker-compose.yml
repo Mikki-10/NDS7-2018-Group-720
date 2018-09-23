@@ -35,8 +35,8 @@ services:
   webstats-backend:
     build:
       context: ./dockerfiles/stats-backend
-      image: stats-backend
-      container_name: stats-backend
+    image: stats-backend
+    container_name: stats-backend
     depends_on:
       - node1
 

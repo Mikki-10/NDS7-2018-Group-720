@@ -32,15 +32,13 @@ services:
     container_name: miner1
     cpu_quota: 50000
 
-  dashboard:
+  webstats-backend:
     build:
-      context: ./dockerfiles/nodedashboard
-    image: nodedashboard
-    container_name: dashboard
+      context: ./dockerfiles/stats-backend
+      image: stats-backend
+      container_name: stats-backend
     depends_on:
-      - bootnode
-    ports:
-      - 8081:8081
+      - node1
 
  #webstats:
  #  build:

@@ -2,7 +2,7 @@
 
 echo "Hallo World";
 
-$data_string = '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}'
+$data_string = '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}';
 
 $ch = curl_init('172.18.0.3:8545');                                                                      
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     

@@ -18,6 +18,8 @@ services:
       - bootnode
     expose:
       - 8545
+    environment:
+      - DOCKER_NAME=webstats-frontend
 
   #node2:
   #  image: node

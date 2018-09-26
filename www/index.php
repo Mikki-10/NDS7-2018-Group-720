@@ -21,6 +21,7 @@ th, td {
 }
 </style>
 
+Documentation https://github.com/ethereum/wiki/wiki/JSON-RPC<br>
 172.18.0.3:8545<br>
 {"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}
 

@@ -36,6 +36,42 @@ services:
       - node2
     cpu_quota: 50000
 
+  miner2:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    container_name: miner2
+    depends_on:
+      - miner1
+    cpu_quota: 50000
+
+  miner3:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    container_name: miner3
+    depends_on:
+      - miner2
+    cpu_quota: 50000
+
+  miner4:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    container_name: miner4
+    depends_on:
+      - miner3
+    cpu_quota: 50000
+
+  miner5:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    container_name: miner5
+    depends_on:
+      - miner4
+    cpu_quota: 50000
+
 
   nodeweb:
     image: nodeweb
@@ -46,7 +82,7 @@ services:
     environment:
       - INSTANCE_NAME=nodeweb
     depends_on:
-      - miner1
+      - miner5
     volumes:
       - /etc/localtime:/etc/localtime:ro
     expose:

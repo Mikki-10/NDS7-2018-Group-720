@@ -6,11 +6,21 @@ ini_set("display_errors", true);
 ?>
 
 <style>
+
+body, html { 
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
 </style>
+
+<body>
 
 <?php
 

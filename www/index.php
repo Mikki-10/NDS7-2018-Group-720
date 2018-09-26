@@ -93,6 +93,21 @@ function build_table($array)
     		build_table($value); 
     		echo "</td>";
     	}
+    	elseif (is_bool($value)) 
+    	{
+    		if ($value === true) 
+    		{
+    			echo "true";
+    		}
+    		elseif ($value === false) 
+    		{
+    			echo "false";
+    		}
+    		else
+    		{
+    			echo var_dump($value);
+    		}
+    	}
     	else
     	{
     		echo "<td>" . $value . "</td>";

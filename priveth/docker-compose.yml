@@ -38,15 +38,13 @@ services:
     image: stats-backend
     container_name: stats-backend
     depends_on:
-      - node1
+      - webstats-frontend
 
   webstats-frontend:
     build:
       context: ./dockerfiles/stats
     image: stats
     container_name: webstats-frontend
-    depends_on:
-      - webstats-backend
     ports:
       - 3000:3000
     environment:

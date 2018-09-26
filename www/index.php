@@ -20,8 +20,6 @@ table, th, td {
 }
 </style>
 
-<body>
-
 <?php
 
 echo "Hallo World<br>";
@@ -66,11 +64,13 @@ foreach ($result["result"] as $key => $value)
 }
 
 
+echo "<body>";
+
 function build_table($array)
 {
     //echo "<pre>"; var_dump($array); echo "</pre>";
 
-    echo "<table>";
+    echo '<table width="100%" border="0" cellspacing="0" cellpadding="0">';
     echo "<tr>";
     foreach ($array as $key => $value) 
     {
@@ -101,6 +101,8 @@ function build_table($array)
     echo "</tr>";
     echo "</table>";
 }
+
+echo "</body>";
 
 
 ?>

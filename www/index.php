@@ -6,17 +6,18 @@ ini_set("display_errors", true);
 ?>
 
 <style>
-
-body, html { 
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
+table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
 }
 
-table, th, td {
-    border: 1px solid black;
+table {
     border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 10px;
 }
 </style>
 

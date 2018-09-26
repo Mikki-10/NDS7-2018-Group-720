@@ -1,12 +1,15 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set("display_errors", true);
+
 echo "Hallo World<br>";
 
 
 try 
 {
 	#curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}' 172.18.0.3:8545
-	
+
 	$ch = curl_init();
 
 	curl_setopt($ch, CURLOPT_URL, "172.18.0.3:8545");

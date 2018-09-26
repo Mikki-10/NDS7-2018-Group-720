@@ -97,15 +97,17 @@ function build_table($array)
     	{
     		if ($value === true) 
     		{
-    			echo "true";
+    			echo "<td> true </td>";
     		}
     		elseif ($value === false) 
     		{
-    			echo "false";
+    			echo "<td> false </td>";
     		}
     		else
     		{
+    			echo "<td>";
     			echo var_dump($value);
+    			echo "</td>";
     		}
     	}
     	else

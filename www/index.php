@@ -27,6 +27,8 @@ try
 	}
 	curl_close ($ch);
 
+	$result = json_decode($result, true);
+
 	echo "<pre>"; var_dump($result); echo "</pre>";
 } 
 catch (Exception $e) 

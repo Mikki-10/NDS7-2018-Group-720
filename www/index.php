@@ -50,7 +50,7 @@ function build_table($array)
     $html = '<table>';
     // header row
     $html .= '<tr>';
-    foreach($array[0] as $key=>$value){
+    foreach($array as $key=>$value){
             $html .= '<th>' . htmlspecialchars($key) . '</th>';
         }
     $html .= '</tr>';
@@ -59,7 +59,7 @@ function build_table($array)
     foreach( $array as $key=>$value){
         $html .= '<tr>';
         foreach($value as $key2=>$value2){
-            $html .= '<td>' . htmlspecialchars($value2) . '</td>';
+            $html .= '<td>' . var_dump($value2) . '</td>';
         }
         $html .= '</tr>';
     }

@@ -148,6 +148,7 @@ function build_table($array)
     			echo "</td>";
     		}
     	}
+    	/*
     	elseif (strpos($value, '0x') === 0) 
     	{
    			// It starts with '0x'
@@ -156,6 +157,7 @@ function build_table($array)
     		echo "</td>";
 
 		}
+		*/
     	else
     	{
     		echo "<td>" . $value . "</td>";

@@ -152,6 +152,8 @@ function build_table($array)
     	{
    			// It starts with '0x'
     		echo "<td>";
+    		echo $value;
+    		echo "<br>";
     		echo hexdec($value);
     		echo "</td>";
     	}

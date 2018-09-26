@@ -32,13 +32,13 @@ services:
     container_name: miner1
     cpu_quota: 50000
 
-  webstats-backend:
-    build:
-      context: ./dockerfiles/stats-backend
-    image: stats-backend
-    container_name: stats-backend
-    depends_on:
-      - webstats-frontend
+#  webstats-backend:
+#    build:
+#      context: ./dockerfiles/stats-backend
+#    image: stats-backend
+#    container_name: stats-backend
+#    depends_on:
+#      - webstats-frontend
 
   webstats-frontend:
     build:

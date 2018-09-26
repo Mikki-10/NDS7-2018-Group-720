@@ -37,7 +37,11 @@ catch (Exception $e)
 }
 
 
-echo build_table($result);
+
+foreach ($result["result"] as $key => $value) 
+{
+	echo build_table($value);
+}
 
 
 function build_table($array)

@@ -155,6 +155,8 @@ function build_table($array)
     		echo $value;
     		echo "<br>";
     		echo hexdec($value);
+    		echo "<br>";
+    		echo number_format(hexdec($value));
     		echo "</td>";
     	}
     	else

@@ -90,7 +90,9 @@ function build_table($array)
     {
     	if (is_array($value)) 
     	{
-    		echo "<td>" . build_table($value) . "</td>";
+    		echo "<td>";
+    		build_table($value); 
+    		echo "</td>";
     	}
     	else
     	{

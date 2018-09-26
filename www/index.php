@@ -81,7 +81,7 @@ function build_table($array)
     	}
     	else
     	{
-    		echo "<th>". $key ."</th>";
+    		echo "<th>" . $key . "</th>";
     	}
     }
     echo "</tr>";
@@ -90,11 +90,11 @@ function build_table($array)
     {
     	if (is_array($value)) 
     	{
-    		build_table($value);
+    		echo "<td>" . build_table($value) . "</td>";
     	}
     	else
     	{
-    		echo "<td>". $value ."</td>";
+    		echo "<td>" . $value . "</td>";
     	}
     }
     echo "</tr>";

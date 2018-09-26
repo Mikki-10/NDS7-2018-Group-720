@@ -11,10 +11,10 @@
     "env":
     {
       "NODE_ENV"        : "production",
-      "RPC_HOST"        : "node1",
+      "RPC_HOST"        : "miner1",
       "RPC_PORT"        : "8545",
       "LISTENING_PORT"  : "30303",
-      "INSTANCE_NAME"   : "node1",
+      "INSTANCE_NAME"   : "miner1",
       "CONTACT_DETAILS" : "",
       "WS_SERVER"       : "wss://stats-frontend:3000",
       "WS_SECRET"       : "nDs2018",

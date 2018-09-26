@@ -17,13 +17,12 @@ table {
 }
 
 th, td {
-    padding: 10px;
+    padding: 5px;
 }
 </style>
 
 <?php
 
-echo "Hallo World<br>";
 
 $ip = "172.18.0.3:8545";
 $request = '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}';
@@ -62,11 +61,14 @@ function make_rpc_request($ip, $request)
 		echo "<pre>"; var_dump($e); echo "</pre>";
 	}
 
+	build_table($result);
+	echo "<br>";
+	echo "<br>";
 
 
 	foreach ($result["result"] as $key => $value) 
 	{
-		echo build_table($value);
+		build_table($value);
 		echo "<br>";
 	}
 }

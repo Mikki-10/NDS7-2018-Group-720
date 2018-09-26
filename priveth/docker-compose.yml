@@ -19,7 +19,7 @@ services:
     expose:
       - 8545
     environment:
-      - DOCKER_NAME=webstats-frontend
+      - DOCKER_NAME=node1
 
   #node2:
   #  image: node

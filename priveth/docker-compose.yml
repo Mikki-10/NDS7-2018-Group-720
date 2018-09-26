@@ -40,17 +40,17 @@ services:
     depends_on:
       - node1
 
- webstats-frontend:
-   build:
-     context: ./dockerfiles/stats
-   image: stats
-   container_name: webstats-frontend
-   depends_on:
-     - webstats-backend
-   ports:
-     - 3000:3000
-   environment:
-     - WS_SECRET=nDs2018
+  webstats-frontend:
+    build:
+      context: ./dockerfiles/stats
+    image: stats
+    container_name: webstats-frontend
+    depends_on:
+      - webstats-backend
+    ports:
+      - 3000:3000
+    environment:
+      - WS_SECRET=nDs2018
 
   #webstats-backend:
     #image: zeusprotocol/eth-net-intelligence-api

@@ -21,11 +21,35 @@ th, td {
 }
 </style>
 
+172.18.0.3:8545
+{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}
+
+<br>
+
+<form action="/" method="post">
+  IP: <input type="text" name="ip"><br>
+  Request: <input type="text" name="request"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<br><br>
+
 <?php
 
+if (isset($_POST["ip"]) && isset($_POST["request"])) 
+{
+	$ip = $_POST["ip"];
+	$request = $_POST["request"];
+}
+elseif (isset($_POST["demo"])) 
+{
+	$ip = "172.18.0.3:8545";
+	$request = '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}';
+}
+else
+{
 
-$ip = "172.18.0.3:8545";
-$request = '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}';
+}
 
 make_rpc_request($ip, $request);
 
@@ -61,9 +85,9 @@ function make_rpc_request($ip, $request)
 		echo "<pre>"; var_dump($e); echo "</pre>";
 	}
 
-	build_table($result);
-	echo "<br>";
-	echo "<br>";
+	//build_table($result);
+	//echo "<br>";
+	//echo "<br>";
 
 
 	foreach ($result["result"] as $key => $value) 

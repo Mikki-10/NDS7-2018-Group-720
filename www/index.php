@@ -63,6 +63,7 @@ catch (Exception $e)
 foreach ($result["result"] as $key => $value) 
 {
 	echo build_table($value);
+	echo "<br>";
 }
 
 

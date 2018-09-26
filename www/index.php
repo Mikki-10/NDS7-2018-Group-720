@@ -27,14 +27,17 @@ th, td {
 <br>
 
 <form action="/" method="post">
-  IP: <input type="text" name="ip"><br>
-  Request: <input type="text" name="request"><br>
+  IP: <input type="text" name="ip" value="<?php if (isset($_POST["ip"])){ echo $_POST["ip"]; } ?>"><br>
+  Request: <input type="text" name="request" value="<?php if (isset($_POST["request"])){ echo $_POST["request"]; } ?>"><br>
   <input type="submit" value="Submit">
 </form>
+
+
 
 <br><br>
 
 <?php
+
 
 if (isset($_POST["ip"]) && isset($_POST["request"])) 
 {

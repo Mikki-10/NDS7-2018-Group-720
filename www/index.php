@@ -28,7 +28,7 @@ th, td {
 
 <form action="/" method="post">
   IP: <input type="text" name="ip" value="<?php if (isset($_POST["ip"])){ echo $_POST["ip"]; } ?>"><br>
-  Request: <input type="text" name="request" value="<?php if (isset($_POST["request"])){ echo htmlspecialchars($_POST["request"]); } ?>"><br>
+  Request: <input type="text" name="request" width="400" value="<?php if (isset($_POST["request"])){ echo htmlspecialchars($_POST["request"]); } ?>"><br>
   <input type="submit" value="Submit">
 </form>
 

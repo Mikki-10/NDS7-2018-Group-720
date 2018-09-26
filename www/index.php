@@ -46,7 +46,36 @@ foreach ($result["result"] as $key => $value)
 
 function build_table($array)
 {
-    echo "<pre>"; var_dump($array); echo "</pre>";
+    //echo "<pre>"; var_dump($array); echo "</pre>";
+
+    echo "<table>";
+    echo "<tr>";
+    foreach ($array as $key => $value) 
+    {
+    	if (is_array($key)) 
+    	{
+    		# code...
+    	}
+    	else
+    	{
+    		echo "<th>". $key ."</th>";
+    	}
+    }
+    echo "</tr>";
+    echo "<tr>";
+    foreach ($array as $key => $value) 
+    {
+    	if (is_array($value)) 
+    	{
+    		build_table($value);
+    	}
+    	else
+    	{
+    		echo "<td>". $value ."</td>";
+    	}
+    }
+    echo "</tr>";
+    echo "</table>";
 }
 
 

@@ -8,6 +8,18 @@ services:
       - 30303  
     image: bootnode
     container_name: bootnode
+
+  webstats-frontend:
+    build:
+      context: ./dockerfiles/stats
+    image: stats
+    depends_on:
+      - bootnode
+    container_name: webstats-frontend
+    ports:
+      - 3000:3000
+    environment:
+      - WS_SECRET=nDs2018
   
   node1:
     build:
@@ -15,24 +27,42 @@ services:
     image: node
     container_name: node1
     depends_on:
-      - bootnode
+      - webstats-frontend
     expose:
       - 8545
     environment:
       - DOCKER_NAME=node1
 
-  #node2:
-  #  image: node
-  #  container_name: node2
-  #  depends_on:
-  #    - node1
+  node2:
+    build:
+      context: ./dockerfiles/node
+    image: node
+    container_name: node2
+    depends_on:
+      - webstats-frontend
+    expose:
+      - 8545
+    environment:
+      - DOCKER_NAME=node2
+
+  node3:
+    build:
+      context: ./dockerfiles/node
+    image: node
+    container_name: node3
+    depends_on:
+      - webstats-frontend
+    expose:
+      - 8545
+    environment:
+      - DOCKER_NAME=node3
 
   miner1:
     build:
       context: ./dockerfiles/miner
     image: miner
     depends_on:
-      - bootnode
+      - webstats-frontend
     container_name: miner1
     cpu_quota: 50000
     environment:
@@ -43,7 +73,7 @@ services:
       context: ./dockerfiles/miner
     image: miner
     depends_on:
-      - bootnode
+      - webstats-frontend
     container_name: miner2
     cpu_quota: 50000
     environment:
@@ -54,7 +84,7 @@ services:
       context: ./dockerfiles/miner
     image: miner
     depends_on:
-      - bootnode
+      - webstats-frontend
     container_name: miner3
     cpu_quota: 50000
     environment:
@@ -65,20 +95,74 @@ services:
       context: ./dockerfiles/miner
     image: miner
     depends_on:
-      - bootnode
+      - webstats-frontend
     container_name: miner4
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner4
 
-  webstats-frontend:
+  miner5:
     build:
-      context: ./dockerfiles/stats
-    image: stats
+      context: ./dockerfiles/miner
+    image: miner
     depends_on:
-      - miner4
-    container_name: webstats-frontend
-    ports:
-      - 3000:3000
+      - webstats-frontend
+    container_name: miner5
+    cpu_quota: 50000
     environment:
-      - WS_SECRET=nDs2018
+      - DOCKER_NAME=miner5
+
+  miner6:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - webstats-frontend
+    container_name: miner6
+    cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner6
+
+  miner7:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - webstats-frontend
+    container_name: miner7
+    cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner7
+
+  miner8:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - webstats-frontend
+    container_name: miner8
+    cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner8
+
+  miner9:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - webstats-frontend
+    container_name: miner9
+    cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner9
+
+  miner10:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - webstats-frontend
+    container_name: miner10
+    cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner10

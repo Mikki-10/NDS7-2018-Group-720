@@ -18,109 +18,57 @@ services:
       - bootnode
     expose:
       - 8545
-    #ports:
-    #  - 8545:8545
+    environment:
+      - DOCKER_NAME=node1
 
-  node2:
-    image: node
-    container_name: node2
-    depends_on:
-      - node1
+  #node2:
+  #  image: node
+  #  container_name: node2
+  #  depends_on:
+  #    - node1
 
   miner1:
     build:
       context: ./dockerfiles/miner
     image: miner
     container_name: miner1
-    depends_on:
-      - node2
     cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner1
 
   miner2:
     build:
       context: ./dockerfiles/miner
     image: miner
     container_name: miner2
-    depends_on:
-      - miner1
     cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner2
 
   miner3:
     build:
       context: ./dockerfiles/miner
     image: miner
     container_name: miner3
-    depends_on:
-      - miner2
     cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner3
 
   miner4:
     build:
       context: ./dockerfiles/miner
     image: miner
     container_name: miner4
-    depends_on:
-      - miner3
     cpu_quota: 50000
-
-  miner5:
-    build:
-      context: ./dockerfiles/miner
-    image: miner
-    container_name: miner5
-    depends_on:
-      - miner4
-    cpu_quota: 50000
-
-
-  nodeweb:
-    image: nodeweb
-    build:
-      context: ./dockerfiles/nodeweb
-    command: --rpccorsdomain "*" --networkid 44686 --rpc --rpcaddr "0.0.0.0" --ipcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --rpcapi "db,personal,eth,net,web3"  init /root/genesis.json "--bootnodes=enode://a93cc3de8693e2ad879df9b3c306c1b9752b49d1550615825e5049528c8b109b5dbdf9847f1b6cae463f4321118b6126c673890c7ad2f706c57b466bbcf66a08@172.18.0.2:30301"
-    container_name: nodeweb
     environment:
-      - INSTANCE_NAME=nodeweb
-    depends_on:
-      - miner5
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-    expose:
-      - 8545
-    #ports:
-      #- 8545:8545
+      - DOCKER_NAME=miner4
 
-  magicnode:
-    image: magicnode
+  webstats-frontend:
     build:
-      context: ./dockerfiles/magicnode
-    command: --rpccorsdomain "*" --networkid 44686 --rpc --rpcaddr "localhost" --ipcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --rpcapi "db,personal,eth,net,web3"  init /gethdata/genesis.json "--bootnodes=enode://a93cc3de8693e2ad879df9b3c306c1b9752b49d1550615825e5049528c8b109b5dbdf9847f1b6cae463f4321118b6126c673890c7ad2f706c57b466bbcf66a08@172.18.0.2:30301"
-    container_name: magicnode
-    environment:
-      - INSTANCE_NAME=magicnode
-    depends_on:
-      - nodeweb
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-    expose:
-      - 8545
+      context: ./dockerfiles/stats
+    image: stats
+    container_name: webstats-frontend
     ports:
-      - 8545:8545
-
-  #webstats-backend:
-    #image: zeusprotocol/eth-net-intelligence-api
-    #container_name: webstats-backend
-    #depends_on:
-      #- miner1
-    #environment:
-      #- RPC_HOST=172.18.0.3
-      #- WS_SERVER=wss://webstats-frontend:3000
-      #- WS_SECRET=nDs2018
-
-  #webstats-frontend:
-    #image: ethereumex/eth-netstats
-    #container_name: webstats-frontend
-    #depends_on:
-      #- webstats-backend
-    #ports:
-      #- 3000:3000
+      - 3000:3000
+    environment:
+      - WS_SECRET=nDs2018

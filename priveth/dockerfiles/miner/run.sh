@@ -1,4 +1,4 @@
-geth \ 
+geth \
     --identity $DOCKER_NAME \
     --rpcvhosts=* \
     --rpc \

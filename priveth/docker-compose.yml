@@ -33,14 +33,35 @@ services:
     image: miner
     container_name: miner1
     cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner1
 
-#  webstats-backend:
-#    build:
-#      context: ./dockerfiles/stats-backend
-#    image: stats-backend
-#    container_name: stats-backend
-#    depends_on:
-#      - webstats-frontend
+  miner2:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    container_name: miner2
+    cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner2
+
+  miner3:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    container_name: miner3
+    cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner3
+
+  miner4:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    container_name: miner4
+    cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner4
 
   webstats-frontend:
     build:
@@ -51,23 +72,3 @@ services:
       - 3000:3000
     environment:
       - WS_SECRET=nDs2018
-
-  #webstats-backend:
-    #image: zeusprotocol/eth-net-intelligence-api
-    #container_name: webstats-backend
-    #depends_on:
-      #- miner1
-    #environment:
-      #- RPC_HOST=172.18.0.3
-      #- WS_SERVER=wss://webstats-frontend:3000
-      #- WS_SECRET=nDs2018
-
-  #webstats-frontend:
-  #  image: ethereumex/eth-netstats
-  #  container_name: webstats-frontend
-  #  depends_on:
-  #    - webstats-backend
-  #  ports:
-  #    - 3000:3000
-  #  environment:
-  #    - WS_SECRET=nDs2018

@@ -31,6 +31,8 @@ services:
     build:
       context: ./dockerfiles/miner
     image: miner
+    depends_on:
+      - bootnode
     container_name: miner1
     cpu_quota: 50000
     environment:
@@ -40,6 +42,8 @@ services:
     build:
       context: ./dockerfiles/miner
     image: miner
+    depends_on:
+      - bootnode
     container_name: miner2
     cpu_quota: 50000
     environment:
@@ -49,6 +53,8 @@ services:
     build:
       context: ./dockerfiles/miner
     image: miner
+    depends_on:
+      - bootnode
     container_name: miner3
     cpu_quota: 50000
     environment:
@@ -58,6 +64,8 @@ services:
     build:
       context: ./dockerfiles/miner
     image: miner
+    depends_on:
+      - bootnode
     container_name: miner4
     cpu_quota: 50000
     environment:
@@ -67,6 +75,8 @@ services:
     build:
       context: ./dockerfiles/stats
     image: stats
+    depends_on:
+      - miner4
     container_name: webstats-frontend
     ports:
       - 3000:3000

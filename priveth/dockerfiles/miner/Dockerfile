@@ -1,6 +1,7 @@
 FROM ethereum/client-go
 
 RUN mkdir /gethdata
+RUN mkdir /logpath
 
 ADD run.sh /gethdata
 ADD genesis.json /gethdata

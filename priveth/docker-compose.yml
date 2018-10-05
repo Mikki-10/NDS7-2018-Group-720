@@ -71,6 +71,9 @@ services:
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner1
+      - LOGGING=on
+    volumes:
+      - ./miner1:/logpath/
 
   miner2:
     build:

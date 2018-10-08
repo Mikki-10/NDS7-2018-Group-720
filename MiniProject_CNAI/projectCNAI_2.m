@@ -1,5 +1,5 @@
 clear;
-
+clf;
 %ask user for the speed (choose greater than 1m/s for now)
 prompt = 'Speed value: ';
 v = input(prompt);

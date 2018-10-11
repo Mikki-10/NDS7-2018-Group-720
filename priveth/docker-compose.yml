@@ -72,7 +72,7 @@ services:
     environment:
       - DOCKER_NAME=miner1
       - LOGGING=on
-      - $VERBOSITY=5
+      - VERBOSITY=5
     volumes:
       - ./logs:/logpath/
 
@@ -87,7 +87,7 @@ services:
     environment:
       - DOCKER_NAME=miner2
       - LOGGING=on
-      - $VERBOSITY=5
+      - VERBOSITY=5
     volumes:
       - ./logs:/logpath/
 
@@ -102,7 +102,7 @@ services:
     environment:
       - DOCKER_NAME=miner3
       - LOGGING=on
-      - $VERBOSITY=5
+      - VERBOSITY=5
     volumes:
       - ./logs:/logpath/
 

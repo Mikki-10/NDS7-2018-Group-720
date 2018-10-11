@@ -72,8 +72,9 @@ services:
     environment:
       - DOCKER_NAME=miner1
       - LOGGING=on
+      - $VERBOSITY=5
     volumes:
-      - ./miner1:/logpath/
+      - ./logs:/logpath/
 
   miner2:
     build:
@@ -85,6 +86,10 @@ services:
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner2
+      - LOGGING=on
+      - $VERBOSITY=5
+    volumes:
+      - ./logs:/logpath/
 
   miner3:
     build:
@@ -96,6 +101,10 @@ services:
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner3
+      - LOGGING=on
+      - $VERBOSITY=5
+    volumes:
+      - ./logs:/logpath/
 
   miner4:
     build:

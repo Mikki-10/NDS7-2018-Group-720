@@ -14,7 +14,7 @@ then
         --mine \
         --minerthreads=1 \
         --etherbase=0x0000000000000000000000000000000000000001 \
-        2>> /logpath/log.txt
+        >> /logpath/log.txt
 else
     geth \
         --identity $DOCKER_NAME \

@@ -44,9 +44,12 @@ for K = 1:N
         d=getNewDir();
     end  
 end
+added_error = add_error(points, 0, 1);
 
-scatter(points(:,1), points(:,2), '.r');
-
+hold on
+plot(points(:,1), points(:,2), '-r');
+plot(added_error(:,1), added_error(:,2), '-b');
+hold off
 function newdir=getNewDir()
  % if we are changing direction, roll a dice to set the direcion
         % versor for each of the 8 possible directions:
@@ -91,4 +94,7 @@ function zone= getZone(posx,posy) % gets the zone with the position.
         zone=0;
     end
 end
-    
+
+function points_error = add_error(data, mean, variance)
+    points_error = data + (randn(length(data), 2)*variance+mean);
+end

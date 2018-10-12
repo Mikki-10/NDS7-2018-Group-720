@@ -22,6 +22,8 @@ d=[1 1]; % unitary vector for direction, set at (1,1) at the beginning
 posX = round(1450*rand(1)); 
 posY = round(750*rand(1));
 
+points = zeros(N, 2);
+
 for K = 1:N
     if (posX+v*d(1)>0) && (posX+v*d(1)<1450) && (posY+v*d(2)>0) && (posY+v*d(2)<750) %check if it is within the bounds
         posX=posX+d(1)*v; %increase the position multiplying the versor with the speed
@@ -34,12 +36,16 @@ for K = 1:N
         posY=posY+d(2)*v;
     end
     zone=getZone(posX,posY)
-    hold on;
-    plot(posX, posY, '.r');
+    
+    points(K, 1) = posX;
+    points(K, 2) = posY;
+    
     if (rand(1)<=0.05)  %check the 5% chaces of changing direction every second
         d=getNewDir();
     end  
 end
+
+scatter(points(:,1), points(:,2), '.r');
 
 function newdir=getNewDir()
  % if we are changing direction, roll a dice to set the direcion

@@ -23,8 +23,11 @@ posX = round(1450*rand(1));
 posY = round(750*rand(1));
 
 points = zeros(N, 2);
+realZones = zeros(N, 1);
+noiseZones = zeros(N, 1);
 
-for K = 1:N
+
+for k = 1:N
     if (posX+v*d(1)>0) && (posX+v*d(1)<1450) && (posY+v*d(2)>0) && (posY+v*d(2)<750) %check if it is within the bounds
         posX=posX+d(1)*v; %increase the position multiplying the versor with the speed
         posY=posY+d(2)*v;
@@ -35,21 +38,41 @@ for K = 1:N
         posX=posX+d(1)*v; %increase the position multiplying the versor with the speed
         posY=posY+d(2)*v;
     end
-    zone=getZone(posX,posY)
+    realZones(k) = getZone(posX,posY);
     
-    points(K, 1) = posX;
-    points(K, 2) = posY;
+    points(k, 1) = posX;
+    points(k, 2) = posY;
     
     if (rand(1)<=0.05)  %check the 5% chaces of changing direction every second
         d=getNewDir();
     end  
 end
-added_error = add_error(points, 0, 1);
+
+% Add estimation error
+added_error = addError(points, 0, 5);
+
+% Calculate the zones with error
+for k = 1:N
+   noiseZones(k) = getZone(added_error(k, 1), added_error(k, 2));
+end
+
+% Compare new real zone to previous estimated zone. 
+% This gives a vector with 1 or 0 for each compared zone.
+compare = noiseZones(1:end-1) == realZones(2:end);
+
+correctZoneEst = sum(compare);
+incorrectZoneEst = N-correctZoneEst;
+
+% Calculate percent of miss-estimated zones.
+miss = incorrectZoneEst/N*100
 
 hold on
-plot(points(:,1), points(:,2), '-r');
-plot(added_error(:,1), added_error(:,2), '-b');
+plot(points(:,1), points(:,2), '.r');
+axis([0 1450 0 750])
+
+plot(added_error(:,1), added_error(:,2), '.b');
 hold off
+
 function newdir=getNewDir()
  % if we are changing direction, roll a dice to set the direcion
         % versor for each of the 8 possible directions:
@@ -95,6 +118,6 @@ function zone= getZone(posx,posy) % gets the zone with the position.
     end
 end
 
-function points_error = add_error(data, mean, variance)
+function points_error = addError(data, mean, variance)
     points_error = data + (randn(length(data), 2)*variance+mean);
 end

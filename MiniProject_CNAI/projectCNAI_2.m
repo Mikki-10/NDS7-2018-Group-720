@@ -1,5 +1,11 @@
-
 clear;
+
+Zones = [0 200 550 700; % Zone 1
+         550 300 850 700; % Zone 2
+         850 100 1050 600; % Zone 3
+         1050 250 1450 700; % Zone 4
+         350 0 750 200]'; % Zone 5
+
 %ask user for the speed (choose greater than 1m/s for now)
 prompt = 'Speed value: ';
 v = input(prompt);
@@ -15,8 +21,6 @@ x=zeros(1450); % x and y set the size of the map
 y=zeros(750);
 d=[1 1]; % unitary vector for direction, set at (1,1) at the beginning
 %K=zeros(1000);
-
-
 
 % Initial position
 posX = round(1450*rand(1)); 
@@ -68,11 +72,12 @@ miss = incorrectZoneEst/N*100
 
 hold on
 plot(points(:,1), points(:,2), '.r');
-axis([0 1450 0 750])
+
 
 plot(added_error(:,1), added_error(:,2), '.b');
 hold off
-
+drawZones(Zones);
+axis([0 1450 0 750])
 function newdir=getNewDir()
  % if we are changing direction, roll a dice to set the direcion
         % versor for each of the 8 possible directions:
@@ -120,4 +125,19 @@ end
 
 function points_error = addError(data, mean, variance)
     points_error = data + (randn(length(data), 2)*variance+mean);
+end
+
+% Draw zones and zone numbers.
+function drawZones(zones)
+hold on
+    zoneNumber = 1;
+    for z = zones
+        rectangle('Position',[z(1:2)' (z(3:4)-z(1:2))']);
+        txt = sprintf('Zone: %d', zoneNumber);
+        midPoint = z(1:2)./2+z(3:4)./2;
+        text(midPoint(1)-50,midPoint(2), txt);
+        zoneNumber = zoneNumber + 1;
+    end
+
+hold off
 end

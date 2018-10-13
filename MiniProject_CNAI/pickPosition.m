@@ -1,3 +1,6 @@
+% Prompts the user for N locations on the plot.
+% The locations will be plotted as red X.
+% Returns the coordinates of picked locations.
 function pos = pickPosition(N)
     pos = zeros(N, 2);
     hold on

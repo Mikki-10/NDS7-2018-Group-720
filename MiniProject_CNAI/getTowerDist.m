@@ -6,4 +6,8 @@ function d = getTowerDist(towerCoords, walkerCoords, addNoise)
         towerDistVec = t - walkerCoords';
         d = [d; vecnorm(towerDistVec)];
     end
+    
+    if(addNoise == 1)
+       d = d + randn(size(d))*5; 
+    end
 end

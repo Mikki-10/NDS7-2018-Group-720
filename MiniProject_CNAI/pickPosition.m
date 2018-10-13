@@ -5,8 +5,10 @@ function pos = pickPosition(N)
         [x, y] = ginput(1);
         pos(i, 1) = x;
         pos(i, 2) = y;
-        plot(x, y, 'xr')
+        
+        txt = sprintf('Tower %d', i);
+        plot(x, y, 'xr', 'DisplayName', txt)
     end
-    
+    legend
     hold off
 end

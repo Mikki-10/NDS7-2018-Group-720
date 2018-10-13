@@ -79,11 +79,12 @@ incorrectZoneEst = N-correctZoneEst;
 miss = incorrectZoneEst/N*100
 
 hold on
-plot(points(:,1), points(:,2), '.r');
+plot(points(:,1), points(:,2), '.r', 'DisplayName', 'True position');
 
-plot(tLocation(:,1), tLocation(:,2), 'og');
+plot(tLocation(:,1), tLocation(:,2), '.g', 'DisplayName', 'Trilaterated position');
 
-plot(added_error(:,1), added_error(:,2), '.b');
+plot(added_error(:,1), added_error(:,2), '.b', 'DisplayName', 'True+Gauss position');
+
 hold off
 
 function newdir=getNewDir()

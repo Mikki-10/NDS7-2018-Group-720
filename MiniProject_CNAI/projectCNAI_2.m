@@ -73,7 +73,7 @@ for k=0:N-1
     end
 end
 
-distances = getTowerDist(towerPosititons, pointsForEstimation, 1);
+distances = getTowerDist(towerPosititons, pointsForEstimation, 1,5);
 tLocationEst = trilaterate(towerPosititons, distances)';
 
 tLocation=zeros(N,2);
@@ -86,6 +86,13 @@ for j=0:N-1
         tLocation(j+1,1)=tLocationEst(floor(j/freqEst)+1,1);
         tLocation(j+1,2)=tLocationEst(floor(j/freqEst)+1,2);
     end
+end
+
+
+% Calculate the zones with error
+noiseZones=zeros(N,1);
+for k = 1:N
+   noiseZones(k) = getZone(tLocation(k, 1), tLocation(k, 2));
 end
 
 % Compare new real zone to previous estimated zone. 

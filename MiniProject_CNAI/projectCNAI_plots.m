@@ -13,8 +13,8 @@ freqEst=input(prompt);
 prompt = 'Noise in the antennas : ';
 noise = input(prompt);
 
-speedErrors=zeros(30,1);
-for speed=1:30
+speedErrors=zeros(5,1);
+for speed=1:5
     for i=1:100
         error=estimatedError(speed,N,freqEst, noise);
         speedErrors(speed)=speedErrors(speed)+error/100;
@@ -22,7 +22,7 @@ for speed=1:30
 end
 
 figure(1);
-plot(1:30,speedErrors);
+plot(1:5,speedErrors);
 xlabel('Speed of the walker');
 ylabel('mmPr (%)');
 %%

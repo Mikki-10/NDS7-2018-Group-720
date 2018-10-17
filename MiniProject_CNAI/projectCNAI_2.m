@@ -15,6 +15,10 @@ v = input(prompt);
 prompt = 'Number of steps: ';
 N = input(prompt);
 
+%ask user for the frequency of estimation
+prompt= 'Frequency of estimation : ' ; 
+freqEst=input(prompt);
+
 
 
 axis([0 1450 0 750])
@@ -58,14 +62,30 @@ for k = 1:N
     end  
 end
 
-distances = getTowerDist(towerPosititons, points, 1);
-tLocation = trilaterate(towerPosititons, distances)';
-% Add estimation error
-added_error = addError(points, 0, 5);
 
-% Calculate the zones with error
-for k = 1:N
-   noiseZones(k) = getZone(added_error(k, 1), added_error(k, 2));
+%doing the vector for the estimation (taking only 1 sample over freqEst
+%samples in the vector)
+pointsForEstimation=zeros(floor(N/freqEst),2);
+for k=0:N-1
+    if (k/freqEst==floor(k/freqEst))
+        pointsForEstimation(k/freqEst+1,1)=points((k+1),1);
+        pointsForEstimation(k/freqEst+1,2)=points((k+1),2);
+    end
+end
+
+distances = getTowerDist(towerPosititons, pointsForEstimation, 1);
+tLocationEst = trilaterate(towerPosititons, distances)';
+
+tLocation=zeros(N,2);
+%double the samples so they coincide in time with the real positions
+for j=0:N-1
+    if (j/freqEst==floor(j/freqEst))
+        tLocation(j+1,1)=tLocationEst(j/freqEst+1,1);
+        tLocation(j+1,2)=tLocationEst(j/freqEst+1,2);
+    else
+        tLocation(j+1,1)=tLocationEst(floor(j/freqEst)+1,1);
+        tLocation(j+1,2)=tLocationEst(floor(j/freqEst)+1,2);
+    end
 end
 
 % Compare new real zone to previous estimated zone. 
@@ -82,8 +102,6 @@ hold on
 plot(points(:,1), points(:,2), '.r', 'DisplayName', 'True position');
 
 plot(tLocation(:,1), tLocation(:,2), '.g', 'DisplayName', 'Trilaterated position');
-
-plot(added_error(:,1), added_error(:,2), '.b', 'DisplayName', 'True+Gauss position');
 
 hold off
 

@@ -1,6 +1,5 @@
 clear;
 clf;
-
 Zones = [0 200 550 700; % Zone 1
          550 300 850 700; % Zone 2
          850 100 1050 600; % Zone 3
@@ -157,9 +156,6 @@ function zone= getZone(posx,posy) % gets the zone with the position.
     end
 end
 
-function points_error = addError(data, mean, variance)
-    points_error = data + (randn(length(data), 2)*variance+mean);
-end
 
 % Draw zones and zone numbers.
 function drawZones(zones)

@@ -1,6 +1,6 @@
 % Calculates the eucledian distance between towers and walker.
 % If third argument is 1, gaussian noise is added to the distances.
-function d = getTowerDist(towerCoords, walkerCoords, addNoise)
+function d = getTowerDist(towerCoords, walkerCoords, addNoise, noiseVariance)
     d = [];
     
     % For each tower. Take its [X;Y] coordinates and subtract it from all
@@ -16,6 +16,6 @@ function d = getTowerDist(towerCoords, walkerCoords, addNoise)
     end
     
     if(addNoise == 1)
-       d = d + randn(size(d))*5; 
+       d = d + randn(size(d))*noiseVariance; 
     end
 end

@@ -10,7 +10,7 @@ prompt= 'Interval between 2 estimations for speed changes plots : ' ;
 freqEst=input(prompt);
 
     %ask user for the noise
-prompt = 'Noise in the antennas ';
+prompt = 'Noise in the antennas : ';
 noise = input(prompt);
 
 speedErrors=zeros(30,1);
@@ -23,6 +23,8 @@ end
 
 figure(1);
 plot(1:30,speedErrors);
+xlabel('Speed of the walker');
+ylabel('mmPr (%)');
 %%
 %plot changes of estimation time
 
@@ -47,6 +49,8 @@ for freqEst=1:20
 end
 figure(2);
 plot(1:20,freqEstErrors);
+xlabel('Time between updates');
+ylabel('mmPr (%)');
 %
 %%
 %plot changes of noise
@@ -74,9 +78,10 @@ end
 
 figure(3);
 plot(1:15,noiseErrors);
-
+xlabel('Variance of Gaussian Noise in antena estimation');
+ylabel('mmPr (%)');
 %%
-function error= estimatedError(v, N, freqEst, noise)
+function error= estimatedError(v, N, freqEst, noise_variance)
     Zones = [0 200 550 700; % Zone 1
          550 300 850 700; % Zone 2
          850 100 1050 600; % Zone 3
@@ -125,7 +130,7 @@ function error= estimatedError(v, N, freqEst, noise)
        end
     end
     
-    distances = getTowerDist(towerPosititons, pointsForEstimation, 1,noise);
+    distances = getTowerDist(towerPosititons, pointsForEstimation, 1,noise_variance);
     tLocationEst = trilaterate(towerPosititons, distances)';
 
     tLocation=zeros(N,2);

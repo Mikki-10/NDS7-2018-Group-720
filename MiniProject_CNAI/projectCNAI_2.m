@@ -108,7 +108,8 @@ hold on
 plot(points(:,1), points(:,2), '.r', 'DisplayName', 'True position');
 
 plot(tLocation(:,1), tLocation(:,2), '.g', 'DisplayName', 'Trilaterated position');
-
+xlabel('x');
+ylabel('y');
 hold off
 
 function newdir=getNewDir()

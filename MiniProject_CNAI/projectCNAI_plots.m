@@ -15,9 +15,9 @@ noise = input(prompt);
 
 speedErrors=zeros(5,1);
 for speed=1:5
-    for i=1:100
+    for i=1:500
         error=estimatedError(speed,N,freqEst, noise);
-        speedErrors(speed)=speedErrors(speed)+error/100;
+        speedErrors(speed)=speedErrors(speed)+error/500;
     end
 end
 
@@ -40,15 +40,15 @@ N = input(prompt);
 prompt = 'Noise in the antennas ';
 noise = input(prompt);
 
-freqEstErrors=zeros(20,1);
-for freqEst=1:20
-    for i=1:100
+freqEstErrors=zeros(30,1);
+for freqEst=1:30
+    for i=1:1000
         error=estimatedError(v,N,freqEst, noise);
-        freqEstErrors(freqEst)=freqEstErrors(freqEst)+error/100;
+        freqEstErrors(freqEst)=freqEstErrors(freqEst)+error/1000;
     end
 end
 figure(2);
-plot(1:20,freqEstErrors);
+plot(1:30,freqEstErrors);
 xlabel('Time between updates');
 ylabel('mmPr (%)');
 %
@@ -70,9 +70,9 @@ freqEst=input(prompt);
 
 noiseErrors=zeros(15,1);
 for noise=1:15
-    for i=1:100
+    for i=1:500
         error=estimatedError(v,N,freqEst, noise);
-        noiseErrors(noise)=noiseErrors(noise)+error/100;
+        noiseErrors(noise)=noiseErrors(noise)+error/500;
     end
 end
 

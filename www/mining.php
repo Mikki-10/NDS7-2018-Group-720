@@ -119,6 +119,9 @@ function show_data($input)
 	    <th>Miner2</th>
 	  </tr>
 	  <tr>
+	  	<td>
+	  		
+	  	</td>
 	    <td>
 	    	<table>
 			  <tr>
@@ -147,35 +150,31 @@ function show_data($input)
 	  	if ($value[0] == "miner1") 
 	  	{
 	  		?>
-	  		<tr>
 	  			<td>
 	  			<table>
 				  <tr>
-				    <td>Værdi 1</td>
-				    <td>Værdi 2</td>
-				    <td>Værdi 3</td>
+				    <td><?php echo $value[1] ?></td>
+				    <td><?php echo $value[2] ?></td>
+				    <td><?php echo $value[3] ?></td>
 				  </tr>
 				</table>
 				</td>
 				<td></td>
-			</tr>
 	  		<?php
 	  	}
 	  	elseif ($value[0] == "miner2") 
 	  	{
 	  		?>
-	  		<tr>
 				<td></td>
 				<td>
 	  			<table>
 				  <tr>
-				    <td>Værdi 1</td>
-				    <td>Værdi 2</td>
-				    <td>Værdi 3</td>
+				    <td><?php echo $value[1] ?></td>
+				    <td><?php echo $value[2] ?></td>
+				    <td><?php echo $value[3] ?></td>
 				  </tr>
 				</table>
 				</td>
-			</tr>
 	  		<?php
 	  	}
 	  }

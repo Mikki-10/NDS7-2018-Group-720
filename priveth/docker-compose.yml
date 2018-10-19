@@ -74,7 +74,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
     volumes:
-      - ./logs:/logpath/
+      - /media/ramdisk:/logpath/
 
   miner2:
     build:
@@ -89,7 +89,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
     volumes:
-      - ./logs:/logpath/
+      - /media/ramdisk:/logpath/
 
   miner3:
     build:
@@ -104,7 +104,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
     volumes:
-      - ./logs:/logpath/
+      - /media/ramdisk:/logpath/
 
   miner4:
     build:

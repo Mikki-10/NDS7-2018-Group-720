@@ -121,68 +121,68 @@ services:
     volumes:
       - /media/ramdisk:/logpath/
 
-  miner5:
-    build:
-      context: ./dockerfiles/miner
-    image: miner
-    depends_on:
-      - webstats-frontend
-    container_name: miner5
-    cpu_quota: 50000
-    environment:
-      - DOCKER_NAME=miner5
-
-  miner6:
-    build:
-      context: ./dockerfiles/miner
-    image: miner
-    depends_on:
-      - webstats-frontend
-    container_name: miner6
-    cpu_quota: 50000
-    environment:
-      - DOCKER_NAME=miner6
-
-  miner7:
-    build:
-      context: ./dockerfiles/miner
-    image: miner
-    depends_on:
-      - webstats-frontend
-    container_name: miner7
-    cpu_quota: 50000
-    environment:
-      - DOCKER_NAME=miner7
-
-  miner8:
-    build:
-      context: ./dockerfiles/miner
-    image: miner
-    depends_on:
-      - webstats-frontend
-    container_name: miner8
-    cpu_quota: 50000
-    environment:
-      - DOCKER_NAME=miner8
-
-  miner9:
-    build:
-      context: ./dockerfiles/miner
-    image: miner
-    depends_on:
-      - webstats-frontend
-    container_name: miner9
-    cpu_quota: 50000
-    environment:
-      - DOCKER_NAME=miner9
-
-  miner10:
-    build:
-      context: ./dockerfiles/miner
-    image: miner
-    depends_on:
-      - webstats-frontend
-    container_name: miner10
-    cpu_quota: 50000
-    environment:
-      - DOCKER_NAME=miner10
+#  miner5:
+#    build:
+#      context: ./dockerfiles/miner
+#    image: miner
+#    depends_on:
+#      - webstats-frontend
+#    container_name: miner5
+#    cpu_quota: 50000
+#    environment:
+#      - DOCKER_NAME=miner5
+#
+#  miner6:
+#    build:
+#      context: ./dockerfiles/miner
+#    image: miner
+#    depends_on:
+#      - webstats-frontend
+#    container_name: miner6
+#    cpu_quota: 50000
+#    environment:
+#      - DOCKER_NAME=miner6
+#
+#  miner7:
+#    build:
+#      context: ./dockerfiles/miner
+#    image: miner
+#    depends_on:
+#      - webstats-frontend
+#    container_name: miner7
+#    cpu_quota: 50000
+#    environment:
+#      - DOCKER_NAME=miner7
+#
+#  miner8:
+#    build:
+#      context: ./dockerfiles/miner
+#    image: miner
+#    depends_on:
+#      - webstats-frontend
+#    container_name: miner8
+#    cpu_quota: 50000
+#    environment:
+#      - DOCKER_NAME=miner8
+#
+#  miner9:
+#    build:
+#      context: ./dockerfiles/miner
+#    image: miner
+#    depends_on:
+#      - webstats-frontend
+#    container_name: miner9
+#    cpu_quota: 50000
+#    environment:
+#      - DOCKER_NAME=miner9
+#
+#  miner10:
+#    build:
+#      context: ./dockerfiles/miner
+#    image: miner
+#    depends_on:
+#      - webstats-frontend
+#    container_name: miner10
+#    cpu_quota: 50000
+#    environment:
+#      - DOCKER_NAME=miner10

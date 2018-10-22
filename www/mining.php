@@ -164,7 +164,7 @@ function show_data($input)
 	?>
 	<table id="blocks">
 	  <tr>
-	    <th style="min-width:150px;">Time</th>
+	    <th style="min-width:155px; width:155px;  max-width:155px;">Time</th>
 	<?php
 
 	foreach ($input as $key => $value) 
@@ -208,7 +208,7 @@ function show_data($input)
 		foreach ($input as $key => $value) 
 		{
 			echo "<tr>";
-			echo '<td style="min-width:155px; max-width:155px;">'.$key.'</td>';
+			echo '<td style="min-width:155px; width:155px; max-width:155px;">'.$key.'</td>';
 
 			if ($value[0] == "miner1") 
 			{
@@ -217,8 +217,8 @@ function show_data($input)
 					<table id="full">
 				  <tr>
 				    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-				    <td style="min-width:40px; max-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
-				    <td style="min-width:120px; max-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
+				    <td style="min-width:40px; width:40px; max-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td style="min-width:120px; width:120px; max-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>
 				</td>
@@ -234,8 +234,8 @@ function show_data($input)
 					<table id="full">
 				  <tr>
 				    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-				    <td style="min-width:40px; max-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
-				    <td style="min-width:120px; max-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
+				    <td style="min-width:40px; width:40px; max-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td style="min-width:120px; width:120px; max-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>
 				</td>
@@ -251,8 +251,8 @@ function show_data($input)
 					<table id="full">
 				  <tr>
 				    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-				    <td style="min-width:40px; max-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
-				    <td style="min-width:120px; max-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
+				    <td style="min-width:40px; width:40px; max-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td style="min-width:120px; width:120px; max-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>
 				</td>

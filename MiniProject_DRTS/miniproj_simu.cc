@@ -129,8 +129,8 @@ int main (int argc, char *argv[])
 
   //OnoffWheel.SetConstantRate(DataRate("100000kb/s"));
   OnoffWheel.SetAttribute("DataRate", DataRateValue(DataRate("100000kb/s")));
-  OnoffWheel.SetAttribute("PacketSize", UintegerValue(1));
-  OnoffWheel.SetAttribute("OnTime", StringValue ("ns3::ConstantRandomVariable[Constant=0.0016]"));
+  OnoffWheel.SetAttribute("PacketSize", UintegerValue(160));
+  OnoffWheel.SetAttribute("OnTime", StringValue ("ns3::ConstantRandomVariable[Constant=2]"));
   //OnoffWheel.SetAttribute("OffTime", StringValue ("ns3::ConstantRandomVariable[Constant=999.9984]"));
 
   ApplicationContainer wheelApps = OnoffWheel.Install(terminals.Get(0));
@@ -139,7 +139,7 @@ int main (int argc, char *argv[])
   wheelApps.Add(OnoffWheel.Install(terminals.Get(5)));
 
   wheelApps.Start(Seconds(0.0));
-  wheelApps.Stop(Seconds(10.0));
+  wheelApps.Stop(Seconds(3.0));
 
   // Create an optional packet sink to receive these packets
   PacketSinkHelper sink ("ns3::UdpSocketFactory",

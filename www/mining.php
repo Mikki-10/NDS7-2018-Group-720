@@ -4,9 +4,42 @@ error_reporting(E_ALL);
 ini_set("display_errors", true);
 
 
+?>
+
+<head>
+<style>
+#blocks {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#blocks td, #blocks th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#blocks tr:nth-child(even){background-color: #f2f2f2;}
+
+#blocks tr:hover {background-color: #ddd;}
+
+#blocks th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+</head>
+
+
+<?php
+
+
 $output_array = get_data_from_csv();
 
-var_dump($output_array);
+//var_dump($output_array);
 
 show_data($output_array);
 
@@ -112,34 +145,40 @@ function new_key($key, $array, $counter = 0)
 function show_data($input)
 {
 	?>
-	<table>
+	<table id="blocks">
 	  <tr>
 	    <th>Time</th>
-	    <th>Miner1</th>
-	    <th>Miner2</th>
+	<?php
+	for ($i=0; $i < ; $i++) 
+	{ 
+		if (in_array("miner" . $i, $input)) 
+		{
+			echo "<th>Miner$i</th>";
+		}
+	}
+	?>
 	  </tr>
 	  <tr>
 	  	<td>
 	  		
 	  	</td>
-	    <td>
-	    	<table>
-			  <tr>
-			    <th>Noget 1</th>
-				<th>Noget 2</th>
-				<th>Noget 3</th>
-			  </tr>
-			</table>
-		</td>
-	    <td>
-	    	<table>
-			  <tr>
-			    <th>Noget 1</th>
-				<th>Noget 2</th>
-				<th>Noget 3</th>
-			  </tr>
-			</table>
-		</td>
+	  	<?php
+		for ($i=0; $i < ; $i++) 
+		{ 
+			if (in_array("miner" . $i, $input)) 
+			{
+				echo "<td>
+				    	<table>
+						  <tr>
+						    <th>Noget 1</th>
+							<th>Noget 2</th>
+							<th>Noget 3</th>
+						  </tr>
+						</table>
+					</td>";
+			}
+		}
+		?>
 	  </tr>
 
 	  <?php

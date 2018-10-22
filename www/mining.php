@@ -208,9 +208,9 @@ function show_data($input)
 					<td>
 					<table>
 				  <tr>
-				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[1] . " " . define_color($value[3]); ?></td>
-				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[2] ?></td>
-				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[3] ?></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[1] . " " . define_color($value[3]); ?></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[2] ?></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[3] ?></td>
 				  </tr>
 				</table>
 				</td>
@@ -225,9 +225,9 @@ function show_data($input)
 				<td>
 					<table>
 				  <tr>
-				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[1]  . " " . define_color($value[3]); ?></td>
-				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[2] ?></td>
-				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[3] ?></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[1]  . " " . define_color($value[3]); ?></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[2] ?></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[3] ?></td>
 				  </tr>
 				</table>
 				</td>
@@ -242,9 +242,9 @@ function show_data($input)
 				<td>
 					<table>
 				  <tr>
-				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[1] . " " . define_color($value[3]); ?></td>
-				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[2] ?></td>
-				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[3] ?></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[1] . " " . define_color($value[3]); ?></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[2] ?></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[3] ?></td>
 				  </tr>
 				</table>
 				</td>
@@ -326,17 +326,17 @@ function define_color($hash)
 
 	if (array_key_exists($hash, $GLOBALS['hash_color_array'])) 
 	{
-		echo "hash found";
-		var_dump($GLOBALS['hash_color_array'][$hash]);
+		//echo "hash found";
+		//var_dump($GLOBALS['hash_color_array'][$hash]);
 		return $GLOBALS['hash_color_array'][$hash];
 	}
 	else
 	{
-		echo "new hash";
+		//echo "new hash";
 		$key = count($GLOBALS['hash_color_array']) % count($colors);
-		var_dump($key);
+		//var_dump($key);
 		$GLOBALS['hash_color_array'][$hash] = $colors[$key];
-		var_dump($colors[$key]);
+		//var_dump($colors[$key]);
 		return $colors[$key];
 	}
 

@@ -211,6 +211,7 @@ function show_data($input)
 			echo '<td style="min-width:155px; width:155px; max-width:155px;">'.$key.'</td>';
 
 			$id = scrape_from($value[0], "miner");
+			$id = $id - 1;
 			for ($i=0; $i < $id; $i++) 
 			{ 
 				echo "<td></td>";
@@ -228,6 +229,7 @@ function show_data($input)
 			<?php
 
 			$id2 = count($miners);
+			$id2 = $id2 - 1;
 			$id3 = $id2 - $id;
 			for ($i=0; $i < $id3; $i++) 
 			{ 

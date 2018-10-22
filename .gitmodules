@@ -1,0 +1,3 @@
+[submodule "tools/ethlogparser"]
+	path = tools/ethlogparser
+	url = https://github.com/drblah/ethlogparser

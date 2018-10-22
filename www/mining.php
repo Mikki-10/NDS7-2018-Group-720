@@ -164,6 +164,8 @@ function show_data($input)
 
   	var_dump($miners);
 
+  	krsort($miners);
+
 	foreach ($miners as $key => $value) 
   	{
 		$id = scrape_from($key, "miner");

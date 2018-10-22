@@ -159,7 +159,7 @@ function show_data($input)
   	{
 		echo "<th>Miner$i</th>";
 	}
-	}
+	
 	?>
 	  </tr>
 	  <tr>

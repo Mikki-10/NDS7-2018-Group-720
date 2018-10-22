@@ -208,9 +208,9 @@ function show_data($input)
 					<td>
 					<table>
 				  <tr>
-				    <td color="#ffffff" bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[1] . " " . define_color($value[3]); ?></td>
-				    <td color="#ffffff" bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[2] ?></td>
-				    <td color="#ffffff" bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[3] ?></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>
 				</td>
@@ -225,9 +225,9 @@ function show_data($input)
 				<td>
 					<table>
 				  <tr>
-				    <td color="#ffffff" bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[1]  . " " . define_color($value[3]); ?></td>
-				    <td color="#ffffff" bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[2] ?></td>
-				    <td color="#ffffff" bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[3] ?></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>
 				</td>
@@ -242,9 +242,9 @@ function show_data($input)
 				<td>
 					<table>
 				  <tr>
-				    <td color="#ffffff" bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[1] . " " . define_color($value[3]); ?></td>
-				    <td color="#ffffff" bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[2] ?></td>
-				    <td color="#ffffff" bgcolor="<?php echo define_color($value[3]); ?>"><?php echo $value[3] ?></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>
 				</td>

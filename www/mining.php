@@ -166,7 +166,7 @@ function show_data($input)
 
 	foreach ($miners as $key => $value) 
   	{
-		$id = scrape_to($key, "miner")
+		$id = scrape_to($key, "miner");
 		echo "<th>Miner$id</th>";
 	}
 

@@ -162,9 +162,9 @@ function show_data($input)
   		$miners[$value[0]] = 1;
   	}
 
-  	var_dump($miners);
-
   	ksort($miners);
+
+  	var_dump($miners);
 
 	foreach ($miners as $key => $value) 
   	{

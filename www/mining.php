@@ -190,15 +190,15 @@ function show_data($input)
 	  	<?php
 	  	foreach ($miners as $key => $value) 
 	  	{
-	  		echo "<td>
-				    	<table>
+	  		echo '<td>
+				    	<table id="full">
 						  <tr>
 						    <th>Message</th>
 							<th>Block Hight</th>
 							<th>Block Hash</th>
 						  </tr>
 						</table>
-					</td>";
+					</td>';
 	  	}
 		?>
 	  </tr>
@@ -215,9 +215,9 @@ function show_data($input)
 					<td>
 					<table id="full">
 				  <tr>
-				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
-				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
+				    <td style="width:60%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
+				    <td style="width:10%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td style="width:30%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>
 				</td>

@@ -116,6 +116,10 @@ services:
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner4
+      - LOGGING=on
+      - VERBOSITY=5
+    volumes:
+      - /media/ramdisk:/logpath/
 
   miner5:
     build:
@@ -127,6 +131,10 @@ services:
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner5
+      - LOGGING=on
+      - VERBOSITY=5
+    volumes:
+      - /media/ramdisk:/logpath/
 
   miner6:
     build:
@@ -138,6 +146,10 @@ services:
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner6
+      - LOGGING=on
+      - VERBOSITY=5
+    volumes:
+      - /media/ramdisk:/logpath/
 
   miner7:
     build:
@@ -149,6 +161,10 @@ services:
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner7
+      - LOGGING=on
+      - VERBOSITY=5
+    volumes:
+      - /media/ramdisk:/logpath/
 
   miner8:
     build:
@@ -160,6 +176,10 @@ services:
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner8
+      - LOGGING=on
+      - VERBOSITY=5
+    volumes:
+      - /media/ramdisk:/logpath/
 
   miner9:
     build:
@@ -171,6 +191,10 @@ services:
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner9
+      - LOGGING=on
+      - VERBOSITY=5
+    volumes:
+      - /media/ramdisk:/logpath/
 
   miner10:
     build:
@@ -182,3 +206,7 @@ services:
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner10
+      - LOGGING=on
+      - VERBOSITY=5
+    volumes:
+      - /media/ramdisk:/logpath/

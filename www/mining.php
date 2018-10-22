@@ -15,6 +15,7 @@ $hash_color_array = array('hash' => "color");
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    text-align: center;
 }
 
 #blocks {
@@ -35,7 +36,7 @@ $hash_color_array = array('hash' => "color");
 #blocks th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: #4CAF50;
     color: white;
 }
@@ -193,9 +194,9 @@ function show_data($input)
 	  		echo '<td>
 				    	<table id="full">
 						  <tr>
-						    <td style="width:100%">Message</td>
-							<td style="min-width:25px;">Block Hight</td>
-							<td style="min-width:120px;">Block Hash</td>
+						    <td style="width:100%" bgcolor="#2992cd"><font color="#ffffff">Message</font></td>
+							<td style="min-width:40px;" bgcolor="#2992cd"><font color="#ffffff">Block Hight</font></td>
+							<td style="min-width:120px;" bgcolor="#2992cd"><font color="#ffffff">Block Hash</font></td>
 						  </tr>
 						</table>
 					</td>';
@@ -216,7 +217,7 @@ function show_data($input)
 					<table id="full">
 				  <tr>
 				    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-				    <td style="min-width:25px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td style="min-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
 				    <td style="min-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>
@@ -233,7 +234,7 @@ function show_data($input)
 					<table id="full">
 				  <tr>
 				    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-				    <td style="min-width:25px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td style="min-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
 				    <td style="min-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>
@@ -250,7 +251,7 @@ function show_data($input)
 					<table id="full">
 				  <tr>
 				    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-				    <td style="min-width:25px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td style="min-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
 				    <td style="min-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>

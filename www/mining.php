@@ -80,7 +80,7 @@ function get_data_from_csv()
 
 	//var_dump($input_array);
 
-	$output_array = NULL;
+	$output_array = array();
 
 	foreach ($input_array as $key => $miner_array) 
 	{
@@ -166,7 +166,7 @@ function show_data($input)
 
   	ksort($miners);
 
-  	var_dump($miners);
+  	//var_dump($miners);
 
 	foreach ($miners as $key => $value) 
   	{

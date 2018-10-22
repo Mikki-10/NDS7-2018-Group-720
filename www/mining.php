@@ -208,7 +208,7 @@ function show_data($input)
 		foreach ($input as $key => $value) 
 		{
 			echo "<tr>";
-			echo '<td style="min-width:150px;">$key</td>';
+			echo '<td style="min-width:150px;">'.$key.'</td>';
 
 			if ($value[0] == "miner1") 
 			{

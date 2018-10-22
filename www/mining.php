@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", true);
 
 
-$hash_color_array;
+$hash_color_array = array('hash' => "color");
 
 ?>
 
@@ -324,7 +324,7 @@ function define_color($hash)
 					"#a70c74"
 					);
 
-	if (in_array($hash, $GLOBALS['hash_color_array'])) 
+	if (array_key_exists($hash, $GLOBALS['hash_color_array'])) 
 	{
 		return $GLOBALS['hash_color_array'][$hash];
 	}

@@ -210,6 +210,31 @@ function show_data($input)
 			echo "<tr>";
 			echo '<td style="min-width:155px; width:155px; max-width:155px;">'.$key.'</td>';
 
+			$id = scrape_from($value[0], "miner");
+			for ($i=0; $i < $id; $i++) 
+			{ 
+				echo "<td></td>";
+			}
+			?>
+			<td>
+				<table id="full">
+			  <tr>
+			    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
+			    <td style="min-width:40px; width:40px; max-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+			    <td style="min-width:120px; width:120px; max-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
+			  </tr>
+			</table>
+			</td>
+			<?php
+
+			$id2 = count($miners);
+			$id3 = $id2 - $id;
+			for ($i=0; $i < $id3; $i++) 
+			{ 
+				echo "<td></td>";
+			}
+
+			/*
 			if ($value[0] == "miner1") 
 			{
 				?>
@@ -258,6 +283,7 @@ function show_data($input)
 				</td>
 				<?php
 			}
+			*/
 		}
 }
 

@@ -105,10 +105,10 @@ int main (int argc, char *argv[])
   internet.Install (terminals);
 
   //IP adresses
-  //NS_LOG_INFO("Assigning IP Adresses");
-  //Ipv4AdressHelper ipv4;
-  //ipv4.SetBase("10.1.1.0", "255.255.255.0");
-  //ipv4.Assign(terminalDevicesSw1);
-  //ipv4.Assign(terminalDevicesSw2);
+  NS_LOG_INFO("Assigning IP Adresses");
+  Ipv4AddressHelper ipv4;
+  ipv4.SetBase("10.1.1.0", "255.255.255.0");
+  ipv4.Assign(terminalDevices);
+  
 }
 

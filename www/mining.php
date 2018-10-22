@@ -26,7 +26,7 @@ $hash_color_array = array('hash' => "color");
 
 #blocks td, #blocks th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 4px;
 }
 
 #blocks tr:nth-child(even){background-color: #f2f2f2;}

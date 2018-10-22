@@ -14,7 +14,17 @@
 //        |   |  |
 //        w1 rc1 w2
 //
-//
+//  Device  Index Address
+//  W1      0     10.1.1.1
+//  W2      1     10.1.1.2
+//  W3      4     10.1.1.5
+//  W4      5     10.1.1.6
+//  RC      2     10.1.1.3
+//  MM      3     10.1.1.4
+//  EPS     6     10.1.1.7
+//  HUD     7     10.1.1.8
+//  EC      8     10.1.1.9
+
 
 #include <iostream>
 #include <fstream>
@@ -109,6 +119,57 @@ int main (int argc, char *argv[])
   Ipv4AddressHelper ipv4;
   ipv4.SetBase("10.1.1.0", "255.255.255.0");
   ipv4.Assign(terminalDevices);
-  
+
+  // Set up applications
+  NS_LOG_INFO ("Create Applications.");
+  uint16_t port = 9;   // Discard port (RFC 863)
+
+  OnOffHelper OnoffWheel ("ns3::UdpSocketFactory",
+                     Address (InetSocketAddress (Ipv4Address ("10.1.1.7"), port)));
+
+  //OnoffWheel.SetConstantRate(DataRate("100000kb/s"));
+  OnoffWheel.SetAttribute("DataRate", DataRateValue(DataRate("100000kb/s")));
+  OnoffWheel.SetAttribute("PacketSize", UintegerValue(1));
+  OnoffWheel.SetAttribute("OnTime", StringValue ("ns3::ConstantRandomVariable[Constant=0.0016]"));
+  //OnoffWheel.SetAttribute("OffTime", StringValue ("ns3::ConstantRandomVariable[Constant=999.9984]"));
+
+  ApplicationContainer wheelApps = OnoffWheel.Install(terminals.Get(0));
+  wheelApps.Add(OnoffWheel.Install(terminals.Get(1)));
+  wheelApps.Add(OnoffWheel.Install(terminals.Get(4)));
+  wheelApps.Add(OnoffWheel.Install(terminals.Get(5)));
+
+  wheelApps.Start(Seconds(0.0));
+  wheelApps.Stop(Seconds(10.0));
+
+  // Create an optional packet sink to receive these packets
+  PacketSinkHelper sink ("ns3::UdpSocketFactory",
+                         Address (InetSocketAddress (Ipv4Address::GetAny (), port)));
+  ApplicationContainer EPSapp = sink.Install (terminals.Get (6));
+  EPSapp.Start (Seconds (0.0));
+ 
+  NS_LOG_INFO ("Configure Tracing.");
+  //
+  // Configure tracing of all enqueue, dequeue, and NetDevice receive events.
+  // Trace output will be sent to the file "car.tr"
+  //
+  AsciiTraceHelper ascii;
+  csma.EnableAsciiAll (ascii.CreateFileStream ("car.tr"));
+
+  //
+  // Also configure some tcpdump traces; each interface will be traced.
+  // The output files will be named:
+  //     csma-bridge-<nodeId>-<interfaceId>.pcap
+  // and can be read by the "tcpdump -r" command (use "-tt" option to
+  // display timestamps correctly)
+  //
+  csma.EnablePcapAll ("car", true);
+
+  //
+  // Now, do the actual simulation.
+  //
+  NS_LOG_INFO ("Run Simulation.");
+  Simulator::Run ();
+  Simulator::Destroy ();
+  NS_LOG_INFO ("Done.");
 }
 

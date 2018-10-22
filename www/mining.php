@@ -208,7 +208,7 @@ function show_data($input)
 					<td>
 					<table>
 				  <tr>
-				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[1] ?></td>
+				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[1] . " " . define_color($value[3]); ?></td>
 				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[2] ?></td>
 				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[3] ?></td>
 				  </tr>
@@ -225,7 +225,7 @@ function show_data($input)
 				<td>
 					<table>
 				  <tr>
-				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[1] ?></td>
+				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[1]  . " " . define_color($value[3]); ?></td>
 				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[2] ?></td>
 				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[3] ?></td>
 				  </tr>

@@ -193,9 +193,9 @@ function show_data($input)
 	  		echo '<td>
 				    	<table id="full">
 						  <tr>
-						    <th>Message</th>
-							<th>Block Hight</th>
-							<th>Block Hash</th>
+						    <td style="width:100%">Message</td>
+							<td style="min-width:25px;">Block Hight</td>
+							<td style="min-width:120px;">Block Hash</td>
 						  </tr>
 						</table>
 					</td>';
@@ -215,9 +215,9 @@ function show_data($input)
 					<td>
 					<table id="full">
 				  <tr>
-				    <td style="width:60%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-				    <td style="width:10%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
-				    <td style="width:30%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
+				    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
+				    <td style="min-width:25px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td style="min-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>
 				</td>
@@ -232,9 +232,9 @@ function show_data($input)
 				<td>
 					<table id="full">
 				  <tr>
-				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
-				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
+				    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
+				    <td style="min-width:25px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td style="min-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>
 				</td>
@@ -249,9 +249,9 @@ function show_data($input)
 				<td>
 					<table id="full">
 				  <tr>
-				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
-				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
+				    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
+				    <td style="min-width:25px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+				    <td style="min-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 				  </tr>
 				</table>
 				</td>

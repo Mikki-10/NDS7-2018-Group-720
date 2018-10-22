@@ -3,7 +3,6 @@
 error_reporting(E_ALL);
 ini_set("display_errors", true);
 
-
 ?>
 
 <head>
@@ -184,9 +183,9 @@ function show_data($input)
 	  		echo "<td>
 				    	<table>
 						  <tr>
-						    <th>Noget 1</th>
-							<th>Noget 2</th>
-							<th>Noget 3</th>
+						    <th>Message</th>
+							<th>Block Hight</th>
+							<th>Block Hash</th>
 						  </tr>
 						</table>
 					</td>";
@@ -206,9 +205,9 @@ function show_data($input)
 					<td>
 					<table>
 				  <tr>
-				    <td><?php echo $value[1] ?></td>
-				    <td><?php echo $value[2] ?></td>
-				    <td><?php echo $value[3] ?></td>
+				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[1] ?></td>
+				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[2] ?></td>
+				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[3] ?></td>
 				  </tr>
 				</table>
 				</td>
@@ -223,9 +222,9 @@ function show_data($input)
 				<td>
 					<table>
 				  <tr>
-				    <td><?php echo $value[1] ?></td>
-				    <td><?php echo $value[2] ?></td>
-				    <td><?php echo $value[3] ?></td>
+				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[1] ?></td>
+				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[2] ?></td>
+				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[3] ?></td>
 				  </tr>
 				</table>
 				</td>
@@ -240,9 +239,9 @@ function show_data($input)
 				<td>
 					<table>
 				  <tr>
-				    <td><?php echo $value[1] ?></td>
-				    <td><?php echo $value[2] ?></td>
-				    <td><?php echo $value[3] ?></td>
+				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[1] ?></td>
+				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[2] ?></td>
+				    <td bgcolor="<?php define_color($value[3]); ?>"><?php echo $value[3] ?></td>
 				  </tr>
 				</table>
 				</td>
@@ -291,5 +290,48 @@ function scrape_from($data, $start)
     return $data;  // Returning the scraped data from the function
 }
 
+
+
+function define_color($hash)
+{
+	$colors = array(
+					"#c51d51",
+					"#c31b20",
+					"#c53020",
+					"#c88822",
+					"#e3aa1a",
+					"#f0c813",
+					"#95b339",
+					"#66a041",
+					"#448641",
+					"#31763e",
+					"#256236",
+					"#2992cd",
+					"#0a83bf",
+					"#0871ac",
+					"#1b6499",
+					"#264d78",
+					"#274166",
+					"#64488f",
+					"#6e448e",
+					"#7e3f91",
+					"#8a3189",
+					"#911a7e",
+					"#9a1477",
+					"#a70c74"
+					);
+
+	if (in_array($hash, $hash_color_array)) 
+	{
+		return $hash_color_array[$hash];
+	}
+	else
+	{
+		$key = count($hash_color_array) % count($colors);
+		$hash_color_array[$hash] = $colors[$key];
+		return $colors[$key];
+	}
+
+}
 
 ?>

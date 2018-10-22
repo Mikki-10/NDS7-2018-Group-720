@@ -176,10 +176,12 @@ function show_data($input)
 
   	//var_dump($miners);
 
+  	$miners_count = count($miners);
+  	$miner_th_width = 100 / $miners_count;
 	foreach ($miners as $key => $value) 
   	{
 		$id = scrape_from($key, "miner");
-		echo "<th>Miner$id</th>";
+		echo '<th style="width:'.$miner_th_width.'%">Miner'.$id.'</th>';
 	}
 
 	?>

@@ -149,12 +149,16 @@ function show_data($input)
 	  <tr>
 	    <th>Time</th>
 	<?php
-	for ($i=0; $i < 100; $i++) 
-	{ 
-		if (in_array("miner" . $i, $input)) 
-		{
-			echo "<th>Miner$i</th>";
-		}
+
+	foreach ($input as $key => $value) 
+	{
+  		$miners[$value[0]] = 1;
+  	}
+
+	foreach ($miners as $key => $value) 
+  	{
+		echo "<th>Miner$i</th>";
+	}
 	}
 	?>
 	  </tr>
@@ -163,12 +167,9 @@ function show_data($input)
 	  		
 	  	</td>
 	  	<?php
-		for ($i=0; $i < 100; $i++) 
-		{ 
-			$miner = "miner" . $i;
-			if (in_array($miner, $input)) 
-			{
-				echo "<td>
+	  	foreach ($miners as $key => $value) 
+	  	{
+	  		echo "<td>
 				    	<table>
 						  <tr>
 						    <th>Noget 1</th>
@@ -177,8 +178,7 @@ function show_data($input)
 						  </tr>
 						</table>
 					</td>";
-			}
-		}
+	  	}
 		?>
 	  </tr>
 
@@ -187,6 +187,7 @@ function show_data($input)
 		{
 			echo "<tr>";
 			echo "<td>$key</td>";
+
 			if ($value[0] == "miner1") 
 			{
 				?>
@@ -200,11 +201,29 @@ function show_data($input)
 				</table>
 				</td>
 				<td></td>
+				<td></td>
 				<?php
 			}
 			elseif ($value[0] == "miner2") 
 			{
 				?>
+				<td></td>
+				<td>
+					<table>
+				  <tr>
+				    <td><?php echo $value[1] ?></td>
+				    <td><?php echo $value[2] ?></td>
+				    <td><?php echo $value[3] ?></td>
+				  </tr>
+				</table>
+				</td>
+				<td></td>
+				<?php
+			}
+			elseif ($value[0] == "miner3") 
+			{
+				?>
+				<td></td>
 				<td></td>
 				<td>
 					<table>

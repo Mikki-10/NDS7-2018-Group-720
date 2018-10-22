@@ -149,7 +149,7 @@ function show_data($input)
 	  <tr>
 	    <th>Time</th>
 	<?php
-	for ($i=0; $i < ; $i++) 
+	for ($i=0; $i < 100; $i++) 
 	{ 
 		if (in_array("miner" . $i, $input)) 
 		{
@@ -163,7 +163,7 @@ function show_data($input)
 	  		
 	  	</td>
 	  	<?php
-		for ($i=0; $i < ; $i++) 
+		for ($i=0; $i < 100; $i++) 
 		{ 
 			if (in_array("miner" . $i, $input)) 
 			{

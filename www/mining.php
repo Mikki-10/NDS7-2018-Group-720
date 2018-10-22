@@ -10,6 +10,13 @@ $hash_color_array = array('hash' => "color");
 
 <head>
 <style>
+
+#full {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
 #blocks {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -206,7 +213,7 @@ function show_data($input)
 			{
 				?>
 					<td>
-					<table>
+					<table id="full">
 				  <tr>
 				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
 				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
@@ -223,7 +230,7 @@ function show_data($input)
 				?>
 				<td></td>
 				<td>
-					<table>
+					<table id="full">
 				  <tr>
 				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
 				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
@@ -240,7 +247,7 @@ function show_data($input)
 				<td></td>
 				<td></td>
 				<td>
-					<table>
+					<table id="full">
 				  <tr>
 				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
 				    <td bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>

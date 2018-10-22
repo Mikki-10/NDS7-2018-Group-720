@@ -3,6 +3,9 @@
 error_reporting(E_ALL);
 ini_set("display_errors", true);
 
+
+$hash_color_array;
+
 ?>
 
 <head>
@@ -321,14 +324,14 @@ function define_color($hash)
 					"#a70c74"
 					);
 
-	if (in_array($hash, $hash_color_array)) 
+	if (in_array($hash, $GLOBALS['hash_color_array'])) 
 	{
-		return $hash_color_array[$hash];
+		return $GLOBALS['hash_color_array'][$hash];
 	}
 	else
 	{
-		$key = count($hash_color_array) % count($colors);
-		$hash_color_array[$hash] = $colors[$key];
+		$key = count($GLOBALS['hash_color_array']) % count($colors);
+		$GLOBALS['hash_color_array'][$hash] = $colors[$key];
 		return $colors[$key];
 	}
 

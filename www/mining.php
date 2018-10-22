@@ -164,7 +164,7 @@ function show_data($input)
 
   	var_dump($miners);
 
-  	krsort($miners);
+  	ksort($miners);
 
 	foreach ($miners as $key => $value) 
   	{

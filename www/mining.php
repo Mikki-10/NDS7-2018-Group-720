@@ -126,13 +126,17 @@ function show_data($input)
 
   	ksort($miners);
 
+
   	$miners_count = count($miners);
   	$miner_th_width = 100 / $miners_count;
+
+  	$id = 1;
 	foreach ($miners as $key => $value) 
   	{
-		$id = scrape_from($key, "miner");
-		$id = $key + 1;
+		//$id = scrape_from($key, "miner");
+
 		echo '<th style="width:'.$miner_th_width.'%">Miner'.$id.'</th>';
+		$id++;
 	}
 
 	?>

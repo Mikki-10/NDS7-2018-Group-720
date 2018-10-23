@@ -131,7 +131,7 @@ function show_data($input)
 	foreach ($miners as $key => $value) 
   	{
 		$id = scrape_from($key, "miner");
-		echo '<th style="width:'.$miner_th_width.'%">Miner'.$id.'</th>';
+		echo '<th style="width:'.$miner_th_width.'%">Miner'.$key+1.'</th>';
 	}
 
 	?>

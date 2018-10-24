@@ -36,6 +36,7 @@ services:
       - 8545
     environment:
       - DOCKER_NAME=node1
+      - LOGGING=on
       - VERBOSITY=5
     volumes:
       - ./gethdata/node1:/gethdata
@@ -52,6 +53,7 @@ services:
       - 8545
     environment:
       - DOCKER_NAME=node2
+      - LOGGING=on
       - VERBOSITY=5
     volumes:
       - ./gethdata/node2:/gethdata
@@ -68,6 +70,7 @@ services:
       - 8545
     environment:
       - DOCKER_NAME=node3
+      - LOGGING=on
       - VERBOSITY=5
     volumes:
       - ./gethdata/node3:/gethdata

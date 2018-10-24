@@ -4,6 +4,10 @@ error_reporting(E_ALL);
 ini_set("display_errors", true);
 
 
+
+$time_start_total = microtime(true);
+
+
 $hash_color_array = array('hash' => "color");
 
 ?>
@@ -46,10 +50,27 @@ $hash_color_array = array('hash' => "color");
 
 <?php
 
+$time_start = microtime(true);
 
 $output_array = get_data_from_csv();
 
+$time_end = microtime(true);
+$time = $time_end - $time_start;
+
+echo "get_data_from_csv: $time seconds\n";
+
+
+
+$time_start = microtime(true);
+
 show_data($output_array);
+
+$time_end = microtime(true);
+$time = $time_end - $time_start;
+
+echo "show_data: $time seconds\n";
+
+
 
 
 function get_data_from_csv()
@@ -247,5 +268,10 @@ function define_color($hash)
 		return $colors[$key];
 	}
 }
+
+$time_end_total = microtime(true);
+$time_total = $time_end_total - $time_start_total;
+
+echo "Total: $time_total seconds\n";
 
 ?>

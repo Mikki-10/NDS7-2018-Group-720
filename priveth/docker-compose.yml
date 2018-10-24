@@ -38,7 +38,7 @@ services:
       - DOCKER_NAME=node1
       - VERBOSITY=5
     volumes:
-      - ./gethdata:/gethdata
+      - ./gethdata/node1:/gethdata
       - ./logs/:/logpath/
 
   node2:
@@ -54,7 +54,7 @@ services:
       - DOCKER_NAME=node2
       - VERBOSITY=5
     volumes:
-      - ./gethdata:/gethdata
+      - ./gethdata/node2:/gethdata
       - ./logs/:/logpath/
 
   node3:
@@ -70,7 +70,7 @@ services:
       - DOCKER_NAME=node3
       - VERBOSITY=5
     volumes:
-      - ./gethdata:/gethdata
+      - ./gethdata/node3:/gethdata
       - ./logs/:/logpath/
 
   miner1:
@@ -87,7 +87,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata:/gethdata
+      - ./gethdata/miner1:/gethdata
 
   miner2:
     build:
@@ -103,7 +103,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata:/gethdata
+      - ./gethdata/miner2:/gethdata
 
   miner3:
     build:
@@ -119,7 +119,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata:/gethdata
+      - ./gethdata/miner3:/gethdata
 
   miner4:
     build:
@@ -135,7 +135,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata:/gethdata
+      - ./gethdata/miner4:/gethdata
 
   miner5:
     build:
@@ -151,7 +151,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata:/gethdata
+      - ./gethdata/miner5:/gethdata
 
   miner6:
     build:
@@ -167,7 +167,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata:/gethdata
+      - ./gethdata/miner6:/gethdata
 
   miner7:
     build:
@@ -183,7 +183,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata:/gethdata
+      - ./gethdata/miner7:/gethdata
 
   miner8:
     build:
@@ -199,7 +199,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata:/gethdata
+      - ./gethdata/miner8:/gethdata
 
   miner9:
     build:
@@ -215,7 +215,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata:/gethdata
+      - ./gethdata/miner9:/gethdata
 
   miner10:
     build:
@@ -231,4 +231,4 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata:/gethdata
+      - ./gethdata/miner10:/gethdata

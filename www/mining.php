@@ -57,7 +57,7 @@ $output_array = get_data_from_csv();
 $time_end = microtime(true);
 $time = $time_end - $time_start;
 
-echo "get_data_from_csv: $time seconds\n";
+echo "get_data_from_csv: $time seconds\n<br>";
 
 
 
@@ -68,7 +68,7 @@ show_data($output_array);
 $time_end = microtime(true);
 $time = $time_end - $time_start;
 
-echo "show_data: $time seconds\n";
+echo "show_data: $time seconds\n<br>";
 
 
 
@@ -272,6 +272,11 @@ function define_color($hash)
 $time_end_total = microtime(true);
 $time_total = $time_end_total - $time_start_total;
 
-echo "Total: $time_total seconds\n";
+echo "Total: $time_total seconds\n<br>";
+
+
+$time = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];
+
+echo "Request time: $time seconds\n<br>";
 
 ?>

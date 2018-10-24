@@ -36,6 +36,10 @@ services:
       - 8545
     environment:
       - DOCKER_NAME=node1
+      - VERBOSITY=5
+    volumes:
+      - ./gethdata:/gethdata
+      - ./logs/:/logpath/
 
   node2:
     build:
@@ -48,6 +52,10 @@ services:
       - 8545
     environment:
       - DOCKER_NAME=node2
+      - VERBOSITY=5
+    volumes:
+      - ./gethdata:/gethdata
+      - ./logs/:/logpath/
 
   node3:
     build:
@@ -60,6 +68,10 @@ services:
       - 8545
     environment:
       - DOCKER_NAME=node3
+      - VERBOSITY=5
+    volumes:
+      - ./gethdata:/gethdata
+      - ./logs/:/logpath/
 
   miner1:
     build:
@@ -75,6 +87,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
+      - ./gethdata:/gethdata
 
   miner2:
     build:
@@ -90,6 +103,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
+      - ./gethdata:/gethdata
 
   miner3:
     build:
@@ -105,6 +119,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
+      - ./gethdata:/gethdata
 
   miner4:
     build:
@@ -120,6 +135,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
+      - ./gethdata:/gethdata
 
   miner5:
     build:
@@ -135,6 +151,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
+      - ./gethdata:/gethdata
 
   miner6:
     build:
@@ -150,6 +167,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
+      - ./gethdata:/gethdata
 
   miner7:
     build:
@@ -165,6 +183,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
+      - ./gethdata:/gethdata
 
   miner8:
     build:
@@ -180,6 +199,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
+      - ./gethdata:/gethdata
 
   miner9:
     build:
@@ -195,6 +215,7 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
+      - ./gethdata:/gethdata
 
   miner10:
     build:
@@ -210,3 +231,4 @@ services:
       - VERBOSITY=5
     volumes:
       - ./logs/:/logpath/
+      - ./gethdata:/gethdata

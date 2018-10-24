@@ -1,7 +1,7 @@
 if [ ! -d "/gethdata/${DOCKER_NAME}" ]; then
     echo "Doing first setup"
     mkdir /gethdata/${DOCKER_NAME}
-    cp -r /gethinit /gethdata/${DOCKER_NAME}
+    cp -r /gethinit/* /gethdata/${DOCKER_NAME}
 fi
 
 if [ $LOGGING == "on" ]

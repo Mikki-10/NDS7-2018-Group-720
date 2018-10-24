@@ -1,11 +1,12 @@
 FROM ethereum/client-go
 
+RUN mkdir /gethinit
 RUN mkdir /gethdata
 
-ADD run.sh /gethdata
-ADD genesis.json /gethdata
+ADD run.sh /gethinit
+ADD genesis.json /gethinit
 
-RUN chmod +x /gethdata/run.sh
-RUN geth --datadir=/gethdata init /gethdata/genesis.json
+RUN chmod +x /gethinit/run.sh
+RUN geth --datadir=/gethinit init /gethinit/genesis.json
 
-ENTRYPOINT ["/bin/sh", "/gethdata/run.sh"]
+ENTRYPOINT ["/bin/sh", "/gethinit/run.sh"]

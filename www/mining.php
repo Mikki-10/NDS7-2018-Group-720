@@ -293,7 +293,7 @@ function define_color($hash, $msg)
 	$msg = trim($msg);
 	if ($msg == "Inserted forked block") 
 	{
-		$return = 'style="background: linear-gradient(to bottom, ' . $GLOBALS['hash_color_array'][$hash] . ' 0%, #000000 100%);"'
+		$return = 'style="background: linear-gradient(to bottom, ' . $GLOBALS['hash_color_array'][$hash] . ' 0%, #000000 100%);"';
 	}
 	else
 	{

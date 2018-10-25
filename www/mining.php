@@ -221,6 +221,10 @@ function show_data($input)
 						echo "<td></td>";
 					}
 				}
+				else
+				{
+					echo "nope";
+				}
 			}
 			else
 			{
@@ -311,7 +315,7 @@ function give_interval($input)
 $time_end_total = microtime(true);
 $time_total = $time_end_total - $time_start_total;
 
-echo "Total: $time_total seconds\n<br>";
+echo "<br>Total: $time_total seconds\n<br>";
 
 
 $time = microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"];

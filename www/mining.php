@@ -319,7 +319,10 @@ function give_interval($input)
 				echo "<br>";
 			}
 		}
-
+	}
+	else
+	{
+		echo '<a href="?from=0&to=1000">1</a> - ';
 	}
 }
 

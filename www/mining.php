@@ -102,6 +102,7 @@ function get_data_from_csv()
 
 	foreach ($input_array as $key => $miner_array) 
 	{
+		$time_start = microtime(true);
 		foreach ($miner_array as $key2 => $time_event) 
 		{
 			$time_event = explode(";", $time_event);
@@ -117,6 +118,10 @@ function get_data_from_csv()
 				$output_array[$output_key] = array($time_event[1], $time_event[2], $time_event[3], $time_event[4]);
 			}
 		}
+		$time_end = microtime(true);
+		$time = $time_end - $time_start;
+
+		echo "get_data_from_csv - foreach $key: $time seconds\n<br>";
 	}
 
 	$time_start = microtime(true);

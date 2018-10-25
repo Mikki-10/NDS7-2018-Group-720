@@ -77,6 +77,8 @@ give_interval($output_array);
 
 function get_data_from_csv()
 {
+	$time_start_in = microtime(true);
+
 	$files = scandir(dirname(__FILE__));
 
 	foreach ($files as $key => $filename) 
@@ -132,6 +134,11 @@ function get_data_from_csv()
 	$time = $time_end - $time_start;
 
 	echo "get_data_from_csv - ksort: $time seconds\n<br>";
+
+	$time_end_in = microtime(true);
+	$time = $time_end_in - $time_start_in;
+
+	echo "get_data_from_csv - inside: $time seconds\n<br>";
 
 	return $output_array;
 }

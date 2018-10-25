@@ -301,7 +301,7 @@ function give_interval($input)
 
 		echo '<a href="?from=' . $from . '&to=' . $to . '">' . $num . '</a> - ';
 
-		if (($i % 100) == 0 && $i != 1) 
+		if (($i % 50) == 0 && $i != 1) 
 		{
 			echo "<br>";
 		}

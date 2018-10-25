@@ -299,7 +299,7 @@ function give_interval($input)
 		$to = $from + 100;
 		$num = 1 + $i;
 
-		echo '<a href="?from=' . $from . '&to=' . $to . '">' . $num . ' - </a>';
+		echo '<a href="?from=' . $from . '&to=' . $to . '">' . $num . '</a> - ';
 
 		if (($i % 100) == 0 && $i != 1) 
 		{

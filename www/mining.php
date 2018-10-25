@@ -71,6 +71,9 @@ $time = $time_end - $time_start;
 echo "show_data: $time seconds\n<br>";
 
 
+give_interval($output_array);
+
+
 
 
 function get_data_from_csv()
@@ -185,33 +188,43 @@ function show_data($input)
 		<?php
 		foreach ($input as $key => $value) 
 		{
-			echo "<tr>";
-			echo '<td style="min-width:155px; width:155px; max-width:155px;">'.$key.'</td>';
+			if ( (isset($_GET["from"]) && is_numeric($_GET["from"]) ) || ( isset($_GET["to"]) && is_numeric($_GET["to"]) ) ) 
+			{
+				if ($key <= $_GET["from"] && $key >= $_GET["to"]) 
+				{
+					echo "<tr>";
+					echo '<td style="min-width:155px; width:155px; max-width:155px;">'.$key.'</td>';
 
-			$id = scrape_from($value[0], "miner");
-			$id = $id - 1;
-			for ($i=0; $i < $id; $i++) 
-			{ 
-				echo "<td></td>";
+					$id = scrape_from($value[0], "miner");
+					$id = $id - 1;
+					for ($i=0; $i < $id; $i++) 
+					{ 
+						echo "<td></td>";
+					}
+					?>
+					<td>
+						<table id="full">
+					  <tr>
+					    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
+					    <td style="min-width:40px; width:40px; max-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+					    <td style="min-width:120px; width:120px; max-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
+					  </tr>
+					</table>
+					</td>
+					<?php
+
+					$id2 = count($miners);
+					$id2 = $id2 - 1;
+					$id3 = $id2 - $id;
+					for ($i=0; $i < $id3; $i++) 
+					{ 
+						echo "<td></td>";
+					}
+				}
 			}
-			?>
-			<td>
-				<table id="full">
-			  <tr>
-			    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-			    <td style="min-width:40px; width:40px; max-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
-			    <td style="min-width:120px; width:120px; max-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
-			  </tr>
-			</table>
-			</td>
-			<?php
-
-			$id2 = count($miners);
-			$id2 = $id2 - 1;
-			$id3 = $id2 - $id;
-			for ($i=0; $i < $id3; $i++) 
-			{ 
-				echo "<td></td>";
+			else
+			{
+				echo "No numeric from, and to.";
 			}
 		}
 }
@@ -266,6 +279,17 @@ function define_color($hash)
 		$key = count($GLOBALS['hash_color_array']) % count($colors);
 		$GLOBALS['hash_color_array'][$hash] = $colors[$key];
 		return $colors[$key];
+	}
+}
+
+
+function give_interval($input)
+{
+	//$count = count($input);
+	$amount = count($input) / 100;
+	for ($i=0; $i < $amount; $i++) 
+	{ 
+		echo '<a href="?from=' . 0 + (100*$i) . '&to=100">' . 1+$i . '</a>  ';
 	}
 }
 

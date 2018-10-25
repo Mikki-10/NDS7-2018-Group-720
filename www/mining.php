@@ -205,9 +205,9 @@ function show_data($input)
 					<td>
 						<table id="full">
 					  <tr>
-					    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-					    <td style="min-width:40px; width:40px; max-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
-					    <td style="min-width:120px; width:120px; max-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
+					    <td style="width:100%" <?php echo define_color($value[3],$value[1]); ?>><font color="#ffffff"><?php echo $value[1]; ?></font></td>
+					    <td style="min-width:40px; width:40px; max-width:40px;" <?php echo define_color($value[3],$value[1]); ?>><font color="#ffffff"><?php echo $value[2] ?></font></td>
+					    <td style="min-width:120px; width:120px; max-width:120px;" <?php echo define_color($value[3],$value[1]); ?>><font color="#ffffff"><?php echo $value[3] ?></font></td>
 					  </tr>
 					</table>
 					</td>
@@ -248,7 +248,7 @@ function scrape_from($data, $start)
 }
 
 
-function define_color($hash)
+function define_color($hash, $msg)
 {
 	$colors = array(
 					"#c51d51",
@@ -281,14 +281,26 @@ function define_color($hash)
 
 	if (array_key_exists($hash, $GLOBALS['hash_color_array'])) 
 	{
-		return $GLOBALS['hash_color_array'][$hash];
+		//Hash found, do not find any new color
 	}
 	else
 	{
+		//Hash not found, pick a new color
 		$key = count($GLOBALS['hash_color_array']) % count($colors);
 		$GLOBALS['hash_color_array'][$hash] = $colors[$key];
-		return $colors[$key];
 	}
+
+	$msg = trim($msg);
+	if ($msg == "Inserted forked block") 
+	{
+		$return = 'style="background: linear-gradient(to bottom, ' . $GLOBALS['hash_color_array'][$hash] . ' 0%, #000000 100%);"'
+	}
+	else
+	{
+		$return = 'bgcolor="' . $GLOBALS['hash_color_array'][$hash] '"';
+	}
+
+	return $return;
 }
 
 

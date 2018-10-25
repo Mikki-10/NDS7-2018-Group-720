@@ -186,12 +186,12 @@ function show_data($input)
 	  </tr>
 
 		<?php
+		$numnum = 0;
 		foreach ($input as $key => $value) 
 		{
 			if ( (isset($_GET["from"]) && is_numeric($_GET["from"]) ) || ( isset($_GET["to"]) && is_numeric($_GET["to"]) ) ) 
 			{
-				var_dump($key);
-				if ($key >= $_GET["from"] && $key <= $_GET["to"]) 
+				if ($numnum >= $_GET["from"] && $numnum <= $_GET["to"]) 
 				{
 					echo "<tr>";
 					echo '<td style="min-width:155px; width:155px; max-width:155px;">'.$key.'</td>';
@@ -226,6 +226,7 @@ function show_data($input)
 				{
 					echo "nope";
 				}
+				$numnum++;
 			}
 			else
 			{

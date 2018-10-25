@@ -94,7 +94,7 @@ function get_data_from_csv()
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 
-			echo "get_data_from_csv - load file: $time seconds\n<br>";
+			echo "get_data_from_csv - load file $filename: $time seconds\n<br>";
 
 
 			$time_start = microtime(true);
@@ -104,7 +104,7 @@ function get_data_from_csv()
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 
-			echo "get_data_from_csv - explode: $time seconds\n<br>";
+			echo "get_data_from_csv - explode $key: $time seconds\n<br>";
 		}
 	}
 
@@ -131,7 +131,7 @@ function get_data_from_csv()
 		$time_end = microtime(true);
 		$time = $time_end - $time_start;
 
-		echo "get_data_from_csv - foreach $key: $time seconds\n<br>";
+		echo "get_data_from_csv - foreach-dobbelt $key: $time seconds\n<br>";
 	}
 
 	$time_start = microtime(true);

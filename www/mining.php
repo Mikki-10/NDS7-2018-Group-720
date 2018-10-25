@@ -86,7 +86,15 @@ function get_data_from_csv()
 		if ($filetype[1] == "csv") 
 		{
 			$input = file_get_contents($filename);
+
+			$time_start = microtime(true);
+
 			$input_array[$key] = explode(PHP_EOL, $input);
+
+			$time_end = microtime(true);
+			$time = $time_end - $time_start;
+
+			echo "get_data_from_csv - explode: $time seconds\n<br>";
 		}
 	}
 
@@ -111,7 +119,14 @@ function get_data_from_csv()
 		}
 	}
 
+	$time_start = microtime(true);
+
 	ksort($output_array);
+
+	$time_end = microtime(true);
+	$time = $time_end - $time_start;
+
+	echo "get_data_from_csv - ksort: $time seconds\n<br>";
 
 	return $output_array;
 }

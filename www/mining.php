@@ -297,7 +297,7 @@ function define_color($hash, $msg)
 	}
 	else
 	{
-		$return = 'bgcolor: "' . $GLOBALS['hash_color_array'][$hash] . ';';
+		$return = '" bgcolor="' . $GLOBALS['hash_color_array'][$hash];
 	}
 
 	return $return;

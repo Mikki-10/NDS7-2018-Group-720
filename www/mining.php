@@ -296,10 +296,15 @@ function give_interval($input)
 	for ($i=0; $i < $amount; $i++) 
 	{ 
 		$from = 100 * $i;
-		$to = 1 + $i;
+		$to = $from + 100;
+		$num = 1 + $i;
 
+		echo '<a href="?from=' . $from . '&to=' . $to . '">' . $num . '</a>  ';
 
-		echo '<a href="?from=' . $from . '&to=100">' . $to . '</a>  ';
+		if (($i % 100) == 0) 
+		{
+			echo "<br>";
+		}
 	}
 }
 

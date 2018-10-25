@@ -224,7 +224,7 @@ function show_data($input)
 				}
 				else
 				{
-					echo "nope";
+					//echo "nope";
 				}
 				$numnum++;
 			}
@@ -296,21 +296,30 @@ function define_color($hash)
 function give_interval($input)
 {
 	//$count = count($input);
-	$amount = count($input) / 100;
-	$amount = ceil($amount);
-	//var_dump($amount);
-	for ($i=0; $i < $amount; $i++) 
-	{ 
-		$from = 100 * $i;
-		$to = $from + 100;
-		$num = 1 + $i;
 
-		echo '<a href="?from=' . $from . '&to=' . $to . '">' . $num . '</a> - ';
+	if ( (isset($_GET["from"]) && is_numeric($_GET["from"]) ) || ( isset($_GET["to"]) && is_numeric($_GET["to"]) ) ) 
+	{
+		$interval == $_GET["to"] - $_GET["from"];
 
-		if (($i % 50) == 0 && $i != 0) 
-		{
-			echo "<br>";
+		$amount = count($input) / $interval;
+		$amount = ceil($amount);
+
+		for ($i=0; $i < $amount; $i++) 
+		{ 
+			$from = $interval * $i;
+			floor($from);
+			$to = $from + $interval;
+			ceil($to);
+			$num = 1 + $i;
+
+			echo '<a href="?from=' . $from . '&to=' . $to . '">' . $num . '</a> - ';
+
+			if (($i % 50) == 0 && $i != 0) 
+			{
+				echo "<br>";
+			}
 		}
+
 	}
 }
 

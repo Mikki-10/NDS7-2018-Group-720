@@ -295,7 +295,11 @@ function give_interval($input)
 	//var_dump($amount);
 	for ($i=0; $i < $amount; $i++) 
 	{ 
-		echo '<a href="?from=' . (100*$i) . '&to=100">' . 1+$i . '</a>  ';
+		$from = 100 * $i;
+		$to = 1 + $i;
+
+
+		echo '<a href="?from=' . $from . '&to=100">' . $to . '</a>  ';
 	}
 }
 

@@ -190,6 +190,7 @@ function show_data($input)
 		{
 			if ( (isset($_GET["from"]) && is_numeric($_GET["from"]) ) || ( isset($_GET["to"]) && is_numeric($_GET["to"]) ) ) 
 			{
+				var_dump($key);
 				if ($key >= $_GET["from"] && $key <= $_GET["to"]) 
 				{
 					echo "<tr>";

@@ -291,7 +291,8 @@ function give_interval($input)
 {
 	//$count = count($input);
 	$amount = count($input) / 100;
-	var_dump($amount);
+	$amount = ceil($amount);
+	//var_dump($amount);
 	for ($i=0; $i < $amount; $i++) 
 	{ 
 		echo '<a href="?from=' . 0 + (100*$i) . '&to=100">' . 1+$i . '</a>  ';

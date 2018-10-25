@@ -205,9 +205,9 @@ function show_data($input)
 					<td>
 						<table id="full">
 					  <tr>
-					    <td style="width:100%" <?php echo define_color($value[3],$value[1]); ?>><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-					    <td style="min-width:40px; width:40px; max-width:40px;" <?php echo define_color($value[3],$value[1]); ?>><font color="#ffffff"><?php echo $value[2] ?></font></td>
-					    <td style="min-width:120px; width:120px; max-width:120px;" <?php echo define_color($value[3],$value[1]); ?>><font color="#ffffff"><?php echo $value[3] ?></font></td>
+					    <td style="width:100% <?php echo define_color($value[3],$value[1]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
+					    <td style="min-width:40px; width:40px; max-width:40px; <?php echo define_color($value[3],$value[1]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+					    <td style="min-width:120px; width:120px; max-width:120px; <?php echo define_color($value[3],$value[1]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 					  </tr>
 					</table>
 					</td>
@@ -293,11 +293,11 @@ function define_color($hash, $msg)
 	$msg = trim($msg);
 	if ($msg == "Inserted forked block") 
 	{
-		$return = 'style="background: linear-gradient(to bottom, ' . $GLOBALS['hash_color_array'][$hash] . ' 0%, #000000 100%);"';
+		$return = 'background: linear-gradient(to bottom, ' . $GLOBALS['hash_color_array'][$hash] . ' 0%, #000000 100%);';
 	}
 	else
 	{
-		$return = 'bgcolor="' . $GLOBALS['hash_color_array'][$hash] . '"';
+		$return = 'bgcolor: "' . $GLOBALS['hash_color_array'][$hash] . ';';
 	}
 
 	return $return;

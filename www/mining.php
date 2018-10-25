@@ -190,7 +190,7 @@ function show_data($input)
 		{
 			if ( (isset($_GET["from"]) && is_numeric($_GET["from"]) ) || ( isset($_GET["to"]) && is_numeric($_GET["to"]) ) ) 
 			{
-				if ($key <= $_GET["from"] && $key >= $_GET["to"]) 
+				if ($key >= $_GET["from"] && $key <= $_GET["to"]) 
 				{
 					echo "<tr>";
 					echo '<td style="min-width:155px; width:155px; max-width:155px;">'.$key.'</td>';
@@ -301,7 +301,7 @@ function give_interval($input)
 
 		echo '<a href="?from=' . $from . '&to=' . $to . '">' . $num . '</a> - ';
 
-		if (($i % 50) == 0 && $i != 1) 
+		if (($i % 50) == 0 && $i != 0) 
 		{
 			echo "<br>";
 		}

@@ -299,7 +299,7 @@ function give_interval($input)
 
 	if ( (isset($_GET["from"]) && is_numeric($_GET["from"]) ) || ( isset($_GET["to"]) && is_numeric($_GET["to"]) ) ) 
 	{
-		$interval == $_GET["to"] - $_GET["from"];
+		$interval = $_GET["to"] - $_GET["from"];
 
 		$amount = count($input) / $interval;
 		$amount = ceil($amount);

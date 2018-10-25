@@ -224,7 +224,11 @@ function show_data($input)
 			}
 			else
 			{
-				echo "No numeric from, and to.";
+				if (isset($no_num) && $no_num == 1) 
+				{
+					echo "No numeric from, and to.";
+					$no_num = 1;
+				}
 			}
 		}
 }
@@ -287,6 +291,7 @@ function give_interval($input)
 {
 	//$count = count($input);
 	$amount = count($input) / 100;
+	var_dump($amount);
 	for ($i=0; $i < $amount; $i++) 
 	{ 
 		echo '<a href="?from=' . 0 + (100*$i) . '&to=100">' . 1+$i . '</a>  ';

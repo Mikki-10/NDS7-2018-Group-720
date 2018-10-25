@@ -87,7 +87,15 @@ function get_data_from_csv()
 
 		if ($filetype[1] == "csv") 
 		{
+			$time_start = microtime(true);
+
 			$input = file_get_contents($filename);
+
+			$time_end = microtime(true);
+			$time = $time_end - $time_start;
+
+			echo "get_data_from_csv - load file: $time seconds\n<br>";
+
 
 			$time_start = microtime(true);
 

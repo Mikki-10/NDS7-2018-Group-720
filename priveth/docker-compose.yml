@@ -36,6 +36,9 @@ services:
       - 8000:8000
     environment:
       - DOCKER_NAME=explorer
+    volumes:
+      - ./gethdata/explorer:/gethdata
+      - ./logs/:/logpath/
 
   node1:
     build:

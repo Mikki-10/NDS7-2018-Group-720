@@ -4,6 +4,11 @@ if [ ! -d "/gethdata/${DOCKER_NAME}" ]; then
     cp -r /gethinit/* /gethdata/${DOCKER_NAME}
 fi
 
+if [ $NET_DELAY == "on" ]
+then
+    echo "do netdelay here"
+fi
+
 if [ $LOGGING == "on" ]
 then
     geth \
@@ -16,6 +21,7 @@ then
         --datadir=/gethdata/${DOCKER_NAME} \
         --networkid=44686 \
         --verbosity $VERBOSITY \
+        --rpccorsdomain "http://$(hostname -i):8000"
         --bootnodes=enode://a93cc3de8693e2ad879df9b3c306c1b9752b49d1550615825e5049528c8b109b5dbdf9847f1b6cae463f4321118b6126c673890c7ad2f706c57b466bbcf66a08@172.18.0.2:30301 \
         --mine \
         --minerthreads=1 \
@@ -32,6 +38,7 @@ else
         --datadir=/gethdata/${DOCKER_NAME} \
         --networkid=44686 \
         --verbosity 4 \
+        --rpccorsdomain "http://$(hostname -i):8000"
         --bootnodes=enode://a93cc3de8693e2ad879df9b3c306c1b9752b49d1550615825e5049528c8b109b5dbdf9847f1b6cae463f4321118b6126c673890c7ad2f706c57b466bbcf66a08@172.18.0.2:30301 \
         --mine \
         --minerthreads=1 \

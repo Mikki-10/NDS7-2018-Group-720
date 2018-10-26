@@ -8,6 +8,7 @@ RUN npm install -g bower
 RUN apk add python alpine-sdk
 
 RUN git clone https://github.com/carsenk/explorer
+RUN sed -i -e 's/localhost/0.0.0.0/g' /explorer/package.json
 RUN cd explorer && npm install && bower --allow-root install
 
 RUN mkdir /setup

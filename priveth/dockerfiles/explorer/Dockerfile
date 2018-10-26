@@ -5,7 +5,7 @@ RUN apk add nodejs
 RUN apk add nodejs-npm
 RUN apk add git
 RUN npm install -g bower
-RUN apk add python
+RUN apk add python make
 
 RUN git clone https://github.com/carsenk/explorer
 RUN cd explorer && npm install && bower install

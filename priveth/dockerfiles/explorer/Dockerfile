@@ -8,7 +8,7 @@ RUN npm install -g bower
 RUN apk add python alpine-sdk
 
 RUN git clone https://github.com/carsenk/explorer
-RUN cd explorer && npm install && bower install
+RUN cd explorer && npm install && bower --allow-root install
 
 RUN mkdir /setup
 ADD run.sh /setup

@@ -36,6 +36,7 @@ services:
       - 8000:8000
     environment:
       - DOCKER_NAME=explorer
+      - VERBOSITY=5
     volumes:
       - ./gethdata/explorer:/gethdata
       - ./logs/:/logpath/

@@ -33,7 +33,7 @@ services:
       - bootnode
     container_name: explorer
     ports:
-      - 8000
+      - 8000:8000
     environment:
       - DOCKER_NAME=explorer
 

@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ ! -d "/gethdata/${DOCKER_NAME}" ]; then
     echo "Doing first setup"
     mkdir -p /gethdata/${DOCKER_NAME}

@@ -6,6 +6,7 @@ RUN apk add nodejs-npm
 RUN apk add git
 RUN npm install -g bower
 RUN apk add python alpine-sdk
+RUN apk add bash
 
 RUN git clone https://github.com/carsenk/explorer
 RUN sed -i -e 's/localhost/0.0.0.0/g' /explorer/package.json

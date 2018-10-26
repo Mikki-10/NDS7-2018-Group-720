@@ -25,21 +25,21 @@ services:
     environment:
       - WS_SECRET=nDs2018
   
-  explorer:
-    build:
-      context: ./dockerfiles/explorer
-    image: explorer
-    depends_on:
-      - bootnode
-    container_name: explorer
-    ports:
-      - 8000:8000
-    environment:
-      - DOCKER_NAME=explorer
-      - VERBOSITY=5
-    volumes:
-      - ./gethdata/explorer:/gethdata
-      - ./logs/:/logpath/
+#  explorer:
+#    build:
+#      context: ./dockerfiles/explorer
+#    image: explorer
+#    depends_on:
+#      - bootnode
+#    container_name: explorer
+#    ports:
+#      - 8000:8000
+#    environment:
+#      - DOCKER_NAME=explorer
+#      - VERBOSITY=5
+#    volumes:
+#      - ./gethdata/explorer:/gethdata
+#      - ./logs/:/logpath/
 
   node1:
     build:

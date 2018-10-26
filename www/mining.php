@@ -77,6 +77,8 @@ give_interval($output_array);
 
 function get_data_from_csv()
 {
+	$time_start_in = microtime(true);
+
 	$files = scandir(dirname(__FILE__));
 
 	foreach ($files as $key => $filename) 
@@ -85,8 +87,24 @@ function get_data_from_csv()
 
 		if ($filetype[1] == "csv") 
 		{
+			$time_start = microtime(true);
+
 			$input = file_get_contents($filename);
+
+			$time_end = microtime(true);
+			$time = $time_end - $time_start;
+
+			echo "get_data_from_csv - load file $filename: $time seconds\n<br>";
+
+
+			$time_start = microtime(true);
+
 			$input_array[$key] = explode(PHP_EOL, $input);
+
+			$time_end = microtime(true);
+			$time = $time_end - $time_start;
+
+			echo "get_data_from_csv - explode $key: $time seconds\n<br>";
 		}
 	}
 
@@ -94,6 +112,7 @@ function get_data_from_csv()
 
 	foreach ($input_array as $key => $miner_array) 
 	{
+		$time_start = microtime(true);
 		foreach ($miner_array as $key2 => $time_event) 
 		{
 			$time_event = explode(";", $time_event);
@@ -109,9 +128,25 @@ function get_data_from_csv()
 				$output_array[$output_key] = array($time_event[1], $time_event[2], $time_event[3], $time_event[4]);
 			}
 		}
+		$time_end = microtime(true);
+		$time = $time_end - $time_start;
+
+		echo "get_data_from_csv - foreach-dobbelt $key: $time seconds\n<br>";
 	}
 
+	$time_start = microtime(true);
+
 	ksort($output_array);
+
+	$time_end = microtime(true);
+	$time = $time_end - $time_start;
+
+	echo "get_data_from_csv - ksort: $time seconds\n<br>";
+
+	$time_end_in = microtime(true);
+	$time = $time_end_in - $time_start_in;
+
+	echo "get_data_from_csv - inside: $time seconds\n<br>";
 
 	return $output_array;
 }
@@ -205,9 +240,9 @@ function show_data($input)
 					<td>
 						<table id="full">
 					  <tr>
-					    <td style="width:100%" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
-					    <td style="min-width:40px; width:40px; max-width:40px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
-					    <td style="min-width:120px; width:120px; max-width:120px;" bgcolor="<?php echo define_color($value[3]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
+					    <td style="width:100%; <?php echo define_color($value[3],$value[1]); ?>"><font color="#ffffff"><?php echo $value[1]; ?></font></td>
+					    <td style="min-width:40px; width:40px; max-width:40px; <?php echo define_color($value[3],$value[1]); ?>"><font color="#ffffff"><?php echo $value[2] ?></font></td>
+					    <td style="min-width:120px; width:120px; max-width:120px; <?php echo define_color($value[3],$value[1]); ?>"><font color="#ffffff"><?php echo $value[3] ?></font></td>
 					  </tr>
 					</table>
 					</td>
@@ -248,7 +283,7 @@ function scrape_from($data, $start)
 }
 
 
-function define_color($hash)
+function define_color($hash, $msg)
 {
 	$colors = array(
 					"#c51d51",
@@ -281,14 +316,26 @@ function define_color($hash)
 
 	if (array_key_exists($hash, $GLOBALS['hash_color_array'])) 
 	{
-		return $GLOBALS['hash_color_array'][$hash];
+		//Hash found, do not find any new color
 	}
 	else
 	{
+		//Hash not found, pick a new color
 		$key = count($GLOBALS['hash_color_array']) % count($colors);
 		$GLOBALS['hash_color_array'][$hash] = $colors[$key];
-		return $colors[$key];
 	}
+
+	$msg = trim($msg);
+	if ($msg == "Inserted forked block") 
+	{
+		$return = 'background: linear-gradient(to bottom, ' . $GLOBALS['hash_color_array'][$hash] . ' 0%, #000000 100%);';
+	}
+	else
+	{
+		$return = '" bgcolor="' . $GLOBALS['hash_color_array'][$hash];
+	}
+
+	return $return;
 }
 
 

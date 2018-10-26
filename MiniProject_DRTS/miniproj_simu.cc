@@ -124,27 +124,58 @@ int main (int argc, char *argv[])
   NS_LOG_INFO ("Create Applications.");
   uint16_t port = 9;   // Discard port (RFC 863)
 
+  //wheels
   OnOffHelper OnoffWheel ("ns3::UdpSocketFactory",
                      Address (InetSocketAddress (Ipv4Address ("10.1.1.7"), port)));
-
-  //OnoffWheel.SetConstantRate(DataRate("100000kb/s"));
-  OnoffWheel.SetAttribute("DataRate", DataRateValue(DataRate("100000kb/s")));
-  OnoffWheel.SetAttribute("PacketSize", UintegerValue(160));
-  OnoffWheel.SetAttribute("OnTime", StringValue ("ns3::ConstantRandomVariable[Constant=2]"));
+  OnoffWheel.SetConstantRate(DataRate("10kb/s"));
+  OnoffWheel.SetAttribute("PacketSize", UintegerValue(20));
   //OnoffWheel.SetAttribute("OffTime", StringValue ("ns3::ConstantRandomVariable[Constant=999.9984]"));
 
-  ApplicationContainer wheelApps = OnoffWheel.Install(terminals.Get(0));
-  wheelApps.Add(OnoffWheel.Install(terminals.Get(1)));
-  wheelApps.Add(OnoffWheel.Install(terminals.Get(4)));
-  wheelApps.Add(OnoffWheel.Install(terminals.Get(5)));
+  ApplicationContainer apps = OnoffWheel.Install(terminals.Get(0));
+  apps.Add(OnoffWheel.Install(terminals.Get(1)));
+  apps.Add(OnoffWheel.Install(terminals.Get(4)));
+  apps.Add(OnoffWheel.Install(terminals.Get(5)));
 
-  wheelApps.Start(Seconds(0.0));
-  wheelApps.Stop(Seconds(3.0));
+  //ESP to EC
+  OnOffHelper OnoffEC ("ns3::UdpSocketFactory",
+                     Address (InetSocketAddress (Ipv4Address ("10.1.1.9"), port)));
+
+  OnoffEC.SetConstantRate(DataRate("400B/s"));
+  OnoffEC.SetAttribute("PacketSize", UintegerValue(8));
+
+  apps.Add(OnoffEC.Install(terminals.Get(6)));
+
+  //RC to HUD
+  OnOffHelper OnoffRC ("ns3::UdpSocketFactory",
+                     Address (InetSocketAddress (Ipv4Address ("10.1.1.8"), port)));
+
+  OnoffRC.SetConstantRate(DataRate("10Mbps"));
+  OnoffRC.SetAttribute("PacketSize", UintegerValue(1400));
+  OnoffRC.SetAttribute ("OnTime",  StringValue ("ns3::ConstantRandomVariable[Constant=0.00112]")); // 11200/10000000 [s]
+  OnoffRC.SetAttribute ("OffTime", StringValue ("ns3::ExponentialRandomVariable[Mean=0.00088]")); // 0.002-ontime 
+  
+  apps.Add(OnoffRC.Install(terminals.Get(2)));
+
+  //MM to HUD
+  OnOffHelper OnoffMM ("ns3::UdpSocketFactory",
+                     Address (InetSocketAddress (Ipv4Address ("10.1.1.8"), port)));
+
+  OnoffMM.SetConstantRate(DataRate("10Mbps"));
+  OnoffMM.SetAttribute("PacketSize", UintegerValue(1400));
+  OnoffMM.SetAttribute ("OnTime",  StringValue ("ns3::ConstantRandomVariable[Constant=0.00112]")); // 11200/10000000 [s]
+  OnoffMM.SetAttribute ("OffTime", StringValue ("ns3::ExponentialRandomVariable[Mean=0.00138]")); // 0.0025-ontime 
+  
+  apps.Add(OnoffEC.Install(terminals.Get(3)));
+
+  apps.Start(Seconds(0));
+  apps.Stop(Seconds(3));
 
   // Create an optional packet sink to receive these packets
   PacketSinkHelper sink ("ns3::UdpSocketFactory",
                          Address (InetSocketAddress (Ipv4Address::GetAny (), port)));
   ApplicationContainer EPSapp = sink.Install (terminals.Get (6));
+  ApplicationContainer HUDapp = sink.Install (terminals.Get (7));
+  ApplicationContainer ECapp = sink.Install (terminals.Get (9));
   EPSapp.Start (Seconds (0.0));
  
   NS_LOG_INFO ("Configure Tracing.");
@@ -168,6 +199,7 @@ int main (int argc, char *argv[])
   // Now, do the actual simulation.
   //
   NS_LOG_INFO ("Run Simulation.");
+  Simulator::Stop (Seconds(180));
   Simulator::Run ();
   Simulator::Destroy ();
   NS_LOG_INFO ("Done.");

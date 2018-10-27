@@ -175,7 +175,7 @@ int main (int argc, char *argv[])
                          Address (InetSocketAddress (Ipv4Address::GetAny (), port)));
   ApplicationContainer EPSapp = sink.Install (terminals.Get (6));
   ApplicationContainer HUDapp = sink.Install (terminals.Get (7));
-  ApplicationContainer ECapp = sink.Install (terminals.Get (9));
+  ApplicationContainer ECapp = sink.Install (terminals.Get (8));
   EPSapp.Start (Seconds (0.0));
  
   NS_LOG_INFO ("Configure Tracing.");

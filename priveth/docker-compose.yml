@@ -92,23 +92,6 @@ services:
       - ./gethdata/node3:/gethdata
       - ./logs/:/logpath/
 
-  node4:
-    build:
-      context: ./dockerfiles/node
-    image: node
-    container_name: node4
-    depends_on:
-      - node3
-    expose:
-      - 8545
-    environment:
-      - DOCKER_NAME=node4
-      - LOGGING=on
-      - VERBOSITY=5
-    volumes:
-      - ./gethdata/node3:/gethdata
-      - ./logs/:/logpath/
-
   miner1:
     build:
       context: ./dockerfiles/miner

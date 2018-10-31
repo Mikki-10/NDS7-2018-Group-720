@@ -21,6 +21,7 @@ class FRONTPAGE
 	function make_page($block)
 	{
 		
+		$RPC = new RPC();
 		for ($i=$block-10; $i < $block; $i++) 
 		{ 
 			$block_data[$i] = $RPC->get_Block_By_Number($i);

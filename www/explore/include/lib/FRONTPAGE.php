@@ -30,15 +30,28 @@ class FRONTPAGE
 		echo "<pre>"; var_dump($block_data); echo "</pre>";
 
 		echo "Recent blocks";
+		?>
+		<table>
+		  <tr>
+		    <th>Number</th>
+		    <th>Miner</th>
+		    <th>Timestamp</th>
+		    <th>Tx</th>
+		    <th>Uncles</th>
+		  </tr>
+		<?php
 		foreach ($block_data as $key => $block) 
 		{
-			echo $block["result"]["number"] . " - ";
-			echo $block["result"]["miner"] . " - ";
-			echo $block["result"]["timestamp"] . " - ";
-			echo count($block["result"]["transactions"]) . " - ";
-			echo count($block["result"]["uncles"]);
-			echo "<br>";
+			echo "<tr>";
+			echo "<td>$block["result"]["number"]</td>";
+			echo "<td>$block["result"]["miner"]</td>";
+			echo "<td>$block["result"]["timestamp"]</td>";
+			echo "<td>" . count($block["result"]["transactions"]) . "</td>";
+			echo "<td>" . count($block["result"]["uncles"]) . "</td>";
+			echo "</tr>";
 		}
+		
+		echo "</table>";
 
 		echo "<br>";
 		echo "Recent Transactions";

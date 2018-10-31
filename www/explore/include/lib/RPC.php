@@ -58,6 +58,7 @@ class RPC
 	{
 		// eth_getBlockByNumber
 		$block = dechex($block);
+		$block = "0x" . $block;
 		$array = $this->request('{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["'.$block.'", true],"id":1}');
 		//$json = json_decode($json, true);
 		return $array;

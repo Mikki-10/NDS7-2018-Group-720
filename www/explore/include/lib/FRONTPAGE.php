@@ -43,9 +43,9 @@ class FRONTPAGE
 		foreach ($block_data as $key => $block) 
 		{
 			echo "<tr>";
-			echo "<td>" . $block["result"]["number"] . "</td>";
+			echo "<td>" . hexdec($block["result"]["number"]) . "</td>";
 			echo "<td>" . $block["result"]["miner"] . "</td>";
-			echo "<td>" . $block["result"]["timestamp"] . "</td>";
+			echo "<td>" . date("d-m-Y", hexdec($block["result"]["timestamp"])) . "</td>";
 			echo "<td>" . count($block["result"]["transactions"]) . "</td>";
 			echo "<td>" . count($block["result"]["uncles"]) . "</td>";
 			echo "</tr>";

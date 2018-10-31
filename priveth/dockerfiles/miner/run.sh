@@ -6,6 +6,7 @@ fi
 
 # Check if we have an account
 count=`ls -1 /gethdata/${DOCKER_NAME}/keystore/UTC* 2>/dev/null | wc -l`
+echo $count
 if [ $count < 1]
 then
     echo "Making new account."

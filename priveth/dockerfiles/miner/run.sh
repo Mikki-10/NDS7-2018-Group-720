@@ -4,11 +4,6 @@ if [ ! -d "/gethdata/${DOCKER_NAME}" ]; then
     cp -r /gethinit/* /gethdata/${DOCKER_NAME}
 fi
 
-if [ $NET_DELAY == "on" ]
-then
-    echo "do netdelay here"
-fi
-
 if [ $LOGGING == "on" ]
 then
     geth \

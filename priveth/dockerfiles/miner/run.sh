@@ -12,12 +12,12 @@ then
     echo $ACCOUNTPASS >> /gethdata/${DOCKER_NAME}/accountPass
     geth --datadir=/gethdata/${DOCKER_NAME} account new --password /gethdata/${DOCKER_NAME}/accountPass
     accountNumber=`ls -1 /gethdata/${DOCKER_NAME}/keystore/UTC* 2>/dev/null | awk -F "--" '{print $3}'`
-    
+    echo "Raw account number:" $accountNumber
     # Add 0x hex prefix
     accountNumber="0x$accountNumber"
 else
     accountNumber=`ls -1 /gethdata/${DOCKER_NAME}/keystore/UTC* 2>/dev/null | awk -F "--" '{print $3}'`
-    
+    echo "Raw account number:" $accountNumber
     # Add 0x hex prefix
     accountNumber="0x$accountNumber"
 fi

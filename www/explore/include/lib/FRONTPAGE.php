@@ -27,6 +27,8 @@ class FRONTPAGE
 			$block_data[$i] = $RPC->get_Block_By_Number($i);
 		}
 
+		krsort($block_data);
+
 		echo "<pre>"; var_dump($block_data); echo "</pre>";
 
 		echo "Recent blocks";
@@ -45,7 +47,7 @@ class FRONTPAGE
 			echo "<tr>";
 			echo "<td>" . hexdec($block["result"]["number"]) . "</td>";
 			echo "<td>" . $block["result"]["miner"] . "</td>";
-			echo "<td>" . date("d-m-Y", hexdec($block["result"]["timestamp"])) . "</td>";
+			echo "<td>" . date("d-m-Y H:i:s:v", hexdec($block["result"]["timestamp"])) . "</td>";
 			echo "<td>" . count($block["result"]["transactions"]) . "</td>";
 			echo "<td>" . count($block["result"]["uncles"]) . "</td>";
 			echo "</tr>";

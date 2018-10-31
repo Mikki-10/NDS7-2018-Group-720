@@ -104,6 +104,7 @@ services:
       - DOCKER_NAME=miner1
       - LOGGING=on
       - VERBOSITY=5
+      - ACCOUNTPASS=1234
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner1:/gethdata
@@ -120,6 +121,7 @@ services:
       - DOCKER_NAME=miner2
       - LOGGING=on
       - VERBOSITY=5
+      - ACCOUNTPASS=1234
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner2:/gethdata
@@ -136,6 +138,7 @@ services:
       - DOCKER_NAME=miner3
       - LOGGING=on
       - VERBOSITY=5
+      - ACCOUNTPASS=1234
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner3:/gethdata
@@ -152,6 +155,7 @@ services:
       - DOCKER_NAME=miner4
       - LOGGING=on
       - VERBOSITY=5
+      - ACCOUNTPASS=1234
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner4:/gethdata

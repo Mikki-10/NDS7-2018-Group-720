@@ -15,6 +15,6 @@ elseif (isset($_GET["tx"]))
 else
 {
 	//Frontpage
-	
+	new FRONTPAGE();
 }
 ?>

@@ -8,7 +8,7 @@ class FRONTPAGE
 	
 	function __construct()
 	{
-		# code...
+		$this->start();
 	}
 
 	function start()

@@ -27,6 +27,8 @@ class FRONTPAGE
 			$block_data[$i] = $RPC->get_Block_By_Number($i);
 		}
 
+		echo "<pre>"; var_dump($block_data); echo "</pre>";
+
 		echo "Recent blocks";
 		foreach ($block_data as $key => $block) 
 		{

@@ -4,7 +4,7 @@
 // Hvad vil vi gerne "include" af php sider
 // ------------------------------------------------------------ //
 $includes = array(
-					"config.php",
+					"config",
 					"pre_functions",
 					"start_gui",
 					"functions",

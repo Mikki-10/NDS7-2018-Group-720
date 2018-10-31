@@ -4,6 +4,23 @@ if [ ! -d "/gethdata/${DOCKER_NAME}" ]; then
     cp -r /gethinit/* /gethdata/${DOCKER_NAME}
 fi
 
+# Check if we have an account
+count=`ls -1 /gethdata/${DOCKER_NAME}/keystore/UTC* 2>/dev/null | wc -l`
+if [ $count < 1]
+then
+    echo "Making new account."
+    geth --datadir=/gethdata/${DOCKER_NAME} account new --password <(echo $ACCOUNTPASS)
+    accountNumber=`ls -1 /gethdata/${DOCKER_NAME}/keystore/UTC* 2>/dev/null | awk -F "--" '{print $3}'`
+    
+    # Add 0x hex prefix
+    accountNumber="0x$accountNumber"
+else
+    accountNumber=`ls -1 /gethdata/${DOCKER_NAME}/keystore/UTC* 2>/dev/null | awk -F "--" '{print $3}'`
+    
+    # Add 0x hex prefix
+    accountNumber="0x$accountNumber"
+fi
+
 if [ $LOGGING == "on" ]
 then
     geth \
@@ -19,7 +36,7 @@ then
         --bootnodes=enode://a93cc3de8693e2ad879df9b3c306c1b9752b49d1550615825e5049528c8b109b5dbdf9847f1b6cae463f4321118b6126c673890c7ad2f706c57b466bbcf66a08@172.18.0.2:30301 \
         --mine \
         --minerthreads=1 \
-        --etherbase=0x0000000000000000000000000000000000000001 \
+        --etherbase=$accountNumber \
         2> /logpath/${DOCKER_NAME}_log.txt
 else
     geth \
@@ -35,5 +52,5 @@ else
         --bootnodes=enode://a93cc3de8693e2ad879df9b3c306c1b9752b49d1550615825e5049528c8b109b5dbdf9847f1b6cae463f4321118b6126c673890c7ad2f706c57b466bbcf66a08@172.18.0.2:30301 \
         --mine \
         --minerthreads=1 \
-        --etherbase=0x0000000000000000000000000000000000000001
+        --etherbase=$accountNumber
 fi

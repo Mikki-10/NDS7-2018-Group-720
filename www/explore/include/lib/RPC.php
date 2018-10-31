@@ -49,7 +49,7 @@ class RPC
 	function get_block_hight()
 	{
 		// eth_blockNumber
-		$json = request('{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}');
+		$json = $this->request('{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}');
 		$json = json_decode($json, true);
 		return number_format(hexdec($json["result"]));
 	}
@@ -58,7 +58,7 @@ class RPC
 	{
 		// eth_getBlockByNumber
 		$block = dechex($block);
-		$json = request('{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["'.$block.'", true],"id":1}');
+		$json = $this->request('{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["'.$block.'", true],"id":1}');
 		$json = json_decode($json, true);
 		return $json;
 	}

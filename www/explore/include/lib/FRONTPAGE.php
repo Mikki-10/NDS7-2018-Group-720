@@ -47,7 +47,7 @@ class FRONTPAGE
 			echo "<tr>";
 			echo "<td>" . hexdec($block["result"]["number"]) . "</td>";
 			echo "<td>" . $block["result"]["miner"] . "</td>";
-			echo "<td>" . date("d-m-Y H:i:s:v", hexdec($block["result"]["timestamp"])) . "</td>";
+			echo "<td>" . date("d-m-Y H:i:s", hexdec($block["result"]["timestamp"])) . "</td>";
 			echo "<td>" . count($block["result"]["transactions"]) . "</td>";
 			echo "<td>" . count($block["result"]["uncles"]) . "</td>";
 			echo "</tr>";

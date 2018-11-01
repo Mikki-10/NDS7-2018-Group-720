@@ -23,4 +23,69 @@ foreach ($includes as $key => $value)
 
 // Other functions down here
 
+
+function build_table($array)
+{
+    //echo "<pre>"; var_dump($array); echo "</pre>";
+
+    echo '<table width="100%" border="0" cellspacing="0" cellpadding="0">';
+    echo "<tr>";
+    foreach ($array as $key => $value) 
+    {
+    	if (is_array($key)) 
+    	{
+    		# code...
+    	}
+    	else
+    	{
+    		echo "<th>" . $key . "</th>";
+    	}
+    }
+    echo "</tr>";
+    echo "<tr>";
+    foreach ($array as $key => $value) 
+    {
+    	if (is_array($value)) 
+    	{
+    		echo "<td>";
+    		build_table($value); 
+    		echo "</td>";
+    	}
+    	elseif (is_bool($value)) 
+    	{
+    		if ($value === true) 
+    		{
+    			echo "<td> true </td>";
+    		}
+    		elseif ($value === false) 
+    		{
+    			echo "<td> false </td>";
+    		}
+    		else
+    		{
+    			echo "<td>";
+    			echo var_dump($value);
+    			echo "</td>";
+    		}
+    	}
+    	elseif (strpos($value, '0x') === 0) 
+    	{
+   			// It starts with '0x'
+    		echo "<td>";
+    		echo $value;
+    		echo "<br>";
+    		echo hexdec($value);
+    		echo "<br>";
+    		echo number_format(hexdec($value));
+    		echo "</td>";
+    	}
+    	else
+    	{
+    		echo "<td>" . $value . "</td>";
+    	}
+    }
+    echo "</tr>";
+    echo "</table>";
+}
+
 ?>

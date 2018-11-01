@@ -23,7 +23,7 @@ class BLOCK
 
 		$block_data = $block_data["result"];
 		
-		//echo "<pre>"; var_dump($block_data); echo "</pre>";
+		echo "<pre>"; var_dump($block_data); echo "</pre>";
 
 		$block_number = number_format(hexdec($block_data["number"]), 0, ',', '');
 

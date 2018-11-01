@@ -46,10 +46,10 @@ class BLOCK
 			<tr><td>totalDifficulty</td><td><?php echo $block_data["totalDifficulty"]; ?></td></tr>
 			<tr><td>timestamp</td><td><?php echo $block_data["timestamp"]; ?></td></tr>
 			<tr><td>size</td><td><?php echo $block_data["size"]; ?></td></tr>
-			<tr><td>transactions</td><td><?php echo $block_data["transactions"]; ?></td></tr>
-			<tr><td>uncles</td><td><?php echo $block_data["uncles"]; ?></td></tr>
+			<tr><td>transactions</td><td><?php echo count($block_data["transactions"]); ?></td></tr>
+			<tr><td>uncles</td><td><?php echo count($block_data["uncles"]); ?></td></tr>
 			<tr><td>extraData</td><td><?php echo $block_data["extraData"]; ?></td></tr>
-			<tr><td>logsBloom</td><td><?php echo $block_data["logsBloom"]; ?></td></tr>
+			<tr><td>logsBloom</td><td><pre><?php echo $block_data["logsBloom"]; ?></pre></td></tr>
 			<tr><td>mixHash</td><td><?php echo $block_data["mixHash"]; ?></td></tr>
 			<tr><td>nonce</td><td><?php echo $block_data["nonce"]; ?></td></tr>
 			<tr><td>receiptsRoot</td><td><?php echo $block_data["receiptsRoot"]; ?></td></tr>

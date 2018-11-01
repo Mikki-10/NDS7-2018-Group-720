@@ -21,6 +21,7 @@ class FRONTPAGE
 	function make_page($block)
 	{
 		
+		echo "<pre>"; var_dump($block); echo "</pre>";
 		$RPC = new RPC();
 		for ($i=$block-10; $i < $block; $i++) 
 		{ 

@@ -56,18 +56,14 @@ class RPC
 
 	function get_Block($block)
 	{
-		/*
 		if (substr($block, 0, 2) == "0x") 
 		{
-			$this->get_Block_By_Hash($block);
+			return $this->get_Block_By_Hash($block);
 		} 
 		else 
 		{
-			$this->get_Block_By_Number($block);
+			return $this->get_Block_By_Number($block);
 		}
-		*/
-		$this->get_Block_By_Number($block);
-		
 	}
 
 	function get_Block_By_Hash($block)

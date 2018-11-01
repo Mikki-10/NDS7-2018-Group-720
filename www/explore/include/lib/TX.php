@@ -46,12 +46,12 @@ class TX
 			<tr><td>blockNumber</td><td><a href="?account=<?php echo hexdec($tx_data["blockNumber"]); ?>"><?php echo hexdec($tx_data["blockNumber"]); ?></a></td></tr>
 			<tr><td>from</td><td><?php echo $tx_data["from"]; ?></td></tr>
 			<tr><td>to</td><td><?php echo $tx_data["to"]; ?></td></tr>
-			<tr><td>value</td><td><?php echo hexdec($tx_data["value"]); ?></td></tr>
+			<tr><td>value</td><td><?php echo number_format(hexdec($tx_data["value"])/1000000000000000000, 18, ",", "."); ?></td></tr>
 			<tr><td>nonce</td><td><?php echo hexdec($tx_data["nonce"]); ?></td></tr>
 			<tr><td>gas limit</td><td><?php echo "get this value"; ?></td></tr>
 			<tr><td>gas</td><td><?php echo hexdec($tx_data["gas"]); ?></td></tr>
-			<tr><td>gasPrice</td><td><?php echo hexdec($tx_data["gasPrice"]); ?></td></tr>
-			<tr><td>fee</td><td><?php echo "get this value"; ?></td></tr>
+			<tr><td>gasPrice</td><td><?php echo number_format(hexdec($tx_data["gasPrice"])/1000000000000000000, 18, ",", "."); ?></td></tr>
+			<tr><td>fee</td><td><?php echo $tx_data["gas"]*(hexdec($tx_data["gasPrice"])/1000000000000000000); ?></td></tr>
 			<tr><td>data (input)</td><td><?php echo $tx_data["input"]; ?></td></tr>
 			<tr><td>v</td><td><?php echo $tx_data["v"]; ?></td></tr>
 			<tr><td>r</td><td><?php echo $tx_data["r"]; ?></td></tr>
@@ -63,5 +63,5 @@ class TX
 		<?php
 	}
 }
-
+gas * gasPrice = transaction fee
 ?>

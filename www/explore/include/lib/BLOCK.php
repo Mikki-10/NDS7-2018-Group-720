@@ -43,7 +43,7 @@ class BLOCK
 		<tbody>
 			<tr><td>Hash</td><td><?php echo $block_data["hash"]; ?></td></tr>
 			<tr><td>parentHash</td><td><a href="?block=<?php echo $block_number-1 ?>"><?php echo $block_data["parentHash"]; ?></a></td></tr>
-			<tr><td>miner</td><td><?php echo $block_data["miner"]; ?></td></tr>
+			<tr><td>miner</td><td><a href="?account=<?php echo $block_data["miner"]; ?>"><?php echo $block_data["miner"]; ?></a></td></tr>
 			<tr><td>gasLimit</td><td><?php echo hexdec($block_data["gasLimit"]); ?></td></tr>
 			<tr><td>gasUsed</td><td><?php echo hexdec($block_data["gasUsed"]); ?></td></tr>
 			<tr><td>difficulty</td><td><?php echo hexdec($block_data["difficulty"]); ?></td></tr>
@@ -78,6 +78,35 @@ class BLOCK
 		<tbody>
 		<?php
 		foreach ($block_data["transactions"] as $key => $value) 
+		{
+			echo "<tr>";
+			echo '<td><a href="?tx=' . $value["hash"] . '">' . substr($value["hash"], 0, 7) . "..." . substr($value["hash"], -7) . '</a></td>';
+			echo '<td><a href="?account=' . $value["from"] . '">' . substr($value["from"], 0, 7) . "..." . substr($value["from"], -7) . '</a></td>';
+			echo '<td><a href="?account=' . $value["to"] . '">' . substr($value["to"], 0, 7) . "..." . substr($value["to"], -7) . '</a></td>';
+			echo '<td>' . number_format(hexdec($value["value"])/1000000000000000000, 18, ",", ".") . '</td>';
+			echo "</tr>";
+		}
+		echo "</tbody>";
+		echo "</table>";
+		echo "</div>";
+		?>
+
+		<br></br>
+		<h4>Uncles</h4>
+		<div class="table-responsive">
+		<table class="table table-hover">
+		<thead>
+		  <tr>
+		    <th>Hash</th>
+		    <th>From</th>
+		    <th>To</th>
+		    <th>Value</th>
+		  </tr>
+		</thead>
+		<tbody>
+		<?php
+		var_dump($block_data["uncles"]);
+		foreach ($block_data["uncles"] as $key => $value) 
 		{
 			echo "<tr>";
 			echo '<td><a href="?tx=' . $value["hash"] . '">' . substr($value["hash"], 0, 7) . "..." . substr($value["hash"], -7) . '</a></td>';

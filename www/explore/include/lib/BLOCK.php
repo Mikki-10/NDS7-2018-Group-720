@@ -27,7 +27,16 @@ class BLOCK
 
 		$block_number = number_format(hexdec($block_data["number"]), 0, ',', '');
 
+		echo '<div class="container"><br>';
+
+		echo '<div class="row"><div class="col-md-1">';
+		echo '<a class="btn btn-primary" href="?block=' . $block_number-1 .'" role="button">Previous</a>';
+		echo '</div><div class="col-md-10 text-center">';
 		echo "<h1> $block_number </h1>";
+		echo '</div><div class="col-md-1">';
+		echo '<a class="btn btn-primary" href="?block='. $block_number-1 .'" role="button">Next</a>';
+		echo "</div></div>";
+
 		?>
 		<div class="table-responsive">
 		<table class="table table-hover">
@@ -38,7 +47,7 @@ class BLOCK
 		</thead>
 		<tbody>
 			<tr><td>Hash</td><td><?php echo $block_data["hash"]; ?></td></tr>
-			<tr><td>parentHash</td><td><?php echo $block_data["parentHash"]; ?></td></tr>
+			<tr><td>parentHash</td><td><a href="?block=<?php echo $block_number-1 ?>"><?php echo $block_data["parentHash"]; ?></a></td></tr>
 			<tr><td>miner</td><td><?php echo $block_data["miner"]; ?></td></tr>
 			<tr><td>gasLimit</td><td><?php echo hexdec($block_data["gasLimit"]); ?></td></tr>
 			<tr><td>gasUsed</td><td><?php echo hexdec($block_data["gasUsed"]); ?></td></tr>
@@ -58,6 +67,10 @@ class BLOCK
 			<tr><td>transactionsRoot</td><td><?php echo $block_data["transactionsRoot"]; ?></td></tr>
 		</tbody>
 		</table>
+		</div>
+
+		<h4>Transactions</h4>
+		<p>Something</p>
 		</div>
 		<?php
 	}

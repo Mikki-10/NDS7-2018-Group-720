@@ -40,12 +40,12 @@ class BLOCK
 			<tr><td>Hash</td><td><?php echo $block_data["hash"]; ?></td></tr>
 			<tr><td>parentHash</td><td><?php echo $block_data["parentHash"]; ?></td></tr>
 			<tr><td>miner</td><td><?php echo $block_data["miner"]; ?></td></tr>
-			<tr><td>gasLimit</td><td><?php echo $block_data["gasLimit"]; ?></td></tr>
-			<tr><td>gasUsed</td><td><?php echo $block_data["gasUsed"]; ?></td></tr>
-			<tr><td>difficulty</td><td><?php echo $block_data["difficulty"]; ?></td></tr>
-			<tr><td>totalDifficulty</td><td><?php echo $block_data["totalDifficulty"]; ?></td></tr>
-			<tr><td>timestamp</td><td><?php echo $block_data["timestamp"]; ?></td></tr>
-			<tr><td>size</td><td><?php echo $block_data["size"]; ?></td></tr>
+			<tr><td>gasLimit</td><td><?php echo hexdec($block_data["gasLimit"]); ?></td></tr>
+			<tr><td>gasUsed</td><td><?php echo hexdec($block_data["gasUsed"]); ?></td></tr>
+			<tr><td>difficulty</td><td><?php echo hexdec($block_data["difficulty"]); ?></td></tr>
+			<tr><td>totalDifficulty</td><td><?php echo hexdec($block_data["totalDifficulty"]); ?></td></tr>
+			<tr><td>timestamp</td><td><?php echo date("d-m-Y H:i:s", hexdec($block["timestamp"])); ?></td></tr>
+			<tr><td>size</td><td><?php echo hexdec($block_data["size"]); ?></td></tr>
 			<tr><td>transactions</td><td><?php echo count($block_data["transactions"]); ?></td></tr>
 			<tr><td>uncles</td><td><?php echo count($block_data["uncles"]); ?></td></tr>
 			<tr><td>extraData</td><td><?php echo $block_data["extraData"]; ?></td></tr>

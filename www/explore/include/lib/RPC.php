@@ -51,7 +51,7 @@ class RPC
 		// eth_blockNumber
 		$array = $this->request('{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":83}');
 		//$json = json_decode($json, true);
-		return number_format(hexdec($array["result"]));
+		return number_format(hexdec($array["result"]), 0, ',', '');
 	}
 
 	function get_Block_By_Number($block)

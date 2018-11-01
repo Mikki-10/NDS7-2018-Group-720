@@ -58,11 +58,11 @@ class RPC
 	{
 		if (substr($block, 0, 2) == "0x") 
 		{
-			get_Block_By_Hash($block);
+			$this->get_Block_By_Hash($block);
 		} 
 		else 
 		{
-			get_Block_By_Number($block);
+			$this->get_Block_By_Number($block);
 		}
 		
 	}

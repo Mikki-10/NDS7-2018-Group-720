@@ -83,7 +83,7 @@ class RPC
 
 	function get_Transaction_By_Hash($hash)
 	{
-		return $this->request('{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["'.$hash.'", true],"id":1}');
+		return $this->request('{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["'.$hash.'"],"id":1}');
 	}
 }
 

@@ -73,7 +73,7 @@ class FRONTPAGE
 			}
 		}
 
-		echo "</div>"
+		echo "</div>";
 
 	}
 

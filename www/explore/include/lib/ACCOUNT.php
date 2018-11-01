@@ -8,10 +8,15 @@ class ACCOUNT
 	
 	function __construct()
 	{
-		# code...
+		$this->start();
 	}
 
 	function start()
+	{
+
+	}
+
+	function make_page()
 	{
 		
 	}

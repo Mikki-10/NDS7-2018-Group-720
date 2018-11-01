@@ -2,19 +2,18 @@
 
 if (isset($_GET["block"])) 
 {
-	# code...
+	new BLOCK();
 }
 elseif (isset($_GET["account"])) 
 {
-	# code...
+	new ACCOUNT();
 }
 elseif (isset($_GET["tx"])) 
 {
-	# code...
+	new TX();
 }
 else
 {
-	//Frontpage
 	new FRONTPAGE();
 }
 ?>

@@ -82,9 +82,9 @@ class FRONTPAGE
 			foreach ($block["result"]["transactions"] as $key => $value) 
 			{
 				echo "<tr>";
-				echo '<td><a href="?tx=' . $value["hash"] . '">' . $value["hash"] . '</a></td>';
-				echo '<td><a href="?account=' . $value["from"] . '">' . $value["from"] . '</a></td>';
-				echo '<td><a href="?account=' . $value["to"] . '">' . $value["to"] . '</a></td>';
+				echo '<td><a href="?tx=' . $value["hash"] . '">' . substr($value["hash"], 0, 7) . "..." . substr($value["hash"], -7) . '</a></td>';
+				echo '<td><a href="?account=' . $value["from"] . '">' . substr($value["from"], 0, 7) . "..." . substr($value["from"], -7) . '</a></td>';
+				echo '<td><a href="?account=' . $value["to"] . '">' . substr($value["to"], 0, 7) . "..." . substr($value["to"], -7) . '</a></td>';
 				echo '<td>' . number_format(hexdec($value["value"])/1000000000000000000, 18, ",", ".") . '</td>';
 				echo "</tr>";
 			}

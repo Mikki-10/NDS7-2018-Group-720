@@ -39,7 +39,7 @@ class BLOCK
 
 		?>
 		<div class="table-responsive">
-		<table class="table table-hover" style="table-layout: fixed; width: 100%">
+		<table class="table table-hover" style="width: 100%">
 		<tbody>
 			<tr><td>Hash</td><td><?php echo $block_data["hash"]; ?></td></tr>
 			<tr><td>parentHash</td><td><a href="?block=<?php echo $block_number-1 ?>"><?php echo $block_data["parentHash"]; ?></a></td></tr>

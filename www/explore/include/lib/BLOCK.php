@@ -23,7 +23,7 @@ class BLOCK
 
 		$block_data = $block_data["result"];
 		
-		echo "<pre>"; var_dump($block_data); echo "</pre>";
+		//echo "<pre>"; var_dump($block_data); echo "</pre>";
 
 		$block_number = number_format(hexdec($block_data["number"]), 0, ',', '');
 
@@ -44,7 +44,7 @@ class BLOCK
 			<tr><td>gasUsed</td><td><?php echo hexdec($block_data["gasUsed"]); ?></td></tr>
 			<tr><td>difficulty</td><td><?php echo hexdec($block_data["difficulty"]); ?></td></tr>
 			<tr><td>totalDifficulty</td><td><?php echo hexdec($block_data["totalDifficulty"]); ?></td></tr>
-			<tr><td>timestamp</td><td><?php echo date("d-m-Y H:i:s", hexdec($block["timestamp"])); ?></td></tr>
+			<tr><td>timestamp</td><td><?php echo date("d-m-Y H:i:s", hexdec($block_data["timestamp"])); ?></td></tr>
 			<tr><td>size</td><td><?php echo hexdec($block_data["size"]); ?></td></tr>
 			<tr><td>transactions</td><td><?php echo count($block_data["transactions"]); ?></td></tr>
 			<tr><td>uncles</td><td><?php echo count($block_data["uncles"]); ?></td></tr>

@@ -32,7 +32,7 @@ class FRONTPAGE
 
 		//echo "<pre>"; var_dump($block_data); echo "</pre>";
 
-		echo "Recent blocks";
+		echo "<h1>Recent blocks</h1>";
 		?>
 		<div class="table-responsive">
 		<table class="table table-hover">
@@ -63,7 +63,7 @@ class FRONTPAGE
 		echo "</div>";
 
 		echo "<br>";
-		echo "Recent Transactions";
+		echo "<h1>Recent Transactions</h1>";
 		foreach ($block_data as $key => $block) 
 		{
 			foreach ($block["result"]["transactions"] as $key => $value) 

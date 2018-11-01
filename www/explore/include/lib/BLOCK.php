@@ -65,7 +65,7 @@ class BLOCK
 			<tr><td>transactions</td><td><?php echo count($block_data["transactions"]); ?></td></tr>
 			<tr><td>uncles</td><td><?php echo count($block_data["uncles"]); ?></td></tr>
 			<tr><td>extraData</td><td><?php echo $block_data["extraData"]; ?></td></tr>
-			<tr><td>logsBloom</td><td style="word-wrap: break-word"><?php echo $block_data["logsBloom"]; ?></td></tr>
+			<tr><td>logsBloom</td><td><?php echo $block_data["logsBloom"]; ?></td></tr>
 			<tr><td>mixHash</td><td><?php echo $block_data["mixHash"]; ?></td></tr>
 			<tr><td>nonce</td><td><?php echo $block_data["nonce"]; ?></td></tr>
 			<tr><td>receiptsRoot</td><td><?php echo $block_data["receiptsRoot"]; ?></td></tr>
@@ -95,7 +95,7 @@ class BLOCK
 			echo '<td><a href="?tx=' . $value["hash"] . '">' . substr($value["hash"], 0, 7) . "..." . substr($value["hash"], -7) . '</a></td>';
 			echo '<td><a href="?account=' . $value["from"] . '">' . substr($value["from"], 0, 7) . "..." . substr($value["from"], -7) . '</a></td>';
 			echo '<td><a href="?account=' . $value["to"] . '">' . substr($value["to"], 0, 7) . "..." . substr($value["to"], -7) . '</a></td>';
-			echo '<td>' . number_format(hexdec($value["value"])/1000000000000000000, 18, ",", ".") . '</td>';
+			echo '<td>' . rtrim(number_format(hexdec($value["value"])/1000000000000000000, 18, ",", "."), 0) . '</td>';
 			echo "</tr>";
 		}
 		echo "</tbody>";

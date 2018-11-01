@@ -21,11 +21,11 @@ class TX
 		$RPC = new RPC();
 		$tx_data = $RPC->get_Transaction_By_Hash($tx_hash);
 
-		echo "<pre>"; var_dump($tx_data); echo "</pre>";
+		//echo "<pre>"; var_dump($tx_data); echo "</pre>";
 
 		$tx_data = $tx_data["result"];
 		
-		echo "<pre>"; var_dump($tx_data); echo "</pre>";
+		//echo "<pre>"; var_dump($tx_data); echo "</pre>";
 
 		$block_data = $RPC->get_Block($tx_data["blockHash"]);
 		$block_data = $block_data["result"];

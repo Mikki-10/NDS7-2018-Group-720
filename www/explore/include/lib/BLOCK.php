@@ -40,11 +40,6 @@ class BLOCK
 		?>
 		<div class="table-responsive">
 		<table class="table table-hover">
-		<thead>
-		  <tr>
-		    <th>Data</th>
-		  </tr>
-		</thead>
 		<tbody>
 			<tr><td>Hash</td><td><?php echo $block_data["hash"]; ?></td></tr>
 			<tr><td>parentHash</td><td><a href="?block=<?php echo $block_number-1 ?>"><?php echo $block_data["parentHash"]; ?></a></td></tr>
@@ -68,7 +63,7 @@ class BLOCK
 		</tbody>
 		</table>
 		</div>
-
+		<br></br>
 		<h4>Transactions</h4>
 		<div class="table-responsive">
 		<table class="table table-hover">
@@ -82,7 +77,7 @@ class BLOCK
 		</thead>
 		<tbody>
 		<?php
-		foreach ($block["transactions"] as $key => $value) 
+		foreach ($block_data["transactions"] as $key => $value) 
 		{
 			echo "<tr>";
 			echo "<td>" . $value["hash"] . "</td>";

@@ -63,5 +63,5 @@ class TX
 		<?php
 	}
 }
-gas * gasPrice = transaction fee
+
 ?>

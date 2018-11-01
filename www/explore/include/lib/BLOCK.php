@@ -19,7 +19,7 @@ class BLOCK
 	function make_page($block)
 	{
 		$RPC = new RPC();
-		$block_data = $RPC->get_Block_By_Number($block);
+		$block_data = $RPC->get_Block($block);
 
 		$block_data = $block_data["result"];
 		

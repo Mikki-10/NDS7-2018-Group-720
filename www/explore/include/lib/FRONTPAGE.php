@@ -25,7 +25,7 @@ class FRONTPAGE
 		$RPC = new RPC();
 		for ($i=$block-10; $i < $block; $i++) 
 		{ 
-			$block_data[$i] = $RPC->get_Block_By_Number($i);
+			$block_data[$i] = $RPC->get_Block($i);
 		}
 
 		krsort($block_data);
@@ -93,6 +93,32 @@ class FRONTPAGE
 		echo "</table>";
 		echo "</div>";
 
+		?>
+
+		<br></br>
+		<h4>Uncles</h4>
+		<div class="table-responsive">
+		<table class="table table-hover">
+		<thead>
+		  <tr>
+		    <th>Hash</th>
+		  </tr>
+		</thead>
+		<tbody>
+		<?php
+		//var_dump($block_data["uncles"]);
+		foreach ($block_data as $key => $block) 
+		{
+			foreach ($block_data["uncles"] as $key => $value) 
+			{
+				echo "<tr>";
+				echo '<td><a href="?block=' . $value. '">' . $value . '</a></td>';
+				echo "</tr>";
+			}
+		}
+		echo "</tbody>";
+		echo "</table>";
+		echo "</div>";
 		echo "</div>";
 
 	}

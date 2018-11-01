@@ -54,6 +54,26 @@ class RPC
 		return number_format(hexdec($array["result"]), 0, ',', '');
 	}
 
+	function get_Block($block)
+	{
+		if (substr($block, 0, 2) == "0x") 
+		{
+			get_Block_By_Hash($block);
+		} 
+		else 
+		{
+			get_Block_By_Number($block);
+		}
+		
+	}
+
+	function get_Block_By_Hash($block)
+	{
+		$array = $this->request('{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["'.$block.'", true],"id":1}');
+		//$json = json_decode($json, true);
+		return $array;
+	}
+
 	function get_Block_By_Number($block)
 	{
 		// eth_getBlockByNumber

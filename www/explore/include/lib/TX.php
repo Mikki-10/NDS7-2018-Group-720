@@ -51,7 +51,7 @@ class TX
 			<tr><td>gas limit</td><td><?php echo "get this value"; ?></td></tr>
 			<tr><td>gas</td><td><?php echo hexdec($tx_data["gas"]); ?></td></tr>
 			<tr><td>gasPrice</td><td><?php echo number_format(hexdec($tx_data["gasPrice"])/1000000000000000000, 18, ",", "."); ?></td></tr>
-			<tr><td>fee</td><td><?php echo hexdec($tx_data["gas"])*(hexdec($tx_data["gasPrice"])/1000000000000000000); ?></td></tr>
+			<tr><td>fee</td><td><?php echo number_format(hexdec($tx_data["gas"])*(hexdec($tx_data["gasPrice"])/1000000000000000000), 18, ",", "."); ?></td></tr>
 			<tr><td>data (input)</td><td><?php echo $tx_data["input"]; ?></td></tr>
 			<tr><td>v</td><td><?php echo $tx_data["v"]; ?></td></tr>
 			<tr><td>r</td><td><?php echo $tx_data["r"]; ?></td></tr>

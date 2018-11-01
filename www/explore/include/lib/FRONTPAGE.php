@@ -81,8 +81,6 @@ class FRONTPAGE
 		{
 			foreach ($block["result"]["transactions"] as $key => $value) 
 			{
-				var_dump($value);
-				echo "<br>";
 				echo "<tr>";
 				echo "<td>$value["hash"]</td>";
 				echo "<td>$value["from"]</td>";

@@ -70,9 +70,31 @@ class BLOCK
 		</div>
 
 		<h4>Transactions</h4>
-		<p>Something</p>
-		</div>
+		<div class="table-responsive">
+		<table class="table table-hover">
+		<thead>
+		  <tr>
+		    <th>Hash</th>
+		    <th>From</th>
+		    <th>To</th>
+		    <th>Value</th>
+		  </tr>
+		</thead>
+		<tbody>
 		<?php
+		foreach ($block["transactions"] as $key => $value) 
+		{
+			echo "<tr>";
+			echo "<td>$value["hash"]</td>";
+			echo "<td>$value["from"]</td>";
+			echo "<td>$value["to"]</td>";
+			echo "<td>$value["value"]</td>";
+			echo "</tr>";
+		}
+		echo "</tbody>";
+		echo "</table>";
+		echo "</div>";
+		echo "</div>";
 	}
 }
 

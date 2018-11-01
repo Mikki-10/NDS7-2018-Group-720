@@ -68,7 +68,7 @@ class FRONTPAGE
 		{
 			foreach ($block["result"]["transactions"] as $key => $value) 
 			{
-				echo $value;
+				var_dump($value);
 				echo "<br>";
 			}
 		}

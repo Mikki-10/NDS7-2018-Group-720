@@ -80,7 +80,7 @@ class BLOCK
 		foreach ($block_data["transactions"] as $key => $value) 
 		{
 			echo "<tr>";
-			echo '<td><a href="?tx=' . $value["hash"]) . '">' . $value["hash"] . '</a></td>';
+			echo '<td><a href="?tx=' . $value["hash"] . '">' . $value["hash"] . '</a></td>';
 			echo '<td><a href="?account=' . $value["from"] . '">' . $value["from"] . '</a></td>';
 			echo '<td><a href="?account=' . $value["to"] . '">' . $value["to"] . '</a></td>';
 			echo '<td>' . number_format(hexdec($value["value"])/1000000000000000000, 18, ",", ".") . '</td>';

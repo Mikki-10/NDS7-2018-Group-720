@@ -27,6 +27,16 @@ class BLOCK
 
 		$block_number = number_format(hexdec($block_data["number"]), 0, ',', '');
 
+		if ($block_number == "0") 
+		{
+			$block_number = "Uncle block";
+		} 
+		else 
+		{
+			# code...
+		}
+		
+
 		echo '<div class="container"><br>';
 
 		echo '<div class="row"><div class="col-md-1">';

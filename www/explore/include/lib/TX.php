@@ -60,6 +60,7 @@ class TX
 		</table>
 		</div>
 		</div>
+		<?php
 	}
 }
 

@@ -83,7 +83,7 @@ class BLOCK
 			echo "<td>" . $value["hash"] . "</td>";
 			echo "<td>" . $value["from"] . "</td>";
 			echo "<td>" . $value["to"] . "</td>";
-			echo "<td>" . number_format(hexdec($value["value"])/1000000000000000000, 20) . "</td>";
+			echo "<td>" . number_format(hexdec($value["value"])/1000000000000000000, 30) . "</td>";
 			echo "</tr>";
 		}
 		echo "</tbody>";

@@ -21,7 +21,7 @@ class FRONTPAGE
 	function make_page($block)
 	{
 		
-		echo "<pre>"; var_dump($block); echo "</pre>";
+		//echo "<pre>"; var_dump($block); echo "</pre>";
 		$RPC = new RPC();
 		for ($i=$block-10; $i < $block; $i++) 
 		{ 
@@ -30,7 +30,7 @@ class FRONTPAGE
 
 		krsort($block_data);
 
-		echo "<pre>"; var_dump($block_data); echo "</pre>";
+		//echo "<pre>"; var_dump($block_data); echo "</pre>";
 
 		echo "Recent blocks";
 		?>

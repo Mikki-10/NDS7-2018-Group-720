@@ -31,7 +31,7 @@ class FRONTPAGE
 		krsort($block_data);
 
 		//echo "<pre>"; var_dump($block_data); echo "</pre>";
-
+		echo '<div class="container"><br>';
 		echo "<h1>Recent blocks</h1>";
 		?>
 		<div class="table-responsive">
@@ -72,6 +72,8 @@ class FRONTPAGE
 				echo "<br>";
 			}
 		}
+
+		echo "</div>"
 
 	}
 

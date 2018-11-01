@@ -118,7 +118,8 @@ class BLOCK
 		foreach ($block_data["uncles"] as $key => $value) 
 		{
 			echo "<tr>";
-			echo '<td><a href="?block=' . $value. '">' . $value . '</a></td>';
+			//echo '<td><a href="?block=' . $value. '">' . $value . '</a></td>';
+			echo '<td>' . $value . '</td>';
 			echo "</tr>";
 		}
 		echo "</tbody>";

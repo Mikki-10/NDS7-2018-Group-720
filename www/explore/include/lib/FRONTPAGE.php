@@ -64,14 +64,36 @@ class FRONTPAGE
 
 		echo "<br>";
 		echo "<h1>Recent Transactions</h1>";
+		?>
+		<div class="table-responsive">
+		<table class="table table-hover">
+		<thead>
+		  <tr>
+		    <th>Hash</th>
+		    <th>From</th>
+		    <th>To</th>
+		    <th>Value</th>
+		  </tr>
+		</thead>
+		<tbody>
+		<?php
 		foreach ($block_data as $key => $block) 
 		{
 			foreach ($block["result"]["transactions"] as $key => $value) 
 			{
 				var_dump($value);
 				echo "<br>";
+				echo "<tr>";
+				echo "<td>$value["hash"]</td>";
+				echo "<td>$value["from"]</td>";
+				echo "<td>$value["to"]</td>";
+				echo "<td>$value["value"]</td>";
+				echo "</tr>";
 			}
 		}
+		echo "</tbody>";
+		echo "</table>";
+		echo "</div>";
 
 		echo "</div>";
 

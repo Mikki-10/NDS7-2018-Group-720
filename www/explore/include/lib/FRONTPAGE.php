@@ -34,7 +34,9 @@ class FRONTPAGE
 
 		echo "Recent blocks";
 		?>
-		<table>
+		<div class="table-responsive">
+		<table class="table table-hover">
+		<thead>
 		  <tr>
 		    <th>Number</th>
 		    <th>Miner</th>
@@ -42,6 +44,8 @@ class FRONTPAGE
 		    <th>Tx</th>
 		    <th>Uncles</th>
 		  </tr>
+		</thead>
+		<tbody>
 		<?php
 		foreach ($block_data as $key => $block) 
 		{
@@ -54,7 +58,9 @@ class FRONTPAGE
 			echo "</tr>";
 		}
 
+		echo "</tbody>";
 		echo "</table>";
+		echo "</div>";
 
 		echo "<br>";
 		echo "Recent Transactions";

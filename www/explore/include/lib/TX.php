@@ -27,7 +27,7 @@ class TX
 		
 		echo "<pre>"; var_dump($tx_data); echo "</pre>";
 
-		$block_data = $RPC->get_Block($tx_data["blockNumber"]);
+		$block_data = $RPC->get_Block($tx_data["blockHash"]);
 		$block_data = $block_data["result"];
 
 		echo '<div class="container"><br>';

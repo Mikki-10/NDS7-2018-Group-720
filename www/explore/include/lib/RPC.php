@@ -68,9 +68,7 @@ class RPC
 
 	function get_Block_By_Hash($block)
 	{
-		$array = $this->request('{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["'.$block.'", true],"id":1}');
-		//$json = json_decode($json, true);
-		return $array;
+		return $this->request('{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["'.$block.'", true],"id":1}');
 	}
 
 	function get_Block_By_Number($block)
@@ -81,6 +79,11 @@ class RPC
 		$array = $this->request('{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["'.$block.'", true],"id":1}');
 		//$json = json_decode($json, true);
 		return $array;
+	}
+
+	function get_Transaction_By_Hash($hash)
+	{
+		return $this->request('{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["'.$hash.'", true],"id":1}');
 	}
 }
 

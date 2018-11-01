@@ -27,6 +27,9 @@ class TX
 		
 		echo "<pre>"; var_dump($tx_data); echo "</pre>";
 
+		$block_data = $RPC->get_Block($tx_data["blockNumber"]);
+		$block_data = $block_data["result"];
+
 		echo '<div class="container"><br>';
 
 		echo '<div class="row"><div class="col-md-1">';
@@ -48,7 +51,7 @@ class TX
 			<tr><td>to</td><td><?php echo $tx_data["to"]; ?></td></tr>
 			<tr><td>value</td><td><?php echo rtrim(rtrim(number_format(hexdec($tx_data["value"])/1000000000000000000, 18, ",", "."), 0), ","); ?></td></tr>
 			<tr><td>nonce</td><td><?php echo hexdec($tx_data["nonce"]); ?></td></tr>
-			<tr><td>gas limit</td><td><?php echo "get this value"; ?></td></tr>
+			<tr><td>gas limit</td><td><?php echo $block_data["gasLimit"]; ?></td></tr>
 			<tr><td>gas</td><td><?php echo hexdec($tx_data["gas"]); ?></td></tr>
 			<tr><td>gasPrice</td><td><?php echo rtrim(rtrim(number_format(hexdec($tx_data["gasPrice"])/1000000000000000000, 18, ",", "."), 0), ","); ?></td></tr>
 			<tr><td>fee</td><td><?php echo rtrim(rtrim(number_format(hexdec($tx_data["gas"])*(hexdec($tx_data["gasPrice"])/1000000000000000000), 18, ",", "."), 0), ","); ?></td></tr>

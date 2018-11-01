@@ -82,10 +82,10 @@ class FRONTPAGE
 			foreach ($block["result"]["transactions"] as $key => $value) 
 			{
 				echo "<tr>";
-				echo "<td>$value["hash"]</td>";
-				echo "<td>$value["from"]</td>";
-				echo "<td>$value["to"]</td>";
-				echo "<td>$value["value"]</td>";
+				echo "<td> $value["hash"] </td>";
+				echo "<td> $value["from"] </td>";
+				echo "<td> $value["to"] </td>";
+				echo "<td> $value["value"] </td>";
 				echo "</tr>";
 			}
 		}

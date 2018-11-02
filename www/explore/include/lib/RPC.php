@@ -96,9 +96,9 @@ class RPC
 
 	function get_Account_Balance($account)
 	{
-		$data[0] = $this->request('{"jsonrpc":"2.0","method":"eth_getBalance","params":["' . $account . '", "latest"],"id":1}');
-		$data[1] = $this->request('{"jsonrpc":"2.0","method":"eth_getBalance","params":["' . $account . '", "earliest"],"id":1}');
-		$data[2] = $this->request('{"jsonrpc":"2.0","method":"eth_getBalance","params":["' . $account . '", "pending"],"id":1}');
+		$data["latest"] = $this->request('{"jsonrpc":"2.0","method":"eth_getBalance","params":["' . $account . '", "latest"],"id":1}');
+		$data["earliest"] = $this->request('{"jsonrpc":"2.0","method":"eth_getBalance","params":["' . $account . '", "earliest"],"id":1}');
+		$data["pending"] = $this->request('{"jsonrpc":"2.0","method":"eth_getBalance","params":["' . $account . '", "pending"],"id":1}');
 
 		return $data;
 	}

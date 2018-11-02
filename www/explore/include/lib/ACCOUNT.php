@@ -23,9 +23,12 @@ class ACCOUNT
 
 		echo "<pre>"; var_dump($account_data); echo "</pre>";
 
-		//$tx_data = $tx_data["result"];
+		foreach ($account_data as $key => $value) 
+		{
+			$account_info[$key] = $value["result"];
+		}
 		
-		//echo "<pre>"; var_dump($tx_data); echo "</pre>";
+		echo "<pre>"; var_dump($account_info); echo "</pre>";
 
 	}
 }

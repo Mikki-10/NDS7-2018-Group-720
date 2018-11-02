@@ -1,0 +1,3 @@
+eth.sendTransaction({from: eth.coinbase, to: "0xc5171ccb88c8bdfe9e205b03713020d1b8146279", value: web3.toWei(1, "ether")})
+
+eth.sendTransaction({from: eth.coinbase, to: "0xc5171ccb88c8bdfe9e205b03713020d1b8146279", value: web3.toWei(0, "ether") data: web3.toHex('ZeroCool')},)

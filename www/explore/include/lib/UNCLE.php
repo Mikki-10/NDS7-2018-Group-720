@@ -8,7 +8,7 @@ class UNCLE
 	
 	function __construct()
 	{
-		start();
+		$this->start();
 	}
 
 	function start()

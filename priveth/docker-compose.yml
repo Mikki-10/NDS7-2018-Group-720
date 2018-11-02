@@ -36,8 +36,7 @@ services:
       - ./gethdata/miner3/miner3/:/gethdata/miner3:ro
       - ./gethdata/miner4/miner4/:/gethdata/miner4:ro
       - ../tools/transactor:/transactor:ro
-    entrypoint: /bin/sh
-    command: -i
+    entrypoint: /transactor/jank.sh
 
 #  explorer:
 #    build:

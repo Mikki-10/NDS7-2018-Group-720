@@ -34,9 +34,11 @@ class UNCLE
 
 		echo '<div class="container"><br>';
 
-		echo '<div class="col-md-10 text-center">';
+		echo '<div class="row"><div class="col-md-1">';
+		echo '</div><div class="col-md-10 text-center">';
 		echo "<h4> $uncle_number </h4>";
-		echo '</div>';
+		echo '</div><div class="col-md-1">';
+		echo "</div></div>";
 
 		?>
 		<div class="table-responsive">

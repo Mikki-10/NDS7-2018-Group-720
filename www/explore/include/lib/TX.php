@@ -75,6 +75,8 @@ class TX
 	{
 		$RPC = new RPC();
 		$tx_data = $RPC->get_Pending_Transactions();
+
+		var_dump($tx_data);
 	}
 }
 

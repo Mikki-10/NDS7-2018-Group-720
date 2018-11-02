@@ -25,7 +25,7 @@ class UNCLE
 
 		$uncle_data = $uncle_data["result"];
 		
-		//echo "<pre>"; var_dump($uncle_data); echo "</pre>";
+		echo "<pre>"; var_dump($uncle_data); echo "</pre>";
 
 		$uncle_number = number_format(hexdec($uncle_data["number"]), 0, ',', '');
 

@@ -12,6 +12,7 @@ services:
       - 30301:30301
     image: bootnode
     container_name: bootnode
+    hostname: bootnode
 
   webstats-frontend:
     build:
@@ -20,6 +21,7 @@ services:
     depends_on:
       - bootnode
     container_name: webstats-frontend
+    hostname: webstats-frontend
     ports:
       - 3000:3000
     environment:
@@ -59,6 +61,7 @@ services:
       context: ./dockerfiles/node
     image: node
     container_name: node1
+    hostname: node1
     depends_on:
       - webstats-frontend
     expose:
@@ -76,6 +79,7 @@ services:
       context: ./dockerfiles/node
     image: node
     container_name: node2
+    hostname: node2
     depends_on:
       - node1
     expose:
@@ -93,6 +97,7 @@ services:
       context: ./dockerfiles/node
     image: node
     container_name: node3
+    hostname: node3
     depends_on:
       - node2
     expose:
@@ -112,6 +117,7 @@ services:
     depends_on:
       - node3
     container_name: miner1
+    hostname: miner1
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner1
@@ -129,6 +135,7 @@ services:
     depends_on:
       - node3
     container_name: miner2
+    hostname: miner2
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner2
@@ -146,6 +153,7 @@ services:
     depends_on:
       - node3
     container_name: miner3
+    hostname: miner3
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner3
@@ -163,6 +171,7 @@ services:
     depends_on:
       - node3
     container_name: miner4
+    hostname: miner4
     cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner4
@@ -180,6 +189,7 @@ services:
 #    depends_on:
 #      - webstats-frontend
 #    container_name: miner5
+#    hostname: miner5
 #    cpu_quota: 50000
 #    environment:
 #      - DOCKER_NAME=miner5
@@ -196,6 +206,7 @@ services:
 #    depends_on:
 #      - webstats-frontend
 #    container_name: miner6
+#    hostname: miner6
 #    cpu_quota: 50000
 #    environment:
 #      - DOCKER_NAME=miner6
@@ -212,6 +223,7 @@ services:
 #    depends_on:
 #      - webstats-frontend
 #    container_name: miner7
+#    hostname: miner7
 #    cpu_quota: 50000
 #    environment:
 #      - DOCKER_NAME=miner7
@@ -228,6 +240,7 @@ services:
 #    depends_on:
 #      - webstats-frontend
 #    container_name: miner8
+#    hostname: miner8
 #    cpu_quota: 50000
 #    environment:
 #      - DOCKER_NAME=miner8
@@ -244,6 +257,7 @@ services:
 #    depends_on:
 #      - webstats-frontend
 #    container_name: miner9
+#    hostname: miner9
 #    cpu_quota: 50000
 #    environment:
 #      - DOCKER_NAME=miner9
@@ -260,6 +274,7 @@ services:
 #    depends_on:
 #      - webstats-frontend
 #    container_name: miner10
+#    hostname: miner10
 #    cpu_quota: 50000
 #    environment:
 #      - DOCKER_NAME=miner10

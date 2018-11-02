@@ -39,7 +39,7 @@ services:
       - ./gethdata/miner4/miner4/:/gethdata/miner4:ro
       - ../tools/transactor:/transactor:ro
     entrypoint: /bin/sh
-    command: ["less", "/dev/null"]
+    command: ["/bin/tail", "-f", "/dev/null"]
 
 #  explorer:
 #    build:

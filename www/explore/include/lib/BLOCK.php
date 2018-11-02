@@ -51,7 +51,7 @@ class BLOCK
 			echo '<a class="btn btn-primary" href="?block='; echo $block_number-1; echo '" role="button">Previous</a>';
 		}
 		echo '</div><div class="col-md-10 text-center">';
-		echo "<h1> $block_number </h1>";
+		echo "<h4> $block_number </h4>";
 		echo '</div><div class="col-md-1">';
 		if (is_numeric($block_number)) 
 		{

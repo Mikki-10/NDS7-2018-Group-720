@@ -32,7 +32,11 @@ class TX
 
 		echo '<div class="container"><br>';
 
+		echo '<div class="row"><div class="col-md-1">';
+		echo '</div><div class="col-md-10 text-center">';
 		echo "<h4>" . $tx_data["hash"] . "</h4>";
+		echo '</div><div class="col-md-1">';
+		echo "</div></div>";
 
 		?>
 		<div class="table-responsive">

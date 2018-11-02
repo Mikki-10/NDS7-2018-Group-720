@@ -89,6 +89,7 @@ class RPC
 	function get_Uncle_By_Block_Hash_And_Index($hash, $index)
 	{
 		$index = dechex($index);
+		$block = "0x" . $block;
 		return $this->request('{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["'.$hash.'", "'.$index.'"],"id":1}');
 
 	}

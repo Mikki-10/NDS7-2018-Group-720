@@ -13,7 +13,14 @@ class TX
 
 	function start()
 	{
-		$this->make_page($_GET["tx"]);
+		if (isset($_GET["tx"]) && $_GET["tx"] == "pending") 
+		{
+			$this->pending();
+		}
+		else
+		{
+			$this->make_page($_GET["tx"]);
+		}
 	}
 
 	function make_page($tx_hash)
@@ -62,6 +69,12 @@ class TX
 		</div>
 		</div>
 		<?php
+	}
+
+	function pending()
+	{
+		$RPC = new RPC();
+		$tx_data = $RPC->get_Pending_Transactions();
 	}
 }
 

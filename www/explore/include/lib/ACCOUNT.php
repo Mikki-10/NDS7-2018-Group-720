@@ -13,10 +13,10 @@ class ACCOUNT
 
 	function start()
 	{
-
+		make_page($_GET["account"]);
 	}
 
-	function make_page()
+	function make_page($account)
 	{
 		$RPC = new RPC();
 		$account_data = $RPC->get_Account_Balance($account);

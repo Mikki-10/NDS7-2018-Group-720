@@ -13,7 +13,7 @@ class UNCLE
 
 	function start()
 	{
-		$this->make_page($_GET["uncle"], $_GET["id"])
+		$this->make_page($_GET["uncle"], $_GET["id"]);
 	}
 
 	function make_page($hash, $index)

@@ -93,6 +93,15 @@ class RPC
 		return $this->request('{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["'.$hash.'", "'.$index.'"],"id":1}');
 
 	}
+
+	function get_Account_Balance($account)
+	{
+		$data[0] = $this->request('{"jsonrpc":"2.0","method":"eth_getBalance","params":["' . $account . '", "latest"],"id":1}');
+		$data[1] = $this->request('{"jsonrpc":"2.0","method":"eth_getBalance","params":["' . $account . '", "earliest"],"id":1}');
+		$data[2] = $this->request('{"jsonrpc":"2.0","method":"eth_getBalance","params":["' . $account . '", "pending"],"id":1}');
+
+		return $data;
+	}
 }
 
 

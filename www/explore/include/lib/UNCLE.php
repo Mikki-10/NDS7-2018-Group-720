@@ -8,7 +8,7 @@ class UNCLE
 	
 	function __construct()
 	{
-		# code...
+		start();
 	}
 
 	function start()

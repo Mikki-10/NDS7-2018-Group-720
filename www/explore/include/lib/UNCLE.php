@@ -62,6 +62,7 @@ class UNCLE
 		</tbody>
 		</table>
 		</div>
+		<?php
 	}
 
 }

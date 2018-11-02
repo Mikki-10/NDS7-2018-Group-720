@@ -24,6 +24,20 @@ services:
       - 3000:3000
     environment:
       - WS_SECRET=nDs2018
+  
+  transactor:
+    image: ethereum/client-go
+    depends_on:
+      - bootnode
+    container_name: transactor
+    volumes:
+      - ./gethdata/miner1/miner1/:/gethdata/miner1:ro
+      - ./gethdata/miner2/miner2/:/gethdata/miner2:ro
+      - ./gethdata/miner3/miner3/:/gethdata/miner3:ro
+      - ./gethdata/miner4/miner4/:/gethdata/miner4:ro
+      - ../tools/transactor:/transactor:ro
+    entrypoint: /bin/sh
+    command: -i
 
 #  explorer:
 #    build:

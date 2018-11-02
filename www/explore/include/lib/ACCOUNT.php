@@ -13,7 +13,7 @@ class ACCOUNT
 
 	function start()
 	{
-		make_page($_GET["account"]);
+		$this->make_page($_GET["account"]);
 	}
 
 	function make_page($account)

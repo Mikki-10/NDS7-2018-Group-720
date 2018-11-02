@@ -119,7 +119,7 @@ class BLOCK
 		{
 			echo "<tr>";
 			echo '<td><a href="?uncle=' . $value. '&id='.$key.'">' . $value . '</a></td>';
-			echo '<td>' . $value . '</td>';
+			//echo '<td>' . $value . '</td>';
 			echo "</tr>";
 		}
 		echo "</tbody>";

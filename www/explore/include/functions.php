@@ -8,7 +8,8 @@ $includes = array(
 					"FRONTPAGE",
 					"BLOCK",
 					"ACCOUNT",
-					"TX"
+					"TX",
+					"UNCLE"
 				);
 
 

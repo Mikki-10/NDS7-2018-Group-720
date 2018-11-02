@@ -85,6 +85,13 @@ class RPC
 	{
 		return $this->request('{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["'.$hash.'"],"id":1}');
 	}
+
+	function get_Uncle_By_Block_Hash_And_Index($hash, $index)
+	{
+		$index = dechex($index);
+		return $this->request('{"jsonrpc":"2.0","method":"eth_getUncleByBlockHashAndIndex","params":["'.$hash.'", "'.$index.'"],"id":1}');
+
+	}
 }
 
 

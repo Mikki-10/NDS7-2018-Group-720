@@ -110,6 +110,8 @@ class RPC
 			if (filectime("filter.json") >= time()-36000) 
 			{
 				$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
+				file_put_contents("filter.json", $id);
+				echo "Update file";
 				var_dump($id);
 				var_dump(hexdec($id["result"]));
 				$id = $id["result"];
@@ -118,6 +120,7 @@ class RPC
 			else
 			{
 				$json = json_decode(file_get_contents("filter.json"), true);
+				echo "Reuse file";
 				var_dump($json);
 				var_dump(hexdec($json["result"]));
 				$json = $json["result"];
@@ -127,6 +130,8 @@ class RPC
 		else
 		{
 			$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
+			file_put_contents("filter.json", $id);
+			echo "New file";
 			var_dump($id);
 			var_dump(hexdec($id["result"]));
 			$id = $id["result"];

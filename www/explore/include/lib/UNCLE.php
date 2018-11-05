@@ -52,7 +52,7 @@ class UNCLE
 		<table class="table table-hover">
 		<tbody>
 			<tr><td>Uncle Hash</td><td><?php echo $uncle_data["hash"]; ?></td></tr>
-			<tr><td>Block Hash</td><td><?php echo $hash; ?></td></tr>
+			<tr><td>Block Hash</td><td><a href="?block=<?php echo $hash; ?>"><?php echo $hash; ?></a></td></tr>
 			<tr><td>parentHash</td><td><a href="?block=<?php echo $uncle_data["parentHash"]; ?>"><?php echo $uncle_data["parentHash"]; ?></a></td></tr>
 			<tr><td>miner</td><td><a href="?account=<?php echo $uncle_data["miner"]; ?>"><?php echo $uncle_data["miner"]; ?></a></td></tr>
 			<tr><td>gasLimit</td><td><?php echo hexdec($uncle_data["gasLimit"]); ?></td></tr>

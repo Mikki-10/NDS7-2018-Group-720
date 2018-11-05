@@ -107,9 +107,9 @@ class RPC
 	{
 		if (file_exists("filter.json")) 
 		{
-			var_dump(filectime("filter.json"));
-			var_dump(time()-36000);
-			if (filectime("filter.json") >= time()-36000) 
+			//var_dump(filectime("filter.json"));
+			//var_dump(time()-36000);
+			if (filectime("filter.json") <= time()-36000) 
 			{
 				$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
 				file_put_contents("filter.json", $id);

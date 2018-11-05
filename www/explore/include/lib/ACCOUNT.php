@@ -44,7 +44,7 @@ class ACCOUNT
 			}
 		}
 
-		echo "<pre>"; var_dump($accounts); echo "</pre>";
+		//echo "<pre>"; var_dump($accounts); echo "</pre>";
 
 		echo '<div class="container"><br>';
 
@@ -70,6 +70,9 @@ class ACCOUNT
 			foreach ($accounts as $key => $value) 
 			{
 				$data = $RPC->get_Account_Balance($value);
+				
+				echo "<pre>"; var_dump($data); echo "</pre>";
+
 				echo '<tr>';
 					echo '<td><a href="?account=' . $value . '">' . $value . '</a></td>';
 					echo '<td>' . $data["latest"] . '</td>';

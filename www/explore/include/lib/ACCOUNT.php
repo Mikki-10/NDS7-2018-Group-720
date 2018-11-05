@@ -25,7 +25,7 @@ class ACCOUNT
 
 		foreach ($account_data as $key => $value) 
 		{
-			$account_info[$key] = rtrim(rtrim(number_format(hexdec($value["result"])/1000000000000000000, 18, ",", "."), 0), ",");
+			$account_info[$key] = rtrim(rtrim(number_format(hexdec($value["result"])/1000000000000000000, 22, ",", "."), 0), ",");
 		}
 		
 		//echo "<pre>"; var_dump($account_info); echo "</pre>";

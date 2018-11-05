@@ -71,6 +71,11 @@ services:
       - DOCKER_NAME=node1
       - LOGGING=on
       - VERBOSITY=5
+   #  - DELAY=on
+   #  - PACKET_LOSS=on
+   #  - MEAN=100
+   #  - VARIANCE=10 
+   #  - LOSS=0.1
     volumes:
       - ./gethdata/node1:/gethdata
       - ./logs/:/logpath/
@@ -89,6 +94,11 @@ services:
       - DOCKER_NAME=node2
       - LOGGING=on
       - VERBOSITY=5
+   #  - DELAY=on
+   #  - PACKET_LOSS=on
+   #  - MEAN=100
+   #  - VARIANCE=10 
+   #  - LOSS=0.1
     volumes:
       - ./gethdata/node2:/gethdata
       - ./logs/:/logpath/
@@ -107,6 +117,11 @@ services:
       - DOCKER_NAME=node3
       - LOGGING=on
       - VERBOSITY=5
+   #  - DELAY=on
+   #  - PACKET_LOSS=on
+   #  - MEAN=100
+   #  - VARIANCE=10 
+   #  - LOSS=0.1
     volumes:
       - ./gethdata/node3:/gethdata
       - ./logs/:/logpath/
@@ -125,6 +140,11 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
+   #  - DELAY=on
+   #  - PACKET_LOSS=on
+   #  - MEAN=100
+   #  - VARIANCE=10 
+   #  - LOSS=0.1
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner1:/gethdata
@@ -143,6 +163,11 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
+   #  - DELAY=on
+   #  - PACKET_LOSS=on
+   #  - MEAN=100
+   #  - VARIANCE=10 
+   #  - LOSS=0.1  
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner2:/gethdata
@@ -161,6 +186,11 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
+   #  - DELAY=on
+   #  - PACKET_LOSS=on
+   #  - MEAN=100
+   #  - VARIANCE=10 
+   #  - LOSS=0.1
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner3:/gethdata
@@ -179,6 +209,11 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
+   #  - DELAY=on
+   #  - PACKET_LOSS=on
+   #  - MEAN=100
+   #  - VARIANCE=10 
+   #  - LOSS=0.1
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner4:/gethdata
@@ -196,6 +231,11 @@ services:
 #      - DOCKER_NAME=miner5
 #      - LOGGING=on
 #      - VERBOSITY=5
+#      - DELAY=on
+#      - PACKET_LOSS=on
+#      - MEAN=100
+#      - VARIANCE=10 
+#      - LOSS=0.1
 #    volumes:
 #      - ./logs/:/logpath/
 #      - ./gethdata/miner5:/gethdata
@@ -213,6 +253,11 @@ services:
 #      - DOCKER_NAME=miner6
 #      - LOGGING=on
 #      - VERBOSITY=5
+#      - DELAY=on
+#      - PACKET_LOSS=on
+#      - MEAN=100
+#      - VARIANCE=10 
+#      - LOSS=0.1
 #    volumes:
 #      - ./logs/:/logpath/
 #      - ./gethdata/miner6:/gethdata
@@ -230,6 +275,11 @@ services:
 #      - DOCKER_NAME=miner7
 #      - LOGGING=on
 #      - VERBOSITY=5
+#      - DELAY=on
+#      - PACKET_LOSS=on
+#      - MEAN=100
+#      - VARIANCE=10 
+#      - LOSS=0.1
 #    volumes:
 #      - ./logs/:/logpath/
 #      - ./gethdata/miner7:/gethdata
@@ -247,6 +297,11 @@ services:
 #      - DOCKER_NAME=miner8
 #      - LOGGING=on
 #      - VERBOSITY=5
+#      - DELAY=on
+#      - PACKET_LOSS=on
+#      - MEAN=100
+#      - VARIANCE=10 
+#      - LOSS=0.1
 #    volumes:
 #      - ./logs/:/logpath/
 #      - ./gethdata/miner8:/gethdata
@@ -264,6 +319,11 @@ services:
 #      - DOCKER_NAME=miner9
 #      - LOGGING=on
 #      - VERBOSITY=5
+#      - DELAY=on
+#      - PACKET_LOSS=on
+#      - MEAN=100
+#      - VARIANCE=10 
+#      - LOSS=0.1
 #    volumes:
 #      - ./logs/:/logpath/
 #      - ./gethdata/miner9:/gethdata
@@ -281,6 +341,11 @@ services:
 #      - DOCKER_NAME=miner10
 #      - LOGGING=on
 #      - VERBOSITY=5
+#      - DELAY=on
+#      - PACKET_LOSS=on
+#      - MEAN=100
+#      - VARIANCE=10
+#      - LOSS=0.1 
 #    volumes:
 #      - ./logs/:/logpath/
 #      - ./gethdata/miner10:/gethdata

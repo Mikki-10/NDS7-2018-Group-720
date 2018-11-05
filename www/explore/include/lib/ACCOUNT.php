@@ -69,7 +69,7 @@ class ACCOUNT
 			<?php
 			foreach ($accounts as $key => $value) 
 			{
-				$data = $RPS->get_Account_Balance($value);
+				$data = $RPC->get_Account_Balance($value);
 				echo '<tr>';
 					echo '<td><a href="?account=' . $value . '">' . $value . '</a></td>';
 					echo '<td>' . $data["latest"] . '</td>';

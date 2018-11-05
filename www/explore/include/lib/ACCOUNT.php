@@ -65,6 +65,7 @@ class ACCOUNT
 		    <th>Earliest</th>
 		    <th>Latest</th>
 		    <th>Pending</th>
+		    <th>Differences</th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -77,6 +78,8 @@ class ACCOUNT
 				{
 					$account_info[$key] = rtrim(rtrim(number_format(hexdec($account_value["result"])/1000000000000000000, 22, ",", "."), 0), ",");
 				}
+
+				$account_info["differences"] = hexdec($account_data["latest"]["result"]) - hexdec($account_data["pending"]["result"]);
 				
 				//echo "<pre>"; var_dump($account_info); echo "</pre>";
 
@@ -85,6 +88,7 @@ class ACCOUNT
 					echo '<td>' . $account_info["earliest"] . '</td>';
 					echo '<td>' . $account_info["latest"] . '</td>';
 					echo '<td>' . $account_info["pending"] . '</td>';
+					echo '<td>' . $account_info["differences"] . '</td>';
 				echo '</tr>';
 			}
 			?>

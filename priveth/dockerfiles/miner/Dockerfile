@@ -4,6 +4,9 @@ RUN mkdir /gethinit
 RUN mkdir /logpath
 RUN mkdir /gethdata
 
+RUN apk update 
+RUN apk add iproute2
+
 ADD genesis.json /gethinit
 
 RUN geth --datadir=/gethinit init /gethinit/genesis.json

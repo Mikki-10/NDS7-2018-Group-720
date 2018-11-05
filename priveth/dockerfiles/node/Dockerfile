@@ -3,6 +3,9 @@ FROM ethereum/client-go
 RUN mkdir /gethinit
 RUN mkdir /gethdata
 
+RUN apk update 
+RUN apk add iproute2
+
 ADD run.sh /gethinit
 ADD genesis.json /gethinit
 

@@ -107,10 +107,10 @@ class FRONTPAGE
 		<?php
 		foreach ($block_data as $key => $block) 
 		{
-			foreach ($block["result"]["uncles"] as $key => $value) 
+			foreach ($block["result"]["uncles"] as $key2 => $value) 
 			{
 				echo "<tr>";
-				echo '<td><a href="?block=' . $value. '">' . $value . '</a></td>';
+				echo '<td><a href="?uncle=' . $block["result"]["hash"] . '&id=' . $key2 . '">' . $value . '</a></td>';
 				echo "</tr>";
 			}
 		}

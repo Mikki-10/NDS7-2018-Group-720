@@ -62,7 +62,7 @@ class FRONTPAGE
 		echo "</div>";
 
 		echo "<br>";
-		echo "<h1>Recent Transactions</h1>";
+		echo "<h4>Recent Transactions</h4>";
 		?>
 		<div class="table-responsive">
 		<table class="table table-hover">

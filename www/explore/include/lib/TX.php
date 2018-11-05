@@ -147,7 +147,7 @@ class TX
 				{
 					$tx_hash = file_get_contents("pending-tx/" . $filename);
 					
-					echo "<tr><td>Hash</td><td>" . $tx_hash . "</td></tr>";
+					echo '<tr><td><a href="?tx=' . $tx_hash . '>' . $tx_hash . '</a></td></tr>';
 				}
 			}
 			?>

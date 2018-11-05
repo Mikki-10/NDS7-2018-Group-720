@@ -76,7 +76,7 @@ class TX
 		$RPC = new RPC();
 		$tx_data = $RPC->get_Pending_Transactions();
 
-		if (isset($tx_data["result"][])) 
+		if (isset($tx_data["result"])) 
 		{
 			process_pending($tx_data);
 		}

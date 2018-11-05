@@ -137,8 +137,20 @@ class TX
 		?>
 		<div class="table-responsive">
 		<table class="table table-hover">
+		<thead>
+		  <tr>
+		    <th>TX</th>
+		    <th>From</th>
+		    <th>To</th>
+		    <th>Amount</th>
+		    <th>Fee</th>
+		  </tr>
+		</thead>
 		<tbody>
 			<?php
+			
+			$RPC = new RPC();
+
 			foreach ($files as $key => $filename) 
 			{
 				$filetype = explode(".", $filename);
@@ -146,8 +158,21 @@ class TX
 				if ($filetype[1] == "tx") 
 				{
 					$tx_hash = file_get_contents("pending-tx/" . $filename);
+
+					$tx_data = $RPC->get_Transaction_By_Hash($tx_hash);
+
+					//echo "<pre>"; var_dump($tx_data); echo "</pre>";
+
+					$tx_data = $tx_data["result"];
 					
-					echo '<tr><td><a href="?tx=' . $tx_hash . '>' . $tx_hash . '</a></td></tr>';
+					echo '<tr>';
+					echo '<td><a href="?tx=' . $tx_hash . '>' . $tx_hash . '</a></td>';
+					echo '<td>from</td><td>' . $tx_data["from"] . '</td>';
+					echo '<td>from</td><td>' . $tx_data["to"] . '</td>';
+					echo '<td>from</td><td>' . rtrim(rtrim(number_format(hexdec($tx_data["value"])/1000000000000000000, 22, ",", "."), 0), ",") . '</td>';
+					echo '<td>from</td><td>' . rtrim(rtrim(number_format(hexdec($tx_data["gas"])*(hexdec($tx_data["gasPrice"])/1000000000000000000), 22, ",", "."), 0), ",") . '</td>';
+					echo '</tr>';
+
 				}
 			}
 			?>

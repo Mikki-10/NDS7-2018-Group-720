@@ -107,6 +107,7 @@ class RPC
 	{
 		$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
 		$id = $id["result"];
+		var_dump($id);
 		return $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $id . '"],"id":73}');
 	}
 }

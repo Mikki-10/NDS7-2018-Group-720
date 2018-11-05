@@ -125,17 +125,37 @@ class TX
 	{
 		$files = scandir("pending-tx/");	
 
-		foreach ($files as $key => $filename) 
-		{
-			$filetype = explode(".", $filename);
 
-			if ($filetype[1] == "tx") 
+		echo '<div class="container"><br>';
+
+		echo '<div class="row"><div class="col-md-1">';
+		echo '</div><div class="col-md-10 text-center">';
+		echo "<h4>Pending transactions</h4>";
+		echo '</div><div class="col-md-1">';
+		echo "</div></div>";
+
+		?>
+		<div class="table-responsive">
+		<table class="table table-hover">
+		<tbody>
+			<?php
+			foreach ($files as $key => $filename) 
 			{
-				$tx_hash = file_get_contents("pending-tx/" . $filename);
-				
-				echo $tx_hash;
+				$filetype = explode(".", $filename);
+
+				if ($filetype[1] == "tx") 
+				{
+					$tx_hash = file_get_contents("pending-tx/" . $filename);
+					
+					echo "<tr><td>Hash</td><td>" . $tx_hash . "</td></tr>";
+				}
 			}
-		}
+			?>
+		</tbody>
+		</table>
+		</div>
+		</div>
+		<?php
 	}
 }
 

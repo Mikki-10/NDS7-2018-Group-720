@@ -137,6 +137,10 @@ class RPC
 					$id = $id["result"];
 					return $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $id . '"],"id":73}');
 				}
+				else
+				{
+					return $result;
+				}
 
 			//}
 		}

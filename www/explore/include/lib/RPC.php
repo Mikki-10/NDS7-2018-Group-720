@@ -105,11 +105,33 @@ class RPC
 
 	function get_Pending_Transactions()
 	{
-		$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
-		var_dump($id);
-		var_dump(hexdec($id["result"]));
-		$id = $id["result"];
-		return $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $id . '"],"id":73}');
+		if (file_exists("filter.json")) 
+		{
+			if (filectime("filter.json") >= time()-36000) 
+			{
+				$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
+				var_dump($id);
+				var_dump(hexdec($id["result"]));
+				$id = $id["result"];
+				return $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $id . '"],"id":73}');
+			}
+			else
+			{
+				$json = json_decode(file_get_contents("filter.json"), true);
+				var_dump($json);
+				var_dump(hexdec($json["result"]));
+				$json = $json["result"];
+				return $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $json . '"],"id":73}');
+			}
+		}
+		else
+		{
+			$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
+			var_dump($id);
+			var_dump(hexdec($id["result"]));
+			$id = $id["result"];
+			return $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $id . '"],"id":73}');
+		}
 	}
 }
 

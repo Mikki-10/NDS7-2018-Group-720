@@ -73,6 +73,8 @@ class TX
 
 	function pending()
 	{
+		$this->process_pending();
+		
 		$RPC = new RPC();
 		$tx_data = $RPC->get_Pending_Transactions();
 

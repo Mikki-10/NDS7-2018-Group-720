@@ -98,7 +98,7 @@ class TX
 
 	function process_pending()
 	{
-		$files = scandir(dirname(__FILE__) . "/pending-tx");
+		$files = scandir("pending-tx/");
 
 		foreach ($files as $key => $filename) 
 		{
@@ -115,7 +115,7 @@ class TX
 
 				if (isset($tx_data["blockHash"]) && empty($tx_data["blockHash"]) == false) 
 				{
-					unlink(dirname(__FILE__) . "/pending-tx/" . $filename);
+					unlink("pending-tx/" . $filename);
 				}
 			}
 		}
@@ -123,7 +123,7 @@ class TX
 
 	function print_pending()
 	{
-		$files = scandir(dirname(__FILE__) . "/pending-tx");	
+		$files = scandir("pending-tx/");	
 
 		foreach ($files as $key => $filename) 
 		{

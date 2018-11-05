@@ -69,15 +69,20 @@ class ACCOUNT
 			<?php
 			foreach ($accounts as $key => $value) 
 			{
-				$data = $RPC->get_Account_Balance($value);
+				$account_data = $RPC->get_Account_Balance($value);
+
+				foreach ($account_data as $key => $value) 
+				{
+					$account_info[$key] = rtrim(rtrim(number_format(hexdec($value["result"])/1000000000000000000, 22, ",", "."), 0), ",");
+				}
 				
-				echo "<pre>"; var_dump($data); echo "</pre>";
+				//echo "<pre>"; var_dump($account_info); echo "</pre>";
 
 				echo '<tr>';
 					echo '<td><a href="?account=' . $value . '">' . $value . '</a></td>';
-					echo '<td>' . $data["latest"] . '</td>';
-					echo '<td>' . $data["earliest"] . '</td>';
-					echo '<td>' . $data["pending"] . '</td>';
+					echo '<td>' . $account_info["latest"] . '</td>';
+					echo '<td>' . $account_info["earliest"] . '</td>';
+					echo '<td>' . $account_info["pending"] . '</td>';
 				echo '</tr>';
 			}
 			?>

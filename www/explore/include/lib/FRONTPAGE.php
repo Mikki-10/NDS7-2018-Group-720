@@ -13,16 +13,15 @@ class FRONTPAGE
 
 	function start()
 	{
-		$RPC = new RPC();
-		$block = $RPC->get_block_hight();
-		$this->make_page($block);
+		$this->make_page();
 	}
 
-	function make_page($block)
+	function make_page()
 	{
 		
 		//echo "<pre>"; var_dump($block); echo "</pre>";
 		$RPC = new RPC();
+		$block = $RPC->get_block_hight();
 		for ($i=$block-10; $i < $block; $i++) 
 		{ 
 			$block_data[$i] = $RPC->get_Block($i);

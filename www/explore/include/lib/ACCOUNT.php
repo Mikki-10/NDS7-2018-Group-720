@@ -44,7 +44,7 @@ class ACCOUNT
 			}
 		}
 
-		return $accounts;
+		echo "<pre>"; var_dump($accounts); echo "</pre>";
 	}
 
 	function make_page($account)

@@ -129,7 +129,7 @@ class RPC
 				var_dump(hexdec($json["result"]));
 				$json = $json["result"];
 				$result = $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $json . '"],"id":73}');
-				if (isset($result["message"]) && $result["message"] == "filter not found") 
+				if (isset($result["error"]) && $result["error"]["message"] == "filter not found") 
 				{
 					$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
 					file_put_contents("filter.json", json_encode($id));

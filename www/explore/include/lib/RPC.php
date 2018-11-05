@@ -124,16 +124,16 @@ class RPC
 			{
 				*/
 				$json = json_decode(file_get_contents("filter.json"), true);
-				echo "Reuse file";
-				var_dump($json);
-				var_dump(hexdec($json["result"]));
+				//echo "Reuse file";
+				//var_dump($json);
+				//var_dump(hexdec($json["result"]));
 				$json = $json["result"];
 				$result = $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $json . '"],"id":73}');
 				if (isset($result["error"]) && $result["error"]["message"] == "filter not found") 
 				{
 					$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
 					file_put_contents("filter.json", json_encode($id));
-					echo "Update file";
+					//echo "Update file";
 					$id = $id["result"];
 
 					//var_dump($this->request('{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["' . $id . '"],"id":74}'));
@@ -152,9 +152,9 @@ class RPC
 		{
 			$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
 			file_put_contents("filter.json", json_encode($id));
-			echo "New file";
-			var_dump($id);
-			var_dump(hexdec($id["result"]));
+			//echo "New file";
+			//var_dump($id);
+			//var_dump(hexdec($id["result"]));
 			$id = $id["result"];
 			return $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $id . '"],"id":73}');
 		}

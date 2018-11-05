@@ -92,7 +92,7 @@ class UNCLE
 
 		echo '<div class="row"><div class="col-md-1">';
 		echo '</div><div class="col-md-10 text-center">';
-		echo "<h4>Uncles</h4>";
+		echo "<h4>Uncles found in the latest 1000 blocks</h4>";
 		echo '</div><div class="col-md-1">';
 		echo "</div></div>";
 

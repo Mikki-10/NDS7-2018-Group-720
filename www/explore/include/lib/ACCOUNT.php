@@ -56,29 +56,36 @@ class ACCOUNT
 		
 		$account_tx = $this->get_recent_trancations_for_account($account);
 
-		?>
-		<div class="table-responsive">
-		<table class="table table-hover">
-		<tbody>
-			<?php
-				echo "<tr>";
-				echo '<td><a href="?tx=' . $account_tx["hash"] . '">' . substr($account_tx["hash"], 0, 7) . "..." . substr($account_tx["hash"], -7) . '</a></td>';
-				echo '<td><a href="?account=' . $account_tx["from"] . '">' . substr($account_tx["from"], 0, 7) . "..." . substr($account_tx["from"], -7) . '</a></td>';
-				echo '<td><a href="?account=' . $account_tx["to"] . '">' . substr($account_tx["to"], 0, 7) . "..." . substr($account_tx["to"], -7) . '</a></td>';
-				echo '<td>' . rtrim(rtrim(number_format(hexdec($account_tx["value"])/1000000000000000000, 22, ",", "."), 0), ",") . '</td>';
-				echo "</tr>";
+		if ($account_tx == NULL) 
+		{
+			# code...
+		}
+		else
+		{
 			?>
-		</tbody>
-		</table>
-		</div></div>
-		<?php
+			<div class="table-responsive">
+			<table class="table table-hover">
+			<tbody>
+				<?php
+					echo "<tr>";
+					echo '<td><a href="?tx=' . $account_tx["hash"] . '">' . substr($account_tx["hash"], 0, 7) . "..." . substr($account_tx["hash"], -7) . '</a></td>';
+					echo '<td><a href="?account=' . $account_tx["from"] . '">' . substr($account_tx["from"], 0, 7) . "..." . substr($account_tx["from"], -7) . '</a></td>';
+					echo '<td><a href="?account=' . $account_tx["to"] . '">' . substr($account_tx["to"], 0, 7) . "..." . substr($account_tx["to"], -7) . '</a></td>';
+					echo '<td>' . rtrim(rtrim(number_format(hexdec($account_tx["value"])/1000000000000000000, 22, ",", "."), 0), ",") . '</td>';
+					echo "</tr>";
+				?>
+			</tbody>
+			</table>
+			</div></div>
+			<?php
+		}
 	}
 
 	function get_recent_trancations_for_account($account)
 	{
 		$RPC = new RPC();
 		$block = $RPC->get_block_hight();
-		for ($i=$block-100; $i < $block; $i++) 
+		for ($i=$block-1000; $i < $block; $i++) 
 		{ 
 			$block_data[$i] = $RPC->get_Block($i);
 		}
@@ -98,7 +105,14 @@ class ACCOUNT
 				}
 			}
 		}
-		return $account_tx;
+		if (isset($account_tx)) 
+		{
+			return $account_tx;
+		}
+		else
+		{
+			return = NULL;
+		}
 	}
 }
 

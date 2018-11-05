@@ -13,7 +13,38 @@ class ACCOUNT
 
 	function start()
 	{
-		$this->make_page($_GET["account"]);
+		if ($_GET["account"] == "all") 
+		{
+			$this->find_accounts();
+		}
+		else
+		{
+			$this->make_page($_GET["account"]);
+		}
+	}
+
+	function find_accounts()
+	{
+		$RPC = new RPC();
+		$block = $RPC->get_block_hight();
+		for ($i=$block-1000; $i < $block; $i++) 
+		{ 
+			$block_data[$i] = $RPC->get_Block($i);
+		}
+
+		krsort($block_data);
+
+		foreach ($block_data as $key => $block) 
+		{
+			$accounts[$block["result"]["miner"]] = $block["result"]["miner"];
+			foreach ($block["result"]["transactions"] as $key2 => $value) 
+			{
+				$accounts[$value["from"]] = $value["from"];
+				$accounts[$value["to"]] = $value["to"];
+			}
+		}
+
+		return $accounts;
 	}
 
 	function make_page($account)

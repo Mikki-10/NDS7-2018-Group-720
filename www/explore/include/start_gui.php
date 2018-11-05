@@ -36,6 +36,9 @@
       <li class="nav-item">
         <a class="nav-link" href="?tx=pending">Pending Tx</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="?uncle=all">Uncels</a>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Tools

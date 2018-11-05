@@ -13,7 +13,14 @@ class UNCLE
 
 	function start()
 	{
-		$this->make_page($_GET["uncle"], $_GET["id"]);
+		if ($_GET["uncle"] == "all") 
+		{
+			$this->find_uncels();
+		}
+		else
+		{
+			$this->make_page($_GET["uncle"], $_GET["id"]);
+		}
 	}
 
 	function make_page($hash, $index)
@@ -69,6 +76,42 @@ class UNCLE
 		<?php
 	}
 
+	function find_uncels()
+	{
+		$RPC = new RPC();
+		$block = $RPC->get_block_hight();
+		for ($i=$block-1000; $i < $block; $i++) 
+		{ 
+			$block_data[$i] = $RPC->get_Block($i);
+		}
+
+		krsort($block_data);
+
+		?>
+		<h4>Uncles</h4>
+		<div class="table-responsive">
+		<table class="table table-hover">
+		<thead>
+		  <tr>
+		    <th>Hash</th>
+		  </tr>
+		</thead>
+		<tbody>
+		<?php
+		foreach ($block_data as $key => $block) 
+		{
+			foreach ($block["result"]["uncles"] as $key => $value) 
+			{
+				echo "<tr>";
+				echo '<td><a href="?block=' . $value. '">' . $value . '</a></td>';
+				echo "</tr>";
+			}
+		}
+		echo "</tbody>";
+		echo "</table>";
+		echo "</div>";
+		echo "</div>";
+	}
 }
 
 ?>

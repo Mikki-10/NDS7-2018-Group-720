@@ -23,6 +23,11 @@ else
     accountNumber="0x$accountNumber"
 fi
 
+if [$DELAY == "on"]
+then 
+    tc qdisc change dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal
+fi
+
 if [ $LOGGING == "on" ]
 then
     geth \

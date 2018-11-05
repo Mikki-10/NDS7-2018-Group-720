@@ -110,7 +110,7 @@ class UNCLE
 			foreach ($block["result"]["uncles"] as $key => $value) 
 			{
 				echo "<tr>";
-				echo '<td><a href="?block=' . $value. '">' . $value . '</a></td>';
+				echo '<td><a href="?uncle=' . $block_data["result"]["hash"] . '&id=' . $key . '">' . $value . '</a></td>';
 				echo "</tr>";
 			}
 		}

@@ -51,6 +51,7 @@
       
       if (isset($_GET["auto"])) 
       {
+      	$html_get = "";
       	$counter = 0;
       	foreach ($_GET as $key => $value) 
 		{
@@ -70,6 +71,10 @@
 				}
 				$counter++;
 			}
+		}
+		if ($html_get == "") 
+		{
+			$html_get = "explore/";
 		}
       	echo '<a class="nav-link" href="' . $html_get . '">Turn auto refesh off</a>';
       }

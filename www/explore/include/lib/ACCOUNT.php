@@ -45,6 +45,35 @@ class ACCOUNT
 		}
 
 		echo "<pre>"; var_dump($accounts); echo "</pre>";
+
+		echo '<div class="container"><br>';
+
+		echo '<div class="row"><div class="col-md-1">';
+		echo '</div><div class="col-md-10 text-center">';
+		echo "<h4>Accounts found in the latest 1000 blocks</h4>";
+		echo '</div><div class="col-md-1">';
+		echo "</div></div>";
+
+		?>
+		<div class="table-responsive">
+		<table class="table table-hover">
+		<tbody>
+			<?php
+			foreach ($accounts as $key => $value) 
+			{
+				$data = get_Account_Balance($value);
+				echo '<tr>';
+					echo '<td><a href="?account=' . $value . '">' . $value . '</a></td>';
+					echo '<td>' . $data["latest"] . '</td>';
+					echo '<td>' . $data["earliest"] . '</td>';
+					echo '<td>' . $data["pending"] . '</td>';
+				echo '</tr>';
+			}
+			?>
+		</tbody>
+		</table>
+		</div></div>
+		<?php
 	}
 
 	function make_page($account)

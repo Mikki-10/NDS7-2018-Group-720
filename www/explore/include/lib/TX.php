@@ -106,7 +106,7 @@ class TX
 
 			if ($filetype[1] == "tx") 
 			{
-				$tx_hash = file_get_contents($filename);
+				$tx_hash = file_get_contents("pending-tx/" . $filename);
 
 				$RPC = new RPC();
 				$tx_data = $RPC->get_Transaction_By_Hash($tx_hash);
@@ -131,7 +131,7 @@ class TX
 
 			if ($filetype[1] == "tx") 
 			{
-				$tx_hash = file_get_contents($filename);
+				$tx_hash = file_get_contents("pending-tx/" . $filename);
 				
 				echo $tx_hash;
 			}

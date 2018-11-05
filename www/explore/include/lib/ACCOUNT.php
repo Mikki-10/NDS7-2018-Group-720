@@ -63,16 +63,27 @@ class ACCOUNT
 		else
 		{
 			?>
-			<div class="table-responsive">
-			<table class="table table-hover">
-			<tbody>
+				<div class="table-responsive">
+				<table class="table table-hover">
+				<thead>
+				  <tr>
+				    <th>Hash</th>
+				    <th>From</th>
+				    <th>To</th>
+				    <th>Value</th>
+				  </tr>
+				</thead>
+				<tbody>
 				<?php
+				foreach ($account_tx as $key => $value) 
+				{
 					echo "<tr>";
-					echo '<td><a href="?tx=' . $account_tx["hash"] . '">' . substr($account_tx["hash"], 0, 7) . "..." . substr($account_tx["hash"], -7) . '</a></td>';
-					echo '<td><a href="?account=' . $account_tx["from"] . '">' . substr($account_tx["from"], 0, 7) . "..." . substr($account_tx["from"], -7) . '</a></td>';
-					echo '<td><a href="?account=' . $account_tx["to"] . '">' . substr($account_tx["to"], 0, 7) . "..." . substr($account_tx["to"], -7) . '</a></td>';
-					echo '<td>' . rtrim(rtrim(number_format(hexdec($account_tx["value"])/1000000000000000000, 22, ",", "."), 0), ",") . '</td>';
+					echo '<td><a href="?tx=' . $value["hash"] . '">' . substr($value["hash"], 0, 7) . "..." . substr($value["hash"], -7) . '</a></td>';
+					echo '<td><a href="?account=' . $value["from"] . '">' . substr($value["from"], 0, 7) . "..." . substr($value["from"], -7) . '</a></td>';
+					echo '<td><a href="?account=' . $value["to"] . '">' . substr($value["to"], 0, 7) . "..." . substr($value["to"], -7) . '</a></td>';
+					echo '<td>' . rtrim(rtrim(number_format(hexdec($value["value"])/1000000000000000000, 22, ",", "."), 0), ",") . '</td>';
 					echo "</tr>";
+				}
 				?>
 			</tbody>
 			</table>

@@ -132,7 +132,7 @@ class RPC
 		else
 		{
 			$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
-			file_put_contents("filter.json", $id);
+			file_put_contents("filter.json", json_encode($id));
 			echo "New file";
 			var_dump($id);
 			var_dump(hexdec($id["result"]));

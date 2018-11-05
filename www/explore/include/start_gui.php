@@ -46,6 +46,60 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
+      <li class="nav-item">
+      <?php
+      
+      if (isset($_GET["auto"])) 
+      {
+      	$counter = 0;
+      	foreach ($_GET as $key => $value) 
+		{
+			if ($key == "auto") 
+			{
+				# code...
+			}
+			else
+			{
+				if ($counter == 0) 
+				{
+					$html_get = "?" . $key ."=" . $value;
+				}
+				else
+				{
+					$html_get = $html_get . "&" . $key ."=" . $value;
+				}
+				$counter++;
+			}
+		}
+      	echo '<a class="nav-link" href="' . $html_get . '">Turn auto refesh off</a>';
+      }
+      else
+      {
+      	$counter = 0;
+      	if (empty($_GET)) 
+		{
+			$html_get = "?auto=1";
+		}
+		else
+		{
+			foreach ($_GET as $key => $value) 
+			{
+				if ($counter == 0) 
+				{
+					$html_get = "?" . $key ."=" . $value;
+				}
+				else
+				{
+					$html_get = $html_get . "&" . $key ."=" . $value;
+				}
+				$counter++;
+			}
+			$html_get = $html_get . "&auto=1";
+		}
+      	echo '<a class="nav-link" href="' . $html_get . '">Turn auto refesh on</a>';
+      }
+      ?>
+      </li>
     </ul>
   </div>
   </div>
@@ -53,6 +107,6 @@
 
 <?php
 
-var_dump($_GET);
+//var_dump($_GET);
 
 ?>

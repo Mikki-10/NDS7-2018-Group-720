@@ -3,7 +3,22 @@
 
 
 ?>
+	
+	<?php
+	if (isset($_GET["auto"])) 
+	{
+		$auto = $_GET["auto"] * 1000;
+	?>	
+		<script type="text/javascript">
+		setTimeout(function()
+		{
+		   window.location.reload(1);
+		}, <?php echo $auto; ?>);
+		</script>
 
+	<?php
+	}
+	?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

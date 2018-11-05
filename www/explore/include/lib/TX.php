@@ -136,16 +136,6 @@ class TX
 				echo $tx_hash;
 			}
 		}
-
-		?>	
-		<script type="text/javascript">
-		setTimeout(function()
-		{
-		   window.location.reload(1);
-		}, 1000);
-		</script>
-
-		<?php
 	}
 }
 

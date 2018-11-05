@@ -74,7 +74,7 @@
 		}
 		if ($html_get == "") 
 		{
-			$html_get = "explore/";
+			$html_get = "/explore";
 		}
       	echo '<a class="nav-link" href="' . $html_get . '">Turn auto refesh off</a>';
       }

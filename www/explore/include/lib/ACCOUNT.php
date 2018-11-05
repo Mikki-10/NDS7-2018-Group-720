@@ -60,8 +60,8 @@ class ACCOUNT
 		<thead>
 		  <tr>
 		    <th>Account</th>
-		    <th>Latest</th>
 		    <th>Earliest</th>
+		    <th>Latest</th>
 		    <th>Pending</th>
 		  </tr>
 		</thead>

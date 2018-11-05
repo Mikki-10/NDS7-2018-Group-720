@@ -109,6 +109,7 @@ class RPC
 		{
 			//var_dump(filectime("filter.json"));
 			//var_dump(time()-36000);
+			/*
 			if (filectime("filter.json") <= time()-36000) 
 			{
 				$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
@@ -121,13 +122,27 @@ class RPC
 			}
 			else
 			{
+				*/
 				$json = json_decode(file_get_contents("filter.json"), true);
 				echo "Reuse file";
 				var_dump($json);
 				var_dump(hexdec($json["result"]));
 				$json = $json["result"];
-				return $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $json . '"],"id":73}');
-			}
+				$result = $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $json . '"],"id":73}');
+				if (isset($result["error"]) && $result["error"]["message"] == "filter not found") 
+				{
+					$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
+					file_put_contents("filter.json", json_encode($id));
+					echo "Update file";
+					$id = $id["result"];
+					return $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $id . '"],"id":73}');
+				}
+				else
+				{
+					return $result;
+				}
+
+			//}
 		}
 		else
 		{

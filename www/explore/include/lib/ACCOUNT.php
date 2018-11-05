@@ -80,8 +80,8 @@ class ACCOUNT
 
 				echo '<tr>';
 					echo '<td><a href="?account=' . $account . '">' . $account . '</a></td>';
-					echo '<td>' . $account_info["latest"] . '</td>';
 					echo '<td>' . $account_info["earliest"] . '</td>';
+					echo '<td>' . $account_info["latest"] . '</td>';
 					echo '<td>' . $account_info["pending"] . '</td>';
 				echo '</tr>';
 			}

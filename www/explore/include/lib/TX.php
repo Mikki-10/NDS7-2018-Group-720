@@ -85,7 +85,7 @@ class TX
 
 		$this->print_pending();
 
-		var_dump($tx_data);
+		//var_dump($tx_data);
 	}
 
 	function save_pending($tx_data)

@@ -81,9 +81,9 @@ class TX
 			$this->save_pending($tx_data["result"]);
 		}
 
-		$this->process_pending();
-
 		$this->print_pending();
+
+		$this->process_pending();
 
 		//var_dump($tx_data);
 	}

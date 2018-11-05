@@ -111,7 +111,7 @@ class ACCOUNT
 		}
 		else
 		{
-			return = NULL;
+			return NULL;
 		}
 	}
 }

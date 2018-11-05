@@ -136,13 +136,13 @@ class RPC
 					echo "Update file";
 					$id = $id["result"];
 
-					var_dump($this->request('{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["' . $id . '"],"id":74}'));
+					//var_dump($this->request('{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["' . $id . '"],"id":74}'));
 
 					return $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $id . '"],"id":73}');
 				}
 				else
 				{
-					var_dump($this->request('{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["' . $json . '"],"id":74}'));
+					//var_dump($this->request('{"jsonrpc":"2.0","method":"eth_getFilterLogs","params":["' . $json . '"],"id":74}'));
 					return $result;
 				}
 

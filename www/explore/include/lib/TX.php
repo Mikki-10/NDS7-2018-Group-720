@@ -76,18 +76,66 @@ class TX
 		$RPC = new RPC();
 		$tx_data = $RPC->get_Pending_Transactions();
 
-		if (isset($tx_data["result"])) 
+		if (isset($tx_data["result"]) && is_array($tx_data["result"]) && empty($tx_data["result"]) == false) 
 		{
-			$this->process_pending($tx_data);
+			$this->save_pending($tx_data["result"]);
 		}
-		$this->process_pending($tx_data);
+
+		$this->process_pending();
+
+		$this->print_pending();
 
 		var_dump($tx_data);
 	}
 
-	function process_pending($tx_data)
+	function save_pending($tx_data)
 	{
+		foreach ($tx_data as $key => $value) 
+		{
+			file_put_contents("pending-tx/" . $value . ".tx", $value);
+		}
+	}
 
+	function process_pending()
+	{
+		$files = scandir(dirname(__FILE__) . "/pending-tx/");
+
+		foreach ($files as $key => $filename) 
+		{
+			$filetype = explode(".", $filename);
+
+			if ($filetype[1] == "tx") 
+			{
+				$tx_hash = file_get_contents($filename);
+
+				$RPC = new RPC();
+				$tx_data = $RPC->get_Transaction_By_Hash($tx_hash);
+
+				$tx_data = $tx_data["result"];
+
+				if (isset($tx_data["blockHash"]) && empty($tx_data["blockHash"]) == false) 
+				{
+					unlink(dirname(__FILE__) . "/pending-tx/" . $filename);
+				}
+			}
+		}
+	}
+
+	function print_pending()
+	{
+		$files = scandir(dirname(__FILE__) . "/pending-tx/");	
+
+		foreach ($files as $key => $filename) 
+		{
+			$filetype = explode(".", $filename);
+
+			if ($filetype[1] == "tx") 
+			{
+				$tx_hash = file_get_contents($filename);
+				
+				echo $tx_hash;
+			}
+		}
 	}
 }
 

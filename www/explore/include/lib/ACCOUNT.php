@@ -44,6 +44,8 @@ class ACCOUNT
 			}
 		}
 
+		ksort($accounts);
+
 		//echo "<pre>"; var_dump($accounts); echo "</pre>";
 
 		echo '<div class="container"><br>';

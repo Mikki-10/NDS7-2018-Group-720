@@ -57,6 +57,14 @@ class ACCOUNT
 		?>
 		<div class="table-responsive">
 		<table class="table table-hover">
+		<thead>
+		  <tr>
+		    <th>Account</th>
+		    <th>Latest</th>
+		    <th>Earliest</th>
+		    <th>Pending</th>
+		  </tr>
+		</thead>
 		<tbody>
 			<?php
 			foreach ($accounts as $key => $value) 

@@ -78,9 +78,9 @@ class TX
 
 		if (isset($tx_data["result"])) 
 		{
-			process_pending($tx_data);
+			$this->process_pending($tx_data);
 		}
-		process_pending($tx_data);
+		$this->process_pending($tx_data);
 
 		var_dump($tx_data);
 	}

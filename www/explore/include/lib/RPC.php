@@ -106,8 +106,8 @@ class RPC
 	function get_Pending_Transactions()
 	{
 		$id = $this->request('{"jsonrpc":"2.0","method":"eth_newPendingTransactionFilter","params":[],"id":73}');
-		$id = $id["result"];
 		var_dump($id);
+		$id = $id["result"];
 		return $this->request('{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["' . $id . '"],"id":73}');
 	}
 }

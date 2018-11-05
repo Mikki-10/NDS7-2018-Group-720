@@ -98,7 +98,7 @@ class TX
 
 	function process_pending()
 	{
-		$files = scandir(dirname(__FILE__) . "/pending-tx/");
+		$files = scandir(dirname(__FILE__) . "/pending-tx");
 
 		foreach ($files as $key => $filename) 
 		{
@@ -123,7 +123,7 @@ class TX
 
 	function print_pending()
 	{
-		$files = scandir(dirname(__FILE__) . "/pending-tx/");	
+		$files = scandir(dirname(__FILE__) . "/pending-tx");	
 
 		foreach ($files as $key => $filename) 
 		{

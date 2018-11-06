@@ -79,7 +79,8 @@ services:
     volumes:
       - ./gethdata/node1:/gethdata
       - ./logs/:/logpath/
-
+    cap_add:
+      - NET_ADMIN
   node2:
     build:
       context: ./dockerfiles/node
@@ -102,6 +103,8 @@ services:
     volumes:
       - ./gethdata/node2:/gethdata
       - ./logs/:/logpath/
+    cap_add:
+      - NET_ADMIN
 
   node3:
     build:
@@ -125,6 +128,8 @@ services:
     volumes:
       - ./gethdata/node3:/gethdata
       - ./logs/:/logpath/
+    cap_add:
+      - NET_ADMIN
 
   miner1:
     build:
@@ -148,6 +153,8 @@ services:
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner1:/gethdata
+    cap_add:
+      - NET_ADMIN
 
   miner2:
     build:
@@ -170,7 +177,9 @@ services:
       - LOSS=0.1  
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata/miner2:/gethdata
+      - ./gethdata/miner2:/
+    cap_add:
+      - NET_ADMIN
 
   miner3:
     build:
@@ -194,6 +203,9 @@ services:
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner3:/gethdata
+    cap_add:
+      - NET_ADMIN
+
 
   miner4:
     build:
@@ -217,6 +229,9 @@ services:
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner4:/gethdata
+    cap_add:
+      - NET_ADMIN
+
 
 #  miner5:
 #    build:
@@ -239,6 +254,9 @@ services:
 #    volumes:
 #      - ./logs/:/logpath/
 #      - ./gethdata/miner5:/gethdata
+#    cap_add:
+#      - NET_ADMIN
+
 #
 #  miner6:
 #    build:
@@ -261,6 +279,9 @@ services:
 #    volumes:
 #      - ./logs/:/logpath/
 #      - ./gethdata/miner6:/gethdata
+#    cap_add:
+#      - NET_ADMIN
+
 #
 #  miner7:
 #    build:
@@ -283,6 +304,9 @@ services:
 #    volumes:
 #      - ./logs/:/logpath/
 #      - ./gethdata/miner7:/gethdata
+#    cap_add:
+#      - NET_ADMIN
+
 #
 #  miner8:
 #    build:
@@ -305,6 +329,9 @@ services:
 #    volumes:
 #      - ./logs/:/logpath/
 #      - ./gethdata/miner8:/gethdata
+#    cap_add:
+#      - NET_ADMIN
+
 #
 #  miner9:
 #    build:
@@ -327,6 +354,8 @@ services:
 #    volumes:
 #      - ./logs/:/logpath/
 #      - ./gethdata/miner9:/gethdata
+#    cap_add:
+#      - NET_ADMIN
 #
 #  miner10:
 #    build:
@@ -349,3 +378,5 @@ services:
 #    volumes:
 #      - ./logs/:/logpath/
 #      - ./gethdata/miner10:/gethdata
+#    cap_add:
+#      - NET_ADMIN

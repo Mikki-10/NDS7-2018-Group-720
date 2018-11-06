@@ -51,7 +51,7 @@ class TOOLS
 		}
 
 		echo "<br>Number: " . hexdec($block["result"]["number"]);
-		echo "<br>Number (counted): " count($holder);
+		echo "<br>Number (counted): " . count($holder);
 		echo "<br>Average: " . $average;
 	}
 

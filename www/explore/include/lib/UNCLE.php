@@ -101,7 +101,8 @@ class UNCLE
 		<table class="table table-hover">
 		<thead>
 		  <tr>
-		    <th>Hash</th>
+		    <th>Hash (uncle)</th>
+		    <th>Number (block)</th>
 		    <th>Time (block)</th>
 		    <th>Size (block)</th>
 		  </tr>
@@ -114,6 +115,7 @@ class UNCLE
 			{
 				echo "<tr>";
 				echo '<td><a href="?uncle=' . $block["result"]["hash"] . '&id=' . $key2 . '">' . $value . '</a></td>';
+				echo '<td><a href="?block='. hexdec($block["result"]["number"]) .'">' . hexdec($block["result"]["number"]) . '</a></td>';
 				echo '<td>' . date("d-m-Y H:i:s", hexdec($block["result"]["timestamp"])) . '</td>';
 				echo '<td>' . hexdec($block["result"]["size"]) . '</td>';
 				echo "</tr>";

@@ -49,6 +49,7 @@ class TOOLS
 			}
 		}
 
+		$counter = 0;
 		foreach ($block_data as $key => $block) 
 		{
 			if (array_key_exists($key+1, $block_data)) 
@@ -56,6 +57,7 @@ class TOOLS
 				if ($time_filter[$key] >= 1000) 
 				{
 					// Must be a pause in the hole blockchain (1000 sec)
+					$counter++;
 				}
 				else
 				{
@@ -74,6 +76,7 @@ class TOOLS
 
 		echo "<br>Number: " . $block_hight;
 		echo "<br>Number (counted): " . count($time_filter);
+		echo "<br>Counted over 1000 sec" . $counter;
 		echo "<br>Average: " . $average;
 	}
 

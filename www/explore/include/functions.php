@@ -9,7 +9,8 @@ $includes = array(
 					"BLOCK",
 					"ACCOUNT",
 					"TX",
-					"UNCLE"
+					"UNCLE",
+					"TOOLS"
 				);
 
 

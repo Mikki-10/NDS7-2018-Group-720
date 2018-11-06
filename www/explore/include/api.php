@@ -16,6 +16,10 @@ elseif (isset($_GET["uncle"]))
 {
 	new UNCLE();
 }
+elseif (isset($_GET["tools"])) 
+{
+	new TOOLS();
+}
 else
 {
 	new FRONTPAGE();

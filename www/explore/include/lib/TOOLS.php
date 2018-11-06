@@ -13,7 +13,7 @@ class TOOLS
 
 	function start()
 	{
-		if ($_GET["tools"] = "average-block-time") 
+		if ($_GET["tools"] == "average-block-time") 
 		{
 			$time_start = microtime(true);
 

@@ -53,6 +53,8 @@ class FRONTPAGE
 			if (array_key_exists($key-1, $block_data)) 
 			{
 				$var = hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]);
+				$holder[$key] = hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]);
+
 			}
 			else
 			{
@@ -70,6 +72,21 @@ class FRONTPAGE
 			echo "</tr>";
 		}
 
+		if(count($holder)) 
+		{
+		    $holder = array_filter($holder);
+		    $average = array_sum($holder)/count($holder);
+		}
+
+		echo "<tr>";
+		echo '<td></td>';
+		echo '<td></td>';
+		echo '<td></td>';
+		echo '<td></td>';
+		echo '<td></td>';
+		echo '<td></td>';
+		echo '<td>' . $average . '</td>';
+		echo "</tr>";
 		echo "</tbody>";
 		echo "</table>";
 		echo "</div>";

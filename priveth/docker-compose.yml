@@ -177,7 +177,7 @@ services:
       - LOSS=0.1  
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata/miner2:/
+      - ./gethdata/miner2:/gethdata
     cap_add:
       - NET_ADMIN
 

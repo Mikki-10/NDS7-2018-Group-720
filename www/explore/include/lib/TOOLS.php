@@ -50,8 +50,9 @@ class TOOLS
 		    $average = array_sum($holder)/count($holder);
 		}
 
-		echo "<pre>"; var_dump($block); echo "</pre>";
-		echo "<pre>"; var_dump($average); echo "</pre>";
+		echo "<br>Number: " . hexdec($block["result"]["number"]));
+		echo "<br>Number (counted): " count($holder);
+		echo "<br>Average: " . $average;
 	}
 
 }

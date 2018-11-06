@@ -57,7 +57,7 @@ class FRONTPAGE
 			echo "<td>" . count($block["result"]["transactions"]) . "</td>";
 			echo "<td>" . count($block["result"]["uncles"]) . "</td>";
 			echo '<td>' . hexdec($block["result"]["size"]) . '</td>';
-			echo '<td>' . hexdec($block["result"]["timestamp"])-hexdec($block_data[$key+1]["result"]["timestamp"]) . '</td>';
+			echo '<td>' . hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]) . '</td>';
 			echo "</tr>";
 		}
 

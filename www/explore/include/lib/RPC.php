@@ -30,7 +30,7 @@ class RPC
 
 			$result = curl_exec($ch);
 			if (curl_errno($ch)) {
-			    echo 'Error:' . curl_error($ch);
+			    die('Error:' . curl_error($ch));
 			}
 			curl_close ($ch);
 

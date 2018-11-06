@@ -50,6 +50,7 @@ class FRONTPAGE
 		<?php
 		foreach ($block_data as $key => $block) 
 		{
+			$var = hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]);
 			echo "<tr>";
 			echo '<td><a href="?block='. hexdec($block["result"]["number"]) .'">' . hexdec($block["result"]["number"]) . '</a></td>';
 			echo '<td><a href="?account='. $block["result"]["miner"] .'">' . $block["result"]["miner"] . '</a></td>';
@@ -57,7 +58,7 @@ class FRONTPAGE
 			echo "<td>" . count($block["result"]["transactions"]) . "</td>";
 			echo "<td>" . count($block["result"]["uncles"]) . "</td>";
 			echo '<td>' . hexdec($block["result"]["size"]) . '</td>';
-			echo '<td>' . hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]) . '</td>';
+			echo '<td>' . $var . '</td>';
 			echo "</tr>";
 		}
 

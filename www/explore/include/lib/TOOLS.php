@@ -70,7 +70,7 @@ class TOOLS
 		    $average = array_sum($time_filter)/count($time_filter);
 		}
 
-		file_put_contents("blocktime-filter.json", json_encode($time_filter))
+		file_put_contents("blocktime-filter.json", json_encode($time_filter));
 
 		echo "<br>Number: " . $block_hight;
 		echo "<br>Number (counted): " . count($time_filter);

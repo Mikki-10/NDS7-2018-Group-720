@@ -4,11 +4,11 @@ RUN mkdir /gethinit
 RUN mkdir /logpath
 RUN mkdir /gethdata
 
-RUN mkdir /lib/tc
-RUN cp /usr/lib/tc/* /lib/tc
-
 RUN apk update 
 RUN apk add iproute2
+
+RUN mkdir /lib/tc
+RUN cp /usr/lib/tc/* /lib/tc
 
 ADD genesis.json /gethinit
 

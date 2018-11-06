@@ -163,11 +163,11 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-   #  - DELAY=on
-   #  - PACKET_LOSS=on
-   #  - MEAN=100
-   #  - VARIANCE=10 
-   #  - LOSS=0.1  
+      - DELAY=off
+      - PACKET_LOSS=off
+      - MEAN=100
+      - VARIANCE=10 
+      - LOSS=0.1  
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner2:/gethdata

@@ -3,6 +3,9 @@ FROM ethereum/client-go
 RUN mkdir /gethinit
 RUN mkdir /gethdata
 
+RUN mkdir /lib/tc
+RUN cp /usr/lib/tc/* /lib/tc
+
 RUN apk update 
 RUN apk add iproute2
 

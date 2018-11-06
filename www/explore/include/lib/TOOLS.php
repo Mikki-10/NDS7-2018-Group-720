@@ -29,21 +29,21 @@ class TOOLS
 	function average_block_time()
 	{
 		$RPC = new RPC();
-		$block = $RPC->get_block_hight();
+		$block_hight = $RPC->get_block_hight();
 
 		if (file_exists("blocktime-filter.json")) 
 		{
 			$time_filter = json_decode(file_get_contents("blocktime-filter.json"), true);
 			$max = max(array_keys($time_filter));
 
-			for ($i=$max; $i < $block; $i++) 
+			for ($i=$max; $i < $block_hight; $i++) 
 			{ 
 				$block_data[$i] = $RPC->get_Block($i);
 			}
 		}
 		else
 		{
-			for ($i=0; $i < $block; $i++) 
+			for ($i=0; $i < $block_hight; $i++) 
 			{ 
 				$block_data[$i] = $RPC->get_Block($i);
 			}
@@ -72,7 +72,7 @@ class TOOLS
 
 		file_put_contents("blocktime-filter.json", json_encode($time_filter))
 
-		echo "<br>Number: " . hexdec($block["result"]["number"]);
+		echo "<br>Number: " . $block_hight;
 		echo "<br>Number (counted): " . count($time_filter);
 		echo "<br>Average: " . $average;
 	}

@@ -50,7 +50,15 @@ class FRONTPAGE
 		<?php
 		foreach ($block_data as $key => $block) 
 		{
-			$var = hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]);
+			if (array_key_exists($key-1, $block_data)) 
+			{
+				$var = hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]);
+			}
+			else
+			{
+				$var = "0";
+			}
+			
 			echo "<tr>";
 			echo '<td><a href="?block='. hexdec($block["result"]["number"]) .'">' . hexdec($block["result"]["number"]) . '</a></td>';
 			echo '<td><a href="?account='. $block["result"]["miner"] .'">' . $block["result"]["miner"] . '</a></td>';

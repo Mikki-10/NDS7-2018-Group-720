@@ -42,6 +42,8 @@ class FRONTPAGE
 		    <th>Timestamp</th>
 		    <th>Tx</th>
 		    <th>Uncles</th>
+		    <th>Size</th>
+		    <th>Time to last block</th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -54,6 +56,8 @@ class FRONTPAGE
 			echo "<td>" . date("d-m-Y H:i:s", hexdec($block["result"]["timestamp"])) . "</td>";
 			echo "<td>" . count($block["result"]["transactions"]) . "</td>";
 			echo "<td>" . count($block["result"]["uncles"]) . "</td>";
+			echo '<td>' . hexdec($block["result"]["size"]) . '</td>';
+			echo '<td>' . hexdec($block["result"]["timestamp"])-hexdec($block_data[$key+1]["result"]["timestamp"]) . '</td>';
 			echo "</tr>";
 		}
 

@@ -102,6 +102,8 @@ class UNCLE
 		<thead>
 		  <tr>
 		    <th>Hash</th>
+		    <th>Time (block)</th>
+		    <th>Size (block)</th>
 		  </tr>
 		</thead>
 		<tbody>
@@ -112,6 +114,8 @@ class UNCLE
 			{
 				echo "<tr>";
 				echo '<td><a href="?uncle=' . $block["result"]["hash"] . '&id=' . $key2 . '">' . $value . '</a></td>';
+				echo '<td>' . date("d-m-Y H:i:s", hexdec($block["result"]["timestamp"])) . '</td>';
+				echo '<td>' . hexdec($block["result"]["size"]) . '</td>';
 				echo "</tr>";
 			}
 		}

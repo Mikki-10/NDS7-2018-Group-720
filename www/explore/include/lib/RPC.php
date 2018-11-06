@@ -29,8 +29,12 @@ class RPC
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 			$result = curl_exec($ch);
-			if (curl_errno($ch)) {
-			    die('CURL Error: ' . curl_error($ch));
+			if (curl_errno($ch) && curl_errno($ch) == 0) 
+			{
+			    if (curl_error($ch) != "") 
+			    {
+			    	die('CURL Error: ' . curl_error($ch));
+			    }
 			}
 			curl_close ($ch);
 

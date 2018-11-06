@@ -25,6 +25,7 @@ fi
 
 if [ $DELAY == "on" ]
 then 
+    echo "tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal"
     tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal
 fi
 

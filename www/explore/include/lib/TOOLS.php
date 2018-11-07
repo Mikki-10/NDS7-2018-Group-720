@@ -55,7 +55,7 @@ class TOOLS
 			{
 				$time_filter[$key+1] = array(
 											hexdec($block_data[$key+1]["result"]["timestamp"]), 
-											hexdec($block_data[$key+1]["result"]["timestamp"])-hexdec($block["result"]["timestamp"]
+											hexdec($block_data[$key+1]["result"]["timestamp"])-hexdec($block["result"]["timestamp"])
 										);
 			}
 		}

@@ -22,7 +22,7 @@ class TOOLS
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 
-			echo "Calculating average block time: $time seconds\n<br>";
+			echo "<br>PHP time to calculate average block time: $time seconds\n<br>";
 		}
 	}
 

@@ -71,11 +71,16 @@ class TOOLS
 
 		}
 
-
-		if(count($time_filter)) 
+		foreach ($time_filter as $key => $value) 
 		{
-		    $time_filter = array_filter($time_filter);
-		    $average = array_sum($time_filter)/count($time_filter);
+			$time_filter_for_avg[$key] = $value[1];
+		}
+
+
+		if(count($time_filter_for_avg)) 
+		{
+		    $time_filter_for_avg = array_filter($time_filter_for_avg);
+		    $average = array_sum($time_filter_for_avg)/count($time_filter_for_avg);
 		}
 
 		file_put_contents("blocktime-filter.json", json_encode($time_filter));
@@ -89,7 +94,7 @@ class TOOLS
 		*/
 
 		echo "<br>Number: " . $block_hight;
-		echo "<br>Number (counted): " . count($time_filter);
+		echo "<br>Number (counted): " . count($time_filter_for_avg);
 		echo "<br>Average: " . $average;
 	}
 

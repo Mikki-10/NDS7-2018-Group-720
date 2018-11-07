@@ -87,7 +87,7 @@ class TOOLS
 		$i = 0;
 		foreach ($time_filter as $key => $value) 
 		{
-			if ($value[0] == "" || $value[0] == 0 || $value[1] == "" $value[1] == 0) 
+			if ($value[0] == "" || $value[0] == 0 || $value[1] == "" || $value[1] == 0) 
 			{
 				# code...
 			}

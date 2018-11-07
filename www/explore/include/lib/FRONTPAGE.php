@@ -22,7 +22,7 @@ class FRONTPAGE
 		//echo "<pre>"; var_dump($block); echo "</pre>";
 		$RPC = new RPC();
 		$block = $RPC->get_block_hight();
-		for ($i=$block-10; $i < $block; $i++) 
+		for ($i=$block-10; $i <= $block; $i++) 
 		{ 
 			$block_data[$i] = $RPC->get_Block($i);
 		}

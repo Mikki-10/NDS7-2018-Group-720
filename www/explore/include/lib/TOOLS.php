@@ -54,7 +54,7 @@ class TOOLS
 			if (array_key_exists($key+1, $block_data)) 
 			{
 				$time_filter[$key+1] = array(
-											hexdec($block_data[$key+1]["result"]["timestamp"]) . "000", 
+											hexdec($block_data[$key+1]["result"]["timestamp"])*1000, 
 											hexdec($block_data[$key+1]["result"]["timestamp"])-hexdec($block["result"]["timestamp"])
 										);
 			}

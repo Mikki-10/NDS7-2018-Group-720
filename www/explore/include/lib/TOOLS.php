@@ -89,7 +89,7 @@ class TOOLS
 		*/
 
 		echo "<br>Number: " . $block_hight;
-		echo "<br>Counted blocks over 1000 sec: " . $counter;
+		echo "<br>Number (counted): " . count($time_filter);
 		echo "<br>Average: " . $average;
 	}
 

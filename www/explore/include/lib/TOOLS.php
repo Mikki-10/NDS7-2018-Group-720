@@ -85,7 +85,7 @@ class TOOLS
 
 		file_put_contents("blocktime-filter.json", json_encode($time_filter));
 
-		make_a_chart($data);
+		$this->make_a_chart($data);
 
 		echo "<br>Number: " . $block_hight;
 		echo "<br>Number (counted): " . count($time_filter_for_avg);

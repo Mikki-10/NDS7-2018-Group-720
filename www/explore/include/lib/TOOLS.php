@@ -84,6 +84,15 @@ class TOOLS
 
 		file_put_contents("blocktime-filter.json", json_encode($time_filter));
 
+		$i = 0;
+		foreach ($time_filter as $key => $value) 
+		{
+			$json_chart[$i] = $value;
+			$i++;
+		}
+
+		file_put_contents("chart.json", json_encode($json_chart));
+
 		$this->make_a_chart();
 
 		echo "<br>Number: " . $block_hight;
@@ -108,7 +117,7 @@ class TOOLS
 
 		<script type="text/javascript">
 		$.getJSON(
-		    'http://192.168.20.3/explore/blocktime-filter.json',
+		    'http://192.168.20.3/explore/chart.json',
 		    function (data) {
 
 		        Highcharts.chart('container<?php echo $a_random_int;?>', {

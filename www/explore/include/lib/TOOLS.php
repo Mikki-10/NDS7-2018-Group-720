@@ -134,7 +134,7 @@ class TOOLS
 		                zoomType: 'x'
 		            },
 		            title: {
-		                text: 'USD to EUR exchange rate over time'
+		                text: 'Time between blocks'
 		            },
 		            subtitle: {
 		                text: document.ontouchstart === undefined ?
@@ -145,7 +145,7 @@ class TOOLS
 		            },
 		            yAxis: {
 		                title: {
-		                    text: 'Exchange rate'
+		                    text: 'Sec'
 		                }
 		            },
 		            legend: {
@@ -180,7 +180,7 @@ class TOOLS
 
 		            series: [{
 		                type: 'area',
-		                name: 'USD to EUR',
+		                name: 'Time between blocks',
 		                data: data
 		            }]
 		        });

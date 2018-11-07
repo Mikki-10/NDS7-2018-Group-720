@@ -81,6 +81,7 @@ services:
       - ./logs/:/logpath/
     cap_add:
       - NET_ADMIN
+  
   node2:
     build:
       context: ./dockerfiles/node
@@ -145,7 +146,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - DELAY=on
+      - DELAY=off
       - PACKET_LOSS=off
       - MEAN=100
       - VARIANCE=10 

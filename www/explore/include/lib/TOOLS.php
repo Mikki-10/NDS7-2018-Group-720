@@ -54,17 +54,21 @@ class TOOLS
 		{
 			if (array_key_exists($key+1, $block_data)) 
 			{
-				if ($time_filter[$key] >= 1000) 
-				{
-					// Must be a pause in the hole blockchain (1000 sec)
-					$counter++;
-				}
-				else
-				{
-					$time_filter[$key] = hexdec($block_data[$key+1]["result"]["timestamp"])-hexdec($block["result"]["timestamp"]);
-				}
+				$time_filter[$key] = hexdec($block_data[$key+1]["result"]["timestamp"])-hexdec($block["result"]["timestamp"]);
 			}
 		}
+
+
+		foreach ($time_filter as $key => $value) 
+		{
+			if ($value >= 1000) 
+			{
+				// Must be a pause in the hole blockchain (1000 sec)
+				unset($time_filter[$key]);
+			}
+
+		}
+
 
 		if(count($time_filter)) 
 		{
@@ -84,7 +88,7 @@ class TOOLS
 
 		echo "<br>Number: " . $block_hight;
 		echo "<br>Number (counted): " . count($time_filter);
-		echo "<br>Counted over 1000 sec" . $counter;
+		echo "<br>Counted blocks over 1000 sec: " . $counter;
 		echo "<br>Average: " . $average;
 	}
 

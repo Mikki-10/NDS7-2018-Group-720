@@ -95,7 +95,8 @@ class TOOLS
 
 		echo "<br>Number: " . $block_hight;
 		echo "<br>Number (counted): " . count($time_filter_for_avg);
-		echo "<br>Blocks over or under 1000 sec: " . $block_hight - count($time_filter_for_avg);
+		$dif = $block_hight - count($time_filter_for_avg);
+		echo "<br>Blocks over or under 1000 sec: " . $dif;
 		echo "<br>Average: " . $average;
 	}
 

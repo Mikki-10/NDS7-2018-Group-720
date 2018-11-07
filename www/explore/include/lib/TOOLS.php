@@ -87,8 +87,15 @@ class TOOLS
 		$i = 0;
 		foreach ($time_filter as $key => $value) 
 		{
-			$json_chart[$i] = $value;
-			$i++;
+			if ($value[0] == "" || $value[0] == 0 || $value[1] == "" $value[1] == 0) 
+			{
+				# code...
+			}
+			else
+			{
+				$json_chart[$i] = $value;
+				$i++;
+			}
 		}
 
 		file_put_contents("chart.json", json_encode($json_chart));

@@ -61,7 +61,7 @@ class TOOLS
 
 		foreach ($time_filter as $key => $value) 
 		{
-			if ($value >= 1000) 
+			if ($value >= 1000 || $value <= -1000) 
 			{
 				// Must be a pause in the hole blockchain (1000 sec)
 				unset($time_filter[$key]);

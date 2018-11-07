@@ -36,7 +36,7 @@ class TOOLS
 			$time_filter = json_decode(file_get_contents("blocktime-filter.json"), true);
 			$max = max(array_keys($time_filter));
 
-			for ($i=$max; $i < $block_hight; $i++) 
+			for ($i=$max; $i < $block_hight-20000; $i++) 
 			{ 
 				$block_data[$i] = $RPC->get_Block($i);
 			}

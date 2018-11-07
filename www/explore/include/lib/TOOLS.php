@@ -85,13 +85,7 @@ class TOOLS
 
 		file_put_contents("blocktime-filter.json", json_encode($time_filter));
 
-		/*
-		$data = array(
-					'' => , 
-					);
-
 		make_a_chart($data);
-		*/
 
 		echo "<br>Number: " . $block_hight;
 		echo "<br>Number (counted): " . count($time_filter_for_avg);
@@ -100,7 +94,7 @@ class TOOLS
 		echo "<br>Average: " . $average;
 	}
 
-	function make_a_chart($data)
+	function make_a_chart()
 	{
 		?>
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -115,7 +109,7 @@ class TOOLS
 
 		<script type="text/javascript">
 		$.getJSON(
-		    'https://cdn.rawgit.com/highcharts/highcharts/057b672172ccc6c08fe7dbb27fc17ebca3f5b770/samples/data/usdeur.json',
+		    'http://192.168.20.3/explore/blocktime-filter.json',
 		    function (data) {
 
 		        Highcharts.chart('container<?php echo $a_random_int;?>', {

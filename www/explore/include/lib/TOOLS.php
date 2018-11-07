@@ -54,12 +54,11 @@ class TOOLS
 			if (array_key_exists($key+1, $block_data)) 
 			{
 				$time_filter[$key+1] = array(
-											hexdec($block_data[$key+1]["result"]["timestamp"]), 
+											hexdec($block_data[$key+1]["result"]["timestamp"]) . "000", 
 											hexdec($block_data[$key+1]["result"]["timestamp"])-hexdec($block["result"]["timestamp"])
 										);
 			}
 		}
-
 
 		foreach ($time_filter as $key => $value) 
 		{
@@ -85,7 +84,7 @@ class TOOLS
 
 		file_put_contents("blocktime-filter.json", json_encode($time_filter));
 
-		$this->make_a_chart($data);
+		$this->make_a_chart();
 
 		echo "<br>Number: " . $block_hight;
 		echo "<br>Number (counted): " . count($time_filter_for_avg);

@@ -7,6 +7,9 @@ RUN mkdir /gethdata
 RUN apk update 
 RUN apk add iproute2
 
+RUN mkdir /lib/tc
+RUN cp /usr/lib/tc/* /lib/tc
+
 ADD genesis.json /gethinit
 
 RUN geth --datadir=/gethinit init /gethinit/genesis.json

@@ -81,6 +81,7 @@ services:
       - ./logs/:/logpath/
     cap_add:
       - NET_ADMIN
+  
   node2:
     build:
       context: ./dockerfiles/node
@@ -139,7 +140,7 @@ services:
       - node3
     container_name: miner1
     hostname: miner1
-    cpu_quota: 50000
+    #cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner1
       - LOGGING=on
@@ -164,7 +165,7 @@ services:
       - node3
     container_name: miner2
     hostname: miner2
-    cpu_quota: 50000
+    #cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner2
       - LOGGING=on
@@ -177,7 +178,7 @@ services:
       - LOSS=0.1  
     volumes:
       - ./logs/:/logpath/
-      - ./gethdata/miner2:/
+      - ./gethdata/miner2:/gethdata
     cap_add:
       - NET_ADMIN
 
@@ -189,7 +190,7 @@ services:
       - node3
     container_name: miner3
     hostname: miner3
-    cpu_quota: 50000
+    #cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner3
       - LOGGING=on
@@ -215,7 +216,7 @@ services:
       - node3
     container_name: miner4
     hostname: miner4
-    cpu_quota: 50000
+    #cpu_quota: 50000
     environment:
       - DOCKER_NAME=miner4
       - LOGGING=on

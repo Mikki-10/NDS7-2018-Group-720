@@ -25,7 +25,8 @@ fi
 
 if [ $DELAY == "on" ]
 then 
-    tc qdisc change dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal
+    echo "tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal"
+    tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal
 fi
 
 if [ $PACKET_LOSS == "on" ]

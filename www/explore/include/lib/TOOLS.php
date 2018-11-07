@@ -17,12 +17,14 @@ class TOOLS
 		{
 			$time_start = microtime(true);
 
+			echo '<div class="container"><br>';
+			
 			$this->average_block_time();
 
 			$time_end = microtime(true);
 			$time = $time_end - $time_start;
 
-			echo "<br>PHP time to calculate average block time: $time seconds\n<br>";
+			echo "<br>PHP time to calculate average block time: $time seconds\n<br></div>";
 		}
 	}
 

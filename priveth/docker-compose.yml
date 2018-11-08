@@ -71,7 +71,7 @@ services:
       context: ./dockerfiles/miner
     image: miner
     depends_on:
-      - node3
+      - node1
     container_name: miner1
     hostname: miner1
     #cpu_quota: 50000
@@ -95,7 +95,7 @@ services:
       context: ./dockerfiles/miner
     image: miner
     depends_on:
-      - node3
+      - node1
     container_name: miner2
     hostname: miner2
     #cpu_quota: 50000
@@ -119,7 +119,7 @@ services:
       context: ./dockerfiles/miner
     image: miner
     depends_on:
-      - node3
+      - node1
     container_name: miner3
     hostname: miner3
     #cpu_quota: 50000
@@ -143,7 +143,7 @@ services:
       context: ./dockerfiles/miner
     image: miner
     depends_on:
-      - node3
+      - node1
     container_name: miner4
     hostname: miner4
     #cpu_quota: 50000

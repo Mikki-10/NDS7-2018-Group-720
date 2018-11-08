@@ -48,7 +48,7 @@ class ACCOUNT
 			}
 		}
 
-		if ($block_data != NULL || $block_data != "") 
+		if (isset($block_data) && ($block_data != NULL || $block_data != "")) 
 		{
 			krsort($block_data);
 

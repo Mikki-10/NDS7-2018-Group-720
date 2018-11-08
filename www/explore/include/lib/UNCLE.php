@@ -88,11 +88,23 @@ class UNCLE
 
 		krsort($block_data);
 
+		$counter = 0;
+		foreach ($block_data as $key => $block) 
+		{
+			foreach ($block["result"]["uncles"] as $key2 => $value) 
+			{
+				if (isset($value) && ($value != "" || $value != NULL)) 
+				{
+					$counter++;
+				}
+			}
+		}
+
 		echo '<div class="container"><br>';
 
 		echo '<div class="row"><div class="col-md-1">';
 		echo '</div><div class="col-md-10 text-center">';
-		echo "<h4>Uncles found in the latest 1000 blocks</h4>";
+		echo "<h4>" . $counter . " uncles found in the latest 1000 blocks</h4>";
 		echo '</div><div class="col-md-1">';
 		echo "</div></div>";
 

@@ -109,7 +109,7 @@ class ACCOUNT
 
 					foreach ($account_data as $key2 => $account_value) 
 					{
-						if (array_key_exists("result", $account_value) || $account_value["result"] != "" || $account_value["result"] != NULL || is_array($account_value["result"]) == false) 
+						if (array_key_exists("result", $account_value) && ($account_value["result"] != "" || $account_value["result"] != NULL || is_array($account_value["result"]) == false)) 
 						{
 							$account_info[$key2] = rtrim(rtrim(number_format(hexdec($account_value["result"])/1000000000000000000, 22, ",", "."), 0), ",");
 						}

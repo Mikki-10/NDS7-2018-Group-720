@@ -23,15 +23,10 @@ else
     accountNumber="0x$accountNumber"
 fi
 
-if [ $DELAY == "on" ]
+if [ $NETEM == "on" ]
 then 
-    echo "tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal"
-    tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal
-fi
-
-if [ $PACKET_LOSS == "on" ]
-then
-    tc qdisc change dev eth0 root netem loss ${LOSS}%
+    echo "tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal loss ${LOSS}%"
+    tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal loss ${LOSS}%
 fi
 
 if [ $LOGGING == "on" ]

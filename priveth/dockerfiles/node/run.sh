@@ -4,16 +4,12 @@ if [ ! -d "/gethdata/${DOCKER_NAME}" ]; then
     cp -r /gethinit/* /gethdata/${DOCKER_NAME}
 fi
 
-if [ $DELAY == "on" ]
-then 
-    echo "tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal"
-    tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal
-fi
+#if [ $DELAY == "on" ]
+#then 
+#    echo "tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal"
+#    tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal
+#fi
 
-if [ $PACKET_LOSS == "on" ]
-then
-    tc qdisc change dev eth0 root netem loss ${LOSS}%
-fi
 
 if [ $LOGGING == "on" ]
 then

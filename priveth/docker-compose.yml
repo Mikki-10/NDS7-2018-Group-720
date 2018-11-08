@@ -27,35 +27,19 @@ services:
     environment:
       - WS_SECRET=nDs2018
   
-  transactor:
-    build:
-      context: ./dockerfiles/transactor
-    image: transactor
-    depends_on:
-      - bootnode
-    container_name: transactor
-    volumes:
-      - ./gethdata/miner1/miner1/:/gethdata/miner1:ro
-      - ./gethdata/miner2/miner2/:/gethdata/miner2:ro
-      - ./gethdata/miner3/miner3/:/gethdata/miner3:ro
-      - ./gethdata/miner4/miner4/:/gethdata/miner4:ro
-      - ../tools/transactor:/transactor:ro
-
-#  explorer:
+#  transactor:
 #    build:
-#      context: ./dockerfiles/explorer
-#    image: explorer
+#      context: ./dockerfiles/transactor
+#    image: transactor
 #    depends_on:
 #      - bootnode
-#    container_name: explorer
-#    ports:
-#      - 8000:8000
-#    environment:
-#      - DOCKER_NAME=explorer
-#      - VERBOSITY=5
+#    container_name: transactor
 #    volumes:
-#      - ./gethdata/explorer:/gethdata
-#      - ./logs/:/logpath/
+#      - ./gethdata/miner1/miner1/:/gethdata/miner1:ro
+#      - ./gethdata/miner2/miner2/:/gethdata/miner2:ro
+#      - ./gethdata/miner3/miner3/:/gethdata/miner3:ro
+#      - ./gethdata/miner4/miner4/:/gethdata/miner4:ro
+#      - ../tools/transactor:/transactor:ro
 
   node1:
     build:
@@ -71,7 +55,7 @@ services:
       - DOCKER_NAME=node1
       - LOGGING=on
       - VERBOSITY=5
-#      - DELAY=off
+#      - NETEM=off
 #      - PACKET_LOSS=off
 #      - MEAN=100
 #      - VARIANCE=10 
@@ -96,11 +80,10 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - DELAY=off
-      - PACKET_LOSS=off
+      - NETEM=on
       - MEAN=100
       - VARIANCE=10 
-      - LOSS=0.1
+      - LOSS=0
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner1:/gethdata
@@ -121,11 +104,10 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - DELAY=off
-      - PACKET_LOSS=off
+      - NETEM=on
       - MEAN=100
       - VARIANCE=10 
-      - LOSS=0.1  
+      - LOSS=0
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner2:/gethdata
@@ -146,17 +128,15 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - DELAY=off
-      - PACKET_LOSS=off
+      - NETEM=on
       - MEAN=100
       - VARIANCE=10 
-      - LOSS=0.1
+      - LOSS=0
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner3:/gethdata
     cap_add:
       - NET_ADMIN
-
 
   miner4:
     build:
@@ -172,17 +152,15 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - DELAY=off
-      - PACKET_LOSS=off
+      - NETEM=on
       - MEAN=100
-      - VARIANCE=10 
-      - LOSS=0.1
+      - VARIANCE=10
+      - LOSS=0
     volumes:
       - ./logs/:/logpath/
       - ./gethdata/miner4:/gethdata
     cap_add:
       - NET_ADMIN
-
 
 #  miner5:
 #    build:
@@ -197,7 +175,7 @@ services:
 #      - DOCKER_NAME=miner5
 #      - LOGGING=on
 #      - VERBOSITY=5
-#      - DELAY=on
+#      - NETEM=on
 #      - PACKET_LOSS=on
 #      - MEAN=100
 #      - VARIANCE=10 
@@ -222,7 +200,7 @@ services:
 #      - DOCKER_NAME=miner6
 #      - LOGGING=on
 #      - VERBOSITY=5
-#      - DELAY=on
+#      - NETEM=on
 #      - PACKET_LOSS=on
 #      - MEAN=100
 #      - VARIANCE=10 
@@ -247,7 +225,7 @@ services:
 #      - DOCKER_NAME=miner7
 #      - LOGGING=on
 #      - VERBOSITY=5
-#      - DELAY=on
+#      - NETEM=on
 #      - PACKET_LOSS=on
 #      - MEAN=100
 #      - VARIANCE=10 
@@ -272,7 +250,7 @@ services:
 #      - DOCKER_NAME=miner8
 #      - LOGGING=on
 #      - VERBOSITY=5
-#      - DELAY=on
+#      - NETEM=on
 #      - PACKET_LOSS=on
 #      - MEAN=100
 #      - VARIANCE=10 
@@ -297,7 +275,7 @@ services:
 #      - DOCKER_NAME=miner9
 #      - LOGGING=on
 #      - VERBOSITY=5
-#      - DELAY=on
+#      - NETEM=on
 #      - PACKET_LOSS=on
 #      - MEAN=100
 #      - VARIANCE=10 
@@ -321,7 +299,7 @@ services:
 #      - DOCKER_NAME=miner10
 #      - LOGGING=on
 #      - VERBOSITY=5
-#      - DELAY=on
+#      - NETEM=on
 #      - PACKET_LOSS=on
 #      - MEAN=100
 #      - VARIANCE=10

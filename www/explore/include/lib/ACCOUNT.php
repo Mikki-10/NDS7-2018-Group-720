@@ -50,12 +50,16 @@ class ACCOUNT
 		foreach ($block_data as $key => $block) 
 		{
 			$accounts[$block["result"]["miner"]] = $block["result"]["miner"];
-			foreach ($block["result"]["transactions"] as $key2 => $value) 
+
+			if (array_key_exists("transactions", $block["result"])) 
 			{
-				if ($value["from"] != "" || $value["to"] != "") 
+				foreach ($block["result"]["transactions"] as $key2 => $value) 
 				{
-					$accounts[$value["from"]] = $value["from"];
-					$accounts[$value["to"]] = $value["to"];
+					if ($value["from"] != "" || $value["to"] != "") 
+					{
+						$accounts[$value["from"]] = $value["from"];
+						$accounts[$value["to"]] = $value["to"];
+					}
 				}
 			}
 		}
@@ -99,24 +103,27 @@ class ACCOUNT
 			<?php
 			foreach ($accounts as $key => $account) 
 			{
-				$account_data = $RPC->get_Account_Balance($account);
-
-				foreach ($account_data as $key => $account_value) 
+				if (array_key_exists("result", $account)) 
 				{
-					$account_info[$key] = rtrim(rtrim(number_format(hexdec($account_value["result"])/1000000000000000000, 22, ",", "."), 0), ",");
+					$account_data = $RPC->get_Account_Balance($account);
+
+					foreach ($account_data as $key2 => $account_value) 
+					{
+						$account_info[$key2] = rtrim(rtrim(number_format(hexdec($account_value["result"])/1000000000000000000, 22, ",", "."), 0), ",");
+					}
+
+					$account_info["differences"] = hexdec($account_data["latest"]["result"]) - hexdec($account_data["pending"]["result"]);
+					
+					//echo "<pre>"; var_dump($account_info); echo "</pre>";
+
+					echo '<tr>';
+						echo '<td><a href="?account=' . $account . '">' . $account . '</a></td>';
+						echo '<td>' . $account_info["earliest"] . '</td>';
+						echo '<td>' . $account_info["latest"] . '</td>';
+						echo '<td>' . $account_info["pending"] . '</td>';
+						echo '<td>' . $account_info["differences"] . '</td>';
+					echo '</tr>';
 				}
-
-				$account_info["differences"] = hexdec($account_data["latest"]["result"]) - hexdec($account_data["pending"]["result"]);
-				
-				//echo "<pre>"; var_dump($account_info); echo "</pre>";
-
-				echo '<tr>';
-					echo '<td><a href="?account=' . $account . '">' . $account . '</a></td>';
-					echo '<td>' . $account_info["earliest"] . '</td>';
-					echo '<td>' . $account_info["latest"] . '</td>';
-					echo '<td>' . $account_info["pending"] . '</td>';
-					echo '<td>' . $account_info["differences"] . '</td>';
-				echo '</tr>';
 			}
 			?>
 		</tbody>

@@ -52,8 +52,11 @@ class ACCOUNT
 			$accounts[$block["result"]["miner"]] = $block["result"]["miner"];
 			foreach ($block["result"]["transactions"] as $key2 => $value) 
 			{
-				$accounts[$value["from"]] = $value["from"];
-				$accounts[$value["to"]] = $value["to"];
+				if ($value["from"] != "" || $value["to"] != "") 
+				{
+					$accounts[$value["from"]] = $value["from"];
+					$accounts[$value["to"]] = $value["to"];
+				}
 			}
 		}
 
@@ -76,7 +79,7 @@ class ACCOUNT
 
 		echo '<div class="row"><div class="col-md-1">';
 		echo '</div><div class="col-md-10 text-center">';
-		echo "<h4>Accounts found in the latest 1000 blocks</h4>";
+		echo "<h4>Accounts found in the blockchain</h4>";
 		echo '</div><div class="col-md-1">';
 		echo "</div></div>";
 

@@ -32,9 +32,12 @@ class ACCOUNT
 		{
 			$file_accounts = json_decode(file_get_contents("accounts.json"), true);
 
-			for ($i=$file_accounts["block_hight"]; $i < $block_hight; $i++) 
-			{ 
-				$block_data[$i] = $RPC->get_Block($i);
+			if ($file_accounts["block_hight"] != $block_hight) 
+			{
+				for ($i=$file_accounts["block_hight"]; $i < $block_hight; $i++) 
+				{ 
+					$block_data[$i] = $RPC->get_Block($i);
+				}
 			}
 		}
 		else
@@ -45,28 +48,31 @@ class ACCOUNT
 			}
 		}
 
-		krsort($block_data);
-
-		foreach ($block_data as $key => $block) 
+		if ($block_data != NULL || $block_data != "") 
 		{
-			$accounts[$block["result"]["miner"]] = $block["result"]["miner"];
+			krsort($block_data);
 
-			if (array_key_exists("transactions", $block["result"])) 
+			foreach ($block_data as $key => $block) 
 			{
-				foreach ($block["result"]["transactions"] as $key2 => $value) 
+				$accounts[$block["result"]["miner"]] = $block["result"]["miner"];
+
+				if (array_key_exists("transactions", $block["result"])) 
 				{
-					if ($value["from"] != "" || $value["to"] != "") 
+					foreach ($block["result"]["transactions"] as $key2 => $value) 
 					{
-						$accounts[$value["from"]] = $value["from"];
-						$accounts[$value["to"]] = $value["to"];
+						if ($value["from"] != "" || $value["to"] != "") 
+						{
+							$accounts[$value["from"]] = $value["from"];
+							$accounts[$value["to"]] = $value["to"];
+						}
 					}
 				}
 			}
-		}
 
-		foreach ($accounts as $key => $value) 
-		{
-			$file_accounts["accounts"][$key] = $value;
+			foreach ($accounts as $key => $value) 
+			{
+				$file_accounts["accounts"][$key] = $value;
+			}
 		}
 
 		$accounts = $file_accounts["accounts"];

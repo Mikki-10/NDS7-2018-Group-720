@@ -26,10 +26,23 @@ class ACCOUNT
 	function find_accounts()
 	{
 		$RPC = new RPC();
-		$block = $RPC->get_block_hight();
-		for ($i=$block-1000; $i < $block; $i++) 
-		{ 
-			$block_data[$i] = $RPC->get_Block($i);
+		$block_hight = $RPC->get_block_hight();
+
+		if (file_exists("accounts.json")) 
+		{
+			$file_accounts = json_decode(file_get_contents("accounts.json"), true);
+
+			for ($i=$file_accounts["block_hight"]; $i < $block_hight; $i++) 
+			{ 
+				$block_data[$i] = $RPC->get_Block($i);
+			}
+		}
+		else
+		{
+			for ($i=0; $i < $block_hight; $i++) 
+			{ 
+				$block_data[$i] = $RPC->get_Block($i);
+			}
 		}
 
 		krsort($block_data);
@@ -44,7 +57,18 @@ class ACCOUNT
 			}
 		}
 
+		foreach ($accounts as $key => $value) 
+		{
+			$file_accounts["accounts"][$key] = $value;
+		}
+
+		$accounts = $file_accounts["accounts"];
+
 		ksort($accounts);
+
+		$file_accounts["block_hight"];
+
+		file_put_contents("accounts.json", json_encode($file_accounts));
 
 		//echo "<pre>"; var_dump($accounts); echo "</pre>";
 

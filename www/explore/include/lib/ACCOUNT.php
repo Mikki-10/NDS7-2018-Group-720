@@ -66,7 +66,7 @@ class ACCOUNT
 
 		ksort($accounts);
 
-		$file_accounts["block_hight"];
+		$file_accounts["block_hight"] = $block_hight;
 
 		file_put_contents("accounts.json", json_encode($file_accounts));
 

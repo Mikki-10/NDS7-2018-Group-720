@@ -103,7 +103,7 @@ class ACCOUNT
 			<?php
 			foreach ($accounts as $key => $account) 
 			{
-				if (array_key_exists("result", $account)) 
+				if ($account != "" || $account != NULL || is_array($account) == false) 
 				{
 					$account_data = $RPC->get_Account_Balance($account);
 

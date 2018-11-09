@@ -57,7 +57,7 @@ services:
       - VERBOSITY=5
 #      - NETEM=off
 #      - PACKET_LOSS=off
-#      - MEAN=100
+#      - MEAN=1000
 #      - VARIANCE=10 
 #      - LOSS=0.1
     volumes:
@@ -81,7 +81,7 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=100
+      - MEAN=1000
       - VARIANCE=10 
       - LOSS=0
     volumes:
@@ -105,7 +105,7 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=100
+      - MEAN=1000
       - VARIANCE=10 
       - LOSS=0
     volumes:
@@ -129,7 +129,7 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=100
+      - MEAN=1000
       - VARIANCE=10 
       - LOSS=0
     volumes:
@@ -153,7 +153,7 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=100
+      - MEAN=1000
       - VARIANCE=10
       - LOSS=0
     volumes:
@@ -177,7 +177,7 @@ services:
 #      - VERBOSITY=5
 #      - NETEM=on
 #      - PACKET_LOSS=on
-#      - MEAN=100
+#      - MEAN=1000
 #      - VARIANCE=10 
 #      - LOSS=0.1
 #    volumes:
@@ -202,7 +202,7 @@ services:
 #      - VERBOSITY=5
 #      - NETEM=on
 #      - PACKET_LOSS=on
-#      - MEAN=100
+#      - MEAN=1000
 #      - VARIANCE=10 
 #      - LOSS=0.1
 #    volumes:
@@ -227,7 +227,7 @@ services:
 #      - VERBOSITY=5
 #      - NETEM=on
 #      - PACKET_LOSS=on
-#      - MEAN=100
+#      - MEAN=1000
 #      - VARIANCE=10 
 #      - LOSS=0.1
 #    volumes:
@@ -252,7 +252,7 @@ services:
 #      - VERBOSITY=5
 #      - NETEM=on
 #      - PACKET_LOSS=on
-#      - MEAN=100
+#      - MEAN=1000
 #      - VARIANCE=10 
 #      - LOSS=0.1
 #    volumes:
@@ -277,7 +277,7 @@ services:
 #      - VERBOSITY=5
 #      - NETEM=on
 #      - PACKET_LOSS=on
-#      - MEAN=100
+#      - MEAN=1000
 #      - VARIANCE=10 
 #      - LOSS=0.1
 #    volumes:
@@ -301,7 +301,7 @@ services:
 #      - VERBOSITY=5
 #      - NETEM=on
 #      - PACKET_LOSS=on
-#      - MEAN=100
+#      - MEAN=1000
 #      - VARIANCE=10
 #      - LOSS=0.1 
 #    volumes:

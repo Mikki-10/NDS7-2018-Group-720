@@ -26,7 +26,8 @@ fi
 if [ $NETEM == "on" ]
 then 
     echo "tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal loss ${LOSS}%"
-    tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal loss ${LOSS}%
+    #tc qdisc add dev eth0 root netem delay ${MEAN}ms ${VARIANCE}ms distribution normal loss ${LOSS}%
+    tc qdisc add dev eth0 root netem delay ${MEAN}ms loss ${LOSS}%
 fi
 
 if [ $LOGGING == "on" ]

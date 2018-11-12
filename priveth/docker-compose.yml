@@ -80,7 +80,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=on
+      - NETEM=off
       - MEAN=0
       - VARIANCE=0
       - LOSS=0
@@ -104,7 +104,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=on
+      - NETEM=off
       - MEAN=0
       - VARIANCE=0
       - LOSS=0
@@ -128,7 +128,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=on
+      - NETEM=off
       - MEAN=0
       - VARIANCE=0 
       - LOSS=0
@@ -152,7 +152,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=on
+      - NETEM=off
       - MEAN=0
       - VARIANCE=0
       - LOSS=0

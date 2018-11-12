@@ -110,8 +110,8 @@ main (int argc, char *argv[])
 
   NS_LOG_INFO ("Build Topology");
   CsmaHelper csma;
-  csma.SetChannelAttribute ("DataRate", StringValue ("/*>>> What's the speed of the Ethernet we are using? <<<*/Mbps"));
-  csma.SetChannelAttribute ("Delay", TimeValue (MilliSeconds (/*>>> Decide on some propagation delay. How long are the cables? <<<*/)));
+  csma.SetChannelAttribute ("DataRate", StringValue ("10Mbps"));
+  csma.SetChannelAttribute("Delay", TimeValue( MilliSeconds(1)));
 
   // Create the csma links, from terminals 0-3 to switch 0, from terminal 4-8 to switch 1
   // and between the switches. OBS: Be carefull about where the devices are going
@@ -125,14 +125,14 @@ main (int argc, char *argv[])
     {
       NetDeviceContainer link = csma.Install(NodeContainer(terminals.Get(i), csmaSwitches.Get(0)));
       terminalDevices.Add(link.Get(0));
-      switchDevices1.Add(link.Get(1));
+      switchDevices.Add(link.Get(1));
     }
   // Connections to switch 2
   for (int i = 4; i < 9; i++)
     {
       NetDeviceContainer link = csma.Install(NodeContainer(terminals.Get(i), csmaSwitches.Get(1)));
       terminalDevices.Add(link.Get(0));
-      switchDevices2.Add(link.Get(1));
+      switch2Devices.Add(link.Get(1));
     }
   
   // Link the switches
@@ -158,8 +158,8 @@ main (int argc, char *argv[])
   // Configurations
   uint32_t burst = 1000;//tokenbucket burst parameter
   uint32_t mtu = 0;
-  DataRate rate = DataRate ("/*>>> tokenbucket rate <<<*/Mbps");
-  DataRate peakRate = DataRate ("/*>>> Tokenbucket peak rate <<<*/bps");
+  DataRate rate = DataRate ("100Mbps");
+  DataRate peakRate = DataRate ("100Mbps");
 
   TrafficControlHelper tch;
   tch.SetRootQueueDisc ("ns3::TbfQueueDisc",
@@ -200,7 +200,7 @@ main (int argc, char *argv[])
   rearCamera.SetConstantRate (DataRate ("10Mbps"));
   rearCamera.SetAttribute ("PacketSize",UintegerValue (1400));
   rearCamera.SetAttribute ("OnTime",  StringValue ("ns3::ConstantRandomVariable[Constant=0.00112]")); // 11200/10000000 [s]
-  rearCamera.SetAttribute ("OffTime", StringValue ("ns3::ExponentialRandomVariable[Mean=Mean=0.00088]")); // 0.002-ontime 
+  rearCamera.SetAttribute ("OffTime", StringValue ("ns3::ExponentialRandomVariable[Mean=0.00088]")); // 0.002-ontime 
   
   OnOffHelper multiMedia ("ns3::UdpSocketFactory", 
                      Address (InetSocketAddress (Ipv4Address ("10.1.1.9"), port)));

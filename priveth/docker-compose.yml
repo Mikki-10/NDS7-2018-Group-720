@@ -80,8 +80,8 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=off
-      - MEAN=0
+      - NETEM=on
+      - MEAN=10000
       - VARIANCE=0
       - LOSS=0
     volumes:
@@ -104,8 +104,8 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=off
-      - MEAN=0
+      - NETEM=on
+      - MEAN=10000
       - VARIANCE=0
       - LOSS=0
     volumes:
@@ -128,8 +128,8 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=off
-      - MEAN=0
+      - NETEM=on
+      - MEAN=10000
       - VARIANCE=0 
       - LOSS=0
     volumes:
@@ -152,8 +152,8 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=off
-      - MEAN=0
+      - NETEM=on
+      - MEAN=10000
       - VARIANCE=0
       - LOSS=0
     volumes:

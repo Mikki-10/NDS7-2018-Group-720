@@ -64,6 +64,12 @@ PacketDequeued(Ptr<OutputStreamWrapper> stream, Ptr< const QueueDiscItem > item)
   *stream->GetStream () << "- " << Simulator::Now().GetNanoSeconds() << " [ns] Dequeued a packet" << std::endl;
 }
 
+void
+PacketDropped(Ptr<OutputStreamWrapper> stream, Ptr< const QueueDiscItem > item)
+{
+  *stream->GetStream () << "d " << Simulator::Now().GetNanoSeconds() << " [ns] Dropped a packet" << std::endl;
+}
+
 /*>>> Are there any other interesting things we could trace? <<<*/
 
 //
@@ -245,11 +251,12 @@ main (int argc, char *argv[])
   Ptr<OutputStreamWrapper> outFile = ascii.CreateFileStream("tocken-bucket-on-t2.tr");
   /*>>> Are we interested in tracing multiple queues? should they be printed to different files? <<<*/
   Ptr<QueueDisc> q = qdiscs.Get (0);
-  /*>>> Any other queues we want to track? <<<*/
+    /*>>> Any other queues we want to track? <<<*/
 
   // Setup tracing of the tocken bucket related events
   q->TraceConnectWithoutContext ("Enqueue", MakeBoundCallback (&PacketEnqueued, outFile));
   q->TraceConnectWithoutContext ("Dequeue", MakeBoundCallback (&PacketDequeued, outFile));
+  q->TraceConnectWithoutContext ("Drop", MakeBoundCallback (&PacketDropped, outFile));
   /*>>> any other things we could be interested in tracing? <<<*/
 
   // Trace the csma events on t0 (the first wheel)

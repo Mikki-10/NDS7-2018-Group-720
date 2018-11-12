@@ -81,8 +81,8 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=1000
-      - VARIANCE=10 
+      - MEAN=0
+      - VARIANCE=0
       - LOSS=0
     volumes:
       - ./logs/:/logpath/
@@ -105,8 +105,8 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=1000
-      - VARIANCE=10 
+      - MEAN=0
+      - VARIANCE=0
       - LOSS=0
     volumes:
       - ./logs/:/logpath/
@@ -129,8 +129,8 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=1000
-      - VARIANCE=10 
+      - MEAN=0
+      - VARIANCE=0 
       - LOSS=0
     volumes:
       - ./logs/:/logpath/
@@ -153,8 +153,8 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=1000
-      - VARIANCE=10
+      - MEAN=0
+      - VARIANCE=0
       - LOSS=0
     volumes:
       - ./logs/:/logpath/

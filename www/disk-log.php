@@ -8,4 +8,8 @@ preg_match_all('/(.*)  (.*)/', $shell_output, $output_array);
 
 echo "<pre>"; var_dump($output_array); echo "</pre>";
 
+$output_to_log = time() . ";" . $output_array[2][3] . "\n";
+
+file_put_contents("disk-io-log.txt", $output_to_log, FILE_APPEND);
+
 ?>

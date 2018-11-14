@@ -1,6 +1,6 @@
 <?php
 
-$shell_output = shell_exec("sudo iostat sda -tdx 1 2");
+$shell_output = shell_exec("iostat sda -tdx 1 2");
 
 echo "<pre>"; var_dump($shell_output); echo "</pre>";
 

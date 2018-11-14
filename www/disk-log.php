@@ -10,6 +10,6 @@ echo "<pre>"; var_dump($output_array); echo "</pre>";
 
 $output_to_log = time() . ";" . $output_array[2][3] . "\n";
 
-file_put_contents("/home/nds/NDS7-2018-Group-720/www/disk-io-log.txt", $output_to_log, FILE_APPEND);
+file_put_contents("/home/nds/NDS7-2018-Group-720/www/logs/disk-IO".date('Y-m-d').".txt", $output_to_log, FILE_APPEND);
 
 ?>

@@ -2,11 +2,11 @@
 
 $shell_output = shell_exec("iostat sda -tdx 1 2");
 
-echo "<pre>"; var_dump($shell_output); echo "</pre>";
+//echo "<pre>"; var_dump($shell_output); echo "</pre>";
 
 preg_match_all('/(.*)  (.*)/', $shell_output, $output_array);
 
-echo "<pre>"; var_dump($output_array); echo "</pre>";
+//echo "<pre>"; var_dump($output_array); echo "</pre>";
 
 $output_to_log = time() . ";" . $output_array[2][3] . "\n";
 

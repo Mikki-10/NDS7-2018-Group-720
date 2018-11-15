@@ -55,7 +55,7 @@ services:
       - DOCKER_NAME=node1
       - LOGGING=on
       - VERBOSITY=5
-#      - NETEM=off
+#      - NETEM=on
 #      - PACKET_LOSS=off
 #      - MEAN=1000
 #      - VARIANCE=10 

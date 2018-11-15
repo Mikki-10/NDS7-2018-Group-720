@@ -14,6 +14,11 @@ setDelay() {
 
 #docker-compose up -d
 
+# Save startup logs so they can be subtracted
+#docker-compose pause
+tar czf startup-logs.tar.gz ./logs
+#docker-compose unpause
+
 for i in {1..10}
 do
 
@@ -24,9 +29,9 @@ do
 
     sleep 1h
 
-    docker-compose pause
+    #docker-compose pause
     tar czf delay${delay_time}-loss${loss_pct}-logs.tar.gz ./logs
-    docker-compose unpause
+    #docker-compose unpause
 
 done
 

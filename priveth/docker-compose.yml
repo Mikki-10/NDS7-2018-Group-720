@@ -55,7 +55,7 @@ services:
       - DOCKER_NAME=node1
       - LOGGING=on
       - VERBOSITY=5
-#      - NETEM=off
+#      - NETEM=on
 #      - PACKET_LOSS=off
 #      - MEAN=1000
 #      - VARIANCE=10 
@@ -80,7 +80,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=off
+      - NETEM=on
       - MEAN=1000
       - VARIANCE=0
       - LOSS=0
@@ -104,7 +104,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=off
+      - NETEM=on
       - MEAN=1000
       - VARIANCE=0
       - LOSS=0
@@ -128,7 +128,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=off
+      - NETEM=on
       - MEAN=1000
       - VARIANCE=0 
       - LOSS=0
@@ -152,7 +152,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=off
+      - NETEM=on
       - MEAN=1000
       - VARIANCE=0
       - LOSS=0
@@ -175,7 +175,7 @@ services:
 #      - DOCKER_NAME=miner5
 #      - LOGGING=on
 #      - VERBOSITY=5
-#      - NETEM=off
+#      - NETEM=on
 #      - PACKET_LOSS=on
 #      - MEAN=1000
 #      - VARIANCE=10 
@@ -200,7 +200,7 @@ services:
 #      - DOCKER_NAME=miner6
 #      - LOGGING=on
 #      - VERBOSITY=5
-#      - NETEM=off
+#      - NETEM=on
 #      - PACKET_LOSS=on
 #      - MEAN=1000
 #      - VARIANCE=10 
@@ -225,7 +225,7 @@ services:
 #      - DOCKER_NAME=miner7
 #      - LOGGING=on
 #      - VERBOSITY=5
-#      - NETEM=off
+#      - NETEM=on
 #      - PACKET_LOSS=on
 #      - MEAN=1000
 #      - VARIANCE=10 
@@ -250,7 +250,7 @@ services:
 #      - DOCKER_NAME=miner8
 #      - LOGGING=on
 #      - VERBOSITY=5
-#      - NETEM=off
+#      - NETEM=on
 #      - PACKET_LOSS=on
 #      - MEAN=1000
 #      - VARIANCE=10 
@@ -275,7 +275,7 @@ services:
 #      - DOCKER_NAME=miner9
 #      - LOGGING=on
 #      - VERBOSITY=5
-#      - NETEM=off
+#      - NETEM=on
 #      - PACKET_LOSS=on
 #      - MEAN=1000
 #      - VARIANCE=10 
@@ -299,7 +299,7 @@ services:
 #      - DOCKER_NAME=miner10
 #      - LOGGING=on
 #      - VERBOSITY=5
-#      - NETEM=off
+#      - NETEM=on
 #      - PACKET_LOSS=on
 #      - MEAN=1000
 #      - VARIANCE=10

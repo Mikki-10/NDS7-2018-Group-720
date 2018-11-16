@@ -30,6 +30,5 @@ comm -3 output/delay900-loss0-logs.csv output/delay1000-loss0-logs.csv | cut -c 
 
 for file in subtracted/*.csv
 do 
-    sed -i '1iMTime;Miner;Message;BlockNr;Hash' $file
-
+	echo -e "MTime;Miner;Message;BlockNr;Hash" | cat - $file > tmp && mv tmp $file
 done

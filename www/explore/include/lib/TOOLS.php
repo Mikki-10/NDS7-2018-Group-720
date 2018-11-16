@@ -147,8 +147,7 @@ class TOOLS
 		                title: {
 		                    text: 'Sec'
 		                },
-		                min: 0,
-		                max: 1000
+		                min: 0
 		            },
 		            legend: {
 		                enabled: false

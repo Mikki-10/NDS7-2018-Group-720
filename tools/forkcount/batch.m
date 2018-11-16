@@ -1,4 +1,5 @@
 %% convert CSV to mat
+% MTime;Miner;Message;BlockNr;Hash
 clear
 inputFiles = dir('./input/*.csv');
 

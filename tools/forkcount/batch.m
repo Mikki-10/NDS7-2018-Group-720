@@ -9,7 +9,6 @@ for file = inputFiles'
    contents = parseTimes2(contents);
    save(strcat('./tmp/',file.name,'.mat'), 'contents');
 end
-clear
 %% Load files
 clear
 close all

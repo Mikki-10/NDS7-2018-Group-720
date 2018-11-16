@@ -146,7 +146,8 @@ class TOOLS
 		            yAxis: {
 		                title: {
 		                    text: 'Sec'
-		                }
+		                },
+		                min: 0
 		            },
 		            legend: {
 		                enabled: false

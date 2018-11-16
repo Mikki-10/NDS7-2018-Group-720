@@ -141,12 +141,14 @@ class TOOLS
 		                        'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
 		            },
 		            xAxis: {
-		                type: 'datetime'
+		                type: 'datetime',
+		                max: 1000
 		            },
 		            yAxis: {
 		                title: {
 		                    text: 'Sec'
-		                }
+		                },
+		                min: 0 // this sets minimum values of y to 0
 		            },
 		            legend: {
 		                enabled: false

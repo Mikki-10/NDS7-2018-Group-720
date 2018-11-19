@@ -15,7 +15,20 @@ close all
 clc
 inputFiles = dir('./tmp/*.mat');
 
+[~, idx] = natsort({inputFiles.name});
+%inputFiles = orderfields(inputFiles, idx);
+
+for i = 1:length(inputFiles)
+   newinput(i) = inputFiles( idx(i) ); 
+end
+
+inputFiles = newinput;
+
 timeWindow = duration(8,0,0);
+
+results = repmat(struct('name', '', 'fork_count', 0, 'mined_count', 0, 'fork_chance', 0, 'block_time', seconds(0)), length(inputFiles), 1);
+
+%results = zeros(length(inputFiles),1);
 
 for i = 1:length(inputFiles)
     data{i} = load( strcat(inputFiles(i).folder,'/',inputFiles(i).name) );
@@ -50,7 +63,12 @@ for dataCounter = 1:length(inputFiles)
     fprintf('%s, Start: %s, End: %s:\n', inputFiles(dataCounter).name, string(startTimestamp), string(endTimestamp))
 
     fprintf("Fork count: %d, Mined count: %d, Fork chance: %.2f%%, Mean block time: %.2f\n\n", fork_count, mined_count, fork_chance, mean(seconds(block_time)))
-
+    results(dataCounter).name = inputFiles(dataCounter).name;
+    results(dataCounter).fork_count = fork_count;
+    results(dataCounter).mined_count = mined_count;
+    results(dataCounter).fork_chance = fork_chance;
+    results(dataCounter).block_time = mean(seconds(block_time));
+    
     % Plot block time over time.
     figure(fig_blocktime)
     subplot(length(inputFiles),1,dataCounter)
@@ -67,6 +85,13 @@ for dataCounter = 1:length(inputFiles)
     title( ['Block time - ' inputFiles(dataCounter).name] )
     
 end
+figure(3)
+c = {results.name};
+bar([results.fork_chance]);
+xticklabels(c);
+xtickangle(45);
+xlabel('Test run number');
+ylabel('% forks');
 
 
 %% Plot single test split up into windows.

@@ -43,8 +43,11 @@ for dataCounter = 1:length(inputFiles)
 
     fork_chance = (fork_count/mined_count)*100;
 
-    fprintf('Timeframe: %s', evalc('disp(timeWindow)'))
-    fprintf('%s:\n', inputFiles(dataCounter).name)
+    startTimestamp = data{dataCounter}.contents.parsedTimes(1);
+    endTimestamp = data{dataCounter}.contents.parsedTimes(end);
+    
+    fprintf('Time window: %s', evalc('disp(timeWindow)'))
+    fprintf('%s, Start: %s, End: %s:\n', inputFiles(dataCounter).name, string(startTimestamp), string(endTimestamp))
 
     fprintf("Fork count: %d, Mined count: %d, Fork chance: %.2f%%, Mean block time: %.2f\n\n", fork_count, mined_count, fork_chance, mean(seconds(block_time)))
 

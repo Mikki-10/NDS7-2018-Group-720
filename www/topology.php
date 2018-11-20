@@ -61,6 +61,64 @@ function encode64($c) {
 $encode = encodep('Alice -> Bob: hello');
 //echo "http://www.plantuml.com/plantuml/uml/{$encode}";
 
-echo file_get_contents("http://www.plantuml.com/plantuml/uml/{$encode}");
+echo file_get_contents("https://www.plantuml.com/plantuml/svg/{$encode}");
+
+
+
+//{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74} 
+//return $this->request('{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}', $ip);
+
+
+
+/**
+ * 
+ */
+class RPC
+{
+	
+	function __construct()
+	{
+		# code...
+	}
+
+	function request($request, $ip = RPC_NODE)
+	{
+		try 
+		{
+			#curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}' 172.18.0.3:8545
+
+			$ch = curl_init();
+
+			curl_setopt($ch, CURLOPT_URL, $ip);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
+			curl_setopt($ch, CURLOPT_POST, 1);
+
+			$headers = array();
+			$headers[] = "Content-Type: application/json";
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+			$result = curl_exec($ch);
+			if (curl_errno($ch) && curl_errno($ch) == 0) 
+			{
+			    if (curl_error($ch) != "") 
+			    {
+			    	die('CURL Error: ' . curl_error($ch));
+			    }
+			}
+			curl_close ($ch);
+
+			$result = json_decode($result, true);
+
+			//echo "<pre>"; var_dump($result); echo "</pre>";
+		} 
+		catch (Exception $e) 
+		{
+			echo "<pre>"; var_dump($e); echo "</pre>";
+		}
+
+		return $result;
+	}
+}
 
 ?>

@@ -235,7 +235,7 @@ $encode_url = "https://www.plantuml.com/plantuml/svg/{$encode}";
 
 foreach ($connections_uml as $source_node => $miners) 
 {
-	$connections_uml[$source_node . " - " . count($miners)] = $miners;
+	$connections_uml[$source_node . " - (" . count($miners) . ")"] = $miners;
 	unset($connections_uml[$source_node]);
 }
 

@@ -43,6 +43,60 @@ function scrape_from($data, $start)
 }
 
 
+
+
+/**
+ * 
+ */
+class RPC
+{
+	
+	function __construct()
+	{
+		# code...
+	}
+
+	function request($request, $ip = RPC_NODE)
+	{
+		try 
+		{
+			#curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}' 172.18.0.3:8545
+
+			$ch = curl_init();
+
+			curl_setopt($ch, CURLOPT_URL, $ip);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
+			curl_setopt($ch, CURLOPT_POST, 1);
+
+			$headers = array();
+			$headers[] = "Content-Type: application/json";
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+			$result = curl_exec($ch);
+			if (curl_errno($ch) && curl_errno($ch) == 0) 
+			{
+			    if (curl_error($ch) != "") 
+			    {
+			    	die('CURL Error: ' . curl_error($ch));
+			    }
+			}
+			curl_close ($ch);
+
+			$result = json_decode($result, true);
+
+			//echo "<pre>"; var_dump($result); echo "</pre>";
+		} 
+		catch (Exception $e) 
+		{
+			echo "<pre>"; var_dump($e); echo "</pre>";
+		}
+
+		return $result;
+	}
+}
+
+
 function encodep($text) {
 	 $data = utf8_encode($text);
 	 $compressed = gzdeflate($data, 9);
@@ -180,55 +234,80 @@ echo '<img src="' . $encode_url . '">';
 
 
 
-/**
- * 
- */
-class RPC
-{
-	
-	function __construct()
-	{
-		# code...
-	}
+?>
 
-	function request($request, $ip = RPC_NODE)
-	{
-		try 
-		{
-			#curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}' 172.18.0.3:8545
 
-			$ch = curl_init();
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="http://d3js.org/d3.v2.min.js?2.9.3"></script>
+<style>
 
-			curl_setopt($ch, CURLOPT_URL, $ip);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $request);
-			curl_setopt($ch, CURLOPT_POST, 1);
-
-			$headers = array();
-			$headers[] = "Content-Type: application/json";
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-			$result = curl_exec($ch);
-			if (curl_errno($ch) && curl_errno($ch) == 0) 
-			{
-			    if (curl_error($ch) != "") 
-			    {
-			    	die('CURL Error: ' . curl_error($ch));
-			    }
-			}
-			curl_close ($ch);
-
-			$result = json_decode($result, true);
-
-			//echo "<pre>"; var_dump($result); echo "</pre>";
-		} 
-		catch (Exception $e) 
-		{
-			echo "<pre>"; var_dump($e); echo "</pre>";
-		}
-
-		return $result;
-	}
+.link {
+  stroke: #aaa;
 }
 
-?>
+.node text {
+stroke:#333;
+cursos:pointer;
+}
+
+.node circle{
+stroke:#fff;
+stroke-width:3px;
+fill:#555;
+}
+
+</style>
+<body>
+<script>
+
+var width = 960,
+    height = 500
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var force = d3.layout.force()
+    .gravity(.05)
+    .distance(100)
+    .charge(-100)
+    .size([width, height]);
+
+d3.json("graphFile.json", function(json) {
+  force
+      .nodes(json.nodes)
+      .links(json.links)
+      .start();
+
+  var link = svg.selectAll(".link")
+      .data(json.links)
+    .enter().append("line")
+      .attr("class", "link")
+    .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
+
+  var node = svg.selectAll(".node")
+      .data(json.nodes)
+    .enter().append("g")
+      .attr("class", "node")
+      .call(force.drag);
+
+  node.append("circle")
+      .attr("r","5");
+
+  node.append("text")
+      .attr("dx", 12)
+      .attr("dy", ".35em")
+      .text(function(d) { return d.name });
+
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+  });
+});
+
+</script>

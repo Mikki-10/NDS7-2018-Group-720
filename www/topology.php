@@ -186,7 +186,7 @@ foreach ($ips as $miner => $ip)
 	//$connections[$miner]
 }
 
-echo "<pre>"; var_dump($connections); echo "</pre>"; 
+//echo "<pre>"; var_dump($connections); echo "</pre>"; 
 
 foreach ($ips as $key => $value) 
 {
@@ -205,7 +205,7 @@ foreach ($connections as $source_node => $node_con)
 	}
 }
 
-echo "<pre>"; var_dump($connections_uml); echo "</pre>"; 
+//echo "<pre>"; var_dump($connections_uml); echo "</pre>"; 
 
 $output = "";
 foreach ($connections_uml as $source_node => $miners) 
@@ -220,7 +220,7 @@ foreach ($connections_uml as $source_node => $miners)
 	}
 }
 
-echo "<pre>"; var_dump($output); echo "</pre>"; 
+//echo "<pre>"; var_dump($output); echo "</pre>"; 
 
 
 //$encode = encodep('Alice -> Bob: hello');
@@ -230,7 +230,7 @@ $encode_url = "https://www.plantuml.com/plantuml/svg/{$encode}";
 //echo file_get_contents("http://www.plantuml.com/plantuml/svg/{$encode}");
 
 
-echo '<img src="' . $encode_url . '">';
+//echo '<img src="' . $encode_url . '">';
 
 
 $output = NULL;
@@ -304,7 +304,7 @@ var svg = d3.select("body").append("svg")
 
 var force = d3.layout.force()
     .gravity(.05)
-    .distance(100)
+    .distance(300)
     .charge(-100)
     .size([width, height]);
 

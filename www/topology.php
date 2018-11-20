@@ -157,6 +157,9 @@ $output = "";
 foreach ($connections_uml as $source_node => $miners) 
 {
 	$output = $output . "artifact $source_node\n";
+}
+foreach ($connections_uml as $source_node => $miners) 
+{
 	foreach ($miners as $key => $miner) 
 	{
 		$output = $output . "$source_node -> $miner\n";

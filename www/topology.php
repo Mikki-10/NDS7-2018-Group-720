@@ -153,12 +153,12 @@ foreach ($connections as $source_node => $node_con)
 
 echo "<pre>"; var_dump($connections_uml); echo "</pre>"; 
 
-
+$output = "";
 foreach ($connections_uml as $source_node => $miners) 
 {
 	foreach ($miners as $key => $miner) 
 	{
-		$output = "$key -> $miner\n";
+		$output = $output . "$source_node -> $miner\n";
 	} 
 }
 

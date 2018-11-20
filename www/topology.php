@@ -153,6 +153,18 @@ foreach ($connections as $source_node => $node_con)
 
 echo "<pre>"; var_dump($connections_uml); echo "</pre>"; 
 
+
+foreach ($connections_uml as $source_node => $miners) 
+{
+	foreach ($miners as $key => $miner) 
+	{
+		$output = "$key -> $miner\n";
+	} 
+}
+
+echo "<pre>"; var_dump($output); echo "</pre>"; 
+
+
 $encode = encodep('Alice -> Bob: hello');
 $encode_url = "https://www.plantuml.com/plantuml/svg/{$encode}";
 

@@ -161,17 +161,17 @@ function encode64($c) {
 //return $this->request('{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}', $ip);
 
 $ips = array(
-			'node1' => '172.18.0.4:8545',
-			'miner1' => '172.18.0.5:8545',
-			'miner2' => '172.18.0.6:8545',
-			'miner3' => '172.18.0.7:8545',
-			'miner4' => '172.18.0.8:8545',
-			'miner5' => '172.18.0.9:8545',
-			'miner6' => '172.18.0.10:8545',
-			'miner7' => '172.18.0.11:8545',
-			'miner8' => '172.18.0.12:8545',
-			'miner9' => '172.18.0.13:8545',
-			'miner10' => '172.18.0.14:8545'
+			'node_0' => '172.18.0.4:8545',
+			'node_1' => '172.18.0.5:8545',
+			'node_2' => '172.18.0.6:8545',
+			'node_3' => '172.18.0.7:8545',
+			'node_4' => '172.18.0.8:8545',
+			'node_5' => '172.18.0.9:8545',
+			'node_6' => '172.18.0.10:8545',
+			'node_7' => '172.18.0.11:8545',
+			'node_8' => '172.18.0.12:8545',
+			'node_9' => '172.18.0.13:8545',
+			'node_10' => '172.18.0.14:8545'
 			);
 
 
@@ -232,6 +232,38 @@ $encode_url = "https://www.plantuml.com/plantuml/svg/{$encode}";
 
 echo '<img src="' . $encode_url . '">';
 
+
+$output = "";
+
+$i = 0;
+foreach ($connections_uml as $source_node => $miners) 
+{
+	$output["nodes"][$i] = array('name' => $source_node);
+	$i++;
+	foreach ($miners as $key => $miner) 
+	{
+		$output["links"][$key] = array(
+										'source' => scrape_from($source_node, "_"),
+										'target' => scrape_from($miner, "_"),
+										);
+	}
+}
+file_put_contents("graphFile.json", json_encode($output));
+
+/*
+{
+  "nodes":[
+		{"name":"node1"},
+		{"name":"node2"},
+		{"name":"node3"},
+		{"name":"node4"}
+	],
+	"links":[
+		{"source":2,"target":1,"weight":1},
+		{"source":0,"target":2,"weight":3}
+	]
+}
+*/
 
 
 ?>

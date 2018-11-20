@@ -165,7 +165,8 @@ foreach ($connections_uml as $source_node => $miners)
 echo "<pre>"; var_dump($output); echo "</pre>"; 
 
 
-$encode = encodep('Alice -> Bob: hello');
+//$encode = encodep('Alice -> Bob: hello');
+$encode = encodep($output);
 $encode_url = "https://www.plantuml.com/plantuml/svg/{$encode}";
 
 //echo file_get_contents("http://www.plantuml.com/plantuml/svg/{$encode}");

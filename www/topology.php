@@ -251,13 +251,15 @@ foreach ($connections_uml as $source_node => $miners)
 	foreach ($miners as $key => $miner) 
 	{
 		$output["links"][$j] = array(
-										'source' => intval(scrape_from($source_node, "_")),
-										'target' => intval(scrape_from($miner, "_")),
+										'source' => intval(scrape_between($miner, "_", " -")),
+										'target' => intval(scrape_between($miner, "_", " -")),
+										'weight' => intval(scrape_between($miner, "(", ")")),
 										);
 		$j++;
 	}
 }
 file_put_contents("graphFile.json", json_encode($output));
+
 
 /*
 {
@@ -312,7 +314,7 @@ var svg = d3.select("body").append("svg")
 var force = d3.layout.force()
     .gravity(.05)
     .distance(400)
-    .charge(300)
+    .charge(-100)
     .size([width, height]);
 
 d3.json("graphFile.json", function(json) {
@@ -334,7 +336,7 @@ d3.json("graphFile.json", function(json) {
       .call(force.drag);
 
   node.append("circle")
-      .attr("r","5");
+      .attr("r","20");
 
   node.append("text")
       .attr("dx", 12)

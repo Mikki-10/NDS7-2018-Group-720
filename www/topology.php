@@ -283,6 +283,8 @@ $time_end = microtime(true);
 $time = $time_end - $time_start;
 
 echo "<br>Waiting time: $time seconds\n<br></div>";
+$time = $time / count($connections_uml);
+echo "<br>Waiting time pr node: $time seconds\n<br></div>";
 
 ?>
 

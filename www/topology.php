@@ -233,6 +233,13 @@ $encode_url = "https://www.plantuml.com/plantuml/svg/{$encode}";
 //echo '<img src="' . $encode_url . '">';
 
 
+foreach ($connections_uml as $source_node => $miners) 
+{
+	$connections_uml[$source_node . " - " . count($miners)] = $miners;
+	unset($connections_uml[$source_node]);
+}
+
+
 $output = NULL;
 
 $i = 0;

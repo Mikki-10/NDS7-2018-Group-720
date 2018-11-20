@@ -295,8 +295,8 @@ fill:#555;
 <body>
 <script>
 
-var width = 960,
-    height = 500
+var width = 1400,
+    height = 900
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -304,7 +304,7 @@ var svg = d3.select("body").append("svg")
 
 var force = d3.layout.force()
     .gravity(.05)
-    .distance(300)
+    .distance(400)
     .charge(-100)
     .size([width, height]);
 

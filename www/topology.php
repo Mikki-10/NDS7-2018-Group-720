@@ -3,6 +3,46 @@
 error_reporting(E_ALL);
 ini_set("display_errors", true);
 
+// --------------------------------------------------------- //
+// Funktion til at gemme kun den data man har behov for
+// --------------------------------------------------------- //
+// Defining the basic scraping function
+function scrape_between($data, $start, $end)
+{
+    $data = stristr($data, $start); // Stripping all data from before $start
+    $data = substr($data, strlen($start));  // Stripping $start
+    $stop = stripos($data, $end);   // Getting the position of the $end of the data to scrape
+    $data = substr($data, 0, $stop);    // Stripping all data from after and including the $end of the data to scrape
+    return $data;  // Returning the scraped data from the function
+}
+
+// --------------------------------------------------------- //
+// Funktion til at gemme kun den data man har behov for
+// --------------------------------------------------------- //
+// Defining the basic scraping function
+function scrape_to($data, $end)
+{
+    //$data = stristr($data, $start); // Stripping all data from before $start
+    //$data = substr($data, strlen($start));  // Stripping $start
+    $stop = stripos($data, $end);   // Getting the position of the $end of the data to scrape
+    $data = substr($data, 0, $stop);    // Stripping all data from after and including the $end of the data to scrape
+    return $data;  // Returning the scraped data from the function
+}
+
+// --------------------------------------------------------- //
+// Funktion til at gemme kun den data man har behov for
+// --------------------------------------------------------- //
+// Defining the basic scraping function
+function scrape_from($data, $start)
+{
+    $data = stristr($data, $start); // Stripping all data from before $start
+    $data = substr($data, strlen($start));  // Stripping $start
+    //$stop = stripos($data, $end);   // Getting the position of the $end of the data to scrape
+    //$data = substr($data, 0, $stop);    // Stripping all data from after and including the $end of the data to scrape
+    return $data;  // Returning the scraped data from the function
+}
+
+
 function encodep($text) {
 	 $data = utf8_encode($text);
 	 $compressed = gzdeflate($data, 9);
@@ -61,14 +101,6 @@ function encode64($c) {
 }
 
 
-$encode = encodep('Alice -> Bob: hello');
-$encode_url = "https://www.plantuml.com/plantuml/svg/{$encode}";
-
-//echo file_get_contents("http://www.plantuml.com/plantuml/svg/{$encode}");
-
-
-echo '<img src="' . $encode_url . '">';
-
 
 
 //{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74} 
@@ -95,12 +127,33 @@ foreach ($ips as $miner => $ip)
 	$temp = $RPC->request('{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}', $ip);
 	foreach ($temp["result"] as $key => $results) 
 	{
-		$connection[$miner][$key] = $results["network"]["remoteAddress"];
+		$connections[$miner][$key] = $results["network"]["remoteAddress"];
 	}
-	//$connection[$miner]
+	//$connections[$miner]
 }
 
-echo "<pre>"; var_dump($connection); echo "</pre>"; 
+echo "<pre>"; var_dump($connections); echo "</pre>"; 
+
+
+foreach ($connections as $source_node => $node_con) 
+{
+	foreach ($node_con as $key => $value) 
+	{
+		$ip = scrape_to($value, ":");
+		$node_dest = array_search($ip, $ips);
+		$connections_uml[$source_node][$key] = $node_dest;
+	}
+}
+
+echo "<pre>"; var_dump($connections_uml); echo "</pre>"; 
+
+$encode = encodep('Alice -> Bob: hello');
+$encode_url = "https://www.plantuml.com/plantuml/svg/{$encode}";
+
+//echo file_get_contents("http://www.plantuml.com/plantuml/svg/{$encode}");
+
+
+echo '<img src="' . $encode_url . '">';
 
 
 

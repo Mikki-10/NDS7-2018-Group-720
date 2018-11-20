@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set("display_errors", true);
+
 function encodep($text) {
 	 $data = utf8_encode($text);
 	 $compressed = gzdeflate($data, 9);
@@ -71,10 +74,28 @@ echo '<img src="' . $encode_url . '">';
 //{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74} 
 //return $this->request('{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}', $ip);
 
-foreach ($variable as $key => $value) 
+$ips = array(
+			'node1' => '172.18.0.4',
+			'miner1' => '172.18.0.5',
+			'miner2' => '172.18.0.6',
+			'miner3' => '172.18.0.7',
+			'miner4' => '172.18.0.8',
+			'miner5' => '172.18.0.9',
+			'miner6' => '172.18.0.10',
+			'miner7' => '172.18.0.11',
+			'miner8' => '172.18.0.12',
+			'miner9' => '172.18.0.13',
+			'miner10' => '172.18.0.14'
+			);
+
+
+$RPC = new RPC();
+foreach ($ips as $key => $ip) 
 {
-	# code...
+	$connection = $RPC->request('{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}', $ip);
 }
+
+echo "<pre>"; var_dump($connection); echo "</pre>"; 
 
 
 

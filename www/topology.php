@@ -134,6 +134,11 @@ foreach ($ips as $miner => $ip)
 
 echo "<pre>"; var_dump($connections); echo "</pre>"; 
 
+foreach ($ips as $key => $value) 
+{
+	$ips[$key] = scrape_to($value, ":");
+}
+
 
 foreach ($connections as $source_node => $node_con) 
 {

@@ -61,12 +61,20 @@ function encode64($c) {
 $encode = encodep('Alice -> Bob: hello');
 //echo "http://www.plantuml.com/plantuml/uml/{$encode}";
 
-echo file_get_contents("http://www.plantuml.com/plantuml/svg/{$encode}");
+//echo file_get_contents("http://www.plantuml.com/plantuml/svg/{$encode}");
+
+
+echo '<img src="https://www.plantuml.com/plantuml/svg/{$encode}">';
 
 
 
 //{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74} 
 //return $this->request('{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}', $ip);
+
+foreach ($variable as $key => $value) 
+{
+	# code...
+}
 
 
 

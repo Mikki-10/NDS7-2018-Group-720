@@ -251,9 +251,9 @@ foreach ($connections_uml as $source_node => $miners)
 	foreach ($miners as $key => $miner) 
 	{
 		$output["links"][$j] = array(
-										'source' => intval(scrape_between($miner, "_", " -")),
-										'target' => intval(scrape_between($miner, "_", " -")),
-										'weight' => intval(scrape_between($miner, "(", ")")),
+										'source' => intval(scrape_between($source_node, "_", " -")),
+										'target' => intval(scrape_from($miner, "_")),
+										'weight' => intval(scrape_between($source_node, "(", ")")),
 										);
 		$j++;
 	}

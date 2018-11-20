@@ -336,7 +336,7 @@ d3.json("graphFile.json", function(json) {
       .call(force.drag);
 
   node.append("circle")
-      .attr("r","20");
+      .attr("r","10");
 
   node.append("text")
       .attr("dx", 12)

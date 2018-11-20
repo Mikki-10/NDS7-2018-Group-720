@@ -312,7 +312,7 @@ var svg = d3.select("body").append("svg")
 var force = d3.layout.force()
     .gravity(.05)
     .distance(400)
-    .charge(-300)
+    .charge(300)
     .size([width, height]);
 
 d3.json("graphFile.json", function(json) {

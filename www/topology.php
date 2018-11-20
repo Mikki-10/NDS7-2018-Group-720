@@ -3,6 +3,9 @@
 error_reporting(E_ALL);
 ini_set("display_errors", true);
 
+$time_start = microtime(true);
+
+
 // --------------------------------------------------------- //
 // Funktion til at gemme kun den data man har behov for
 // --------------------------------------------------------- //
@@ -276,6 +279,10 @@ file_put_contents("graphFile.json", json_encode($output));
 }
 */
 
+$time_end = microtime(true);
+$time = $time_end - $time_start;
+
+echo "<br>Waiting time: $time seconds\n<br></div>";
 
 ?>
 

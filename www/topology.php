@@ -282,9 +282,9 @@ file_put_contents("graphFile.json", json_encode($output));
 $time_end = microtime(true);
 $time = $time_end - $time_start;
 
-echo "<br>Waiting time: $time seconds\n<br></div>";
+echo "Waiting time: $time seconds\n<br></div>";
 $time = $time / count($connections_uml);
-echo "<br>Waiting time pr node: $time seconds\n<br></div>";
+echo "Waiting time pr node: $time seconds\n<br></div>";
 
 ?>
 
@@ -323,7 +323,7 @@ var svg = d3.select("body").append("svg")
 var force = d3.layout.force()
     .gravity(.05)
     .distance(400)
-    .charge(-100)
+    .charge(100)
     .size([width, height]);
 
 d3.json("graphFile.json", function(json) {

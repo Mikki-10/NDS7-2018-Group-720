@@ -199,7 +199,7 @@ foreach ($connections as $source_node => $node_con)
 	foreach ($node_con as $key => $value) 
 	{
 		$ip = scrape_to($value, ":");
-		var_dump($ip);
+		//var_dump($ip);
 		$node_dest = array_search($ip, $ips);
 		$connections_uml[$source_node][$key] = $node_dest;
 	}

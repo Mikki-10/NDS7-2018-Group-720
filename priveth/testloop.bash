@@ -12,27 +12,18 @@ setDelay() {
     done
 }
 
-#docker-compose up -d
-
-# Save startup logs so they can be subtracted
-#docker-compose pause
-tar czf startup-logs.tar.gz ./logs
-#docker-compose unpause
+tar czf 0-startup-logs.tar.gz ./logs
 
 for i in {1..10}
 do
 
-    delay_time=$((100*$i))
+    delay_time=$((25*$i))
     loss_pct=0
     echo "Beginning test: $i with delay: $delay_time and loss: $loss_pct"
     setDelay $delay_time $loss_pct
 
     sleep 1h
 
-    #docker-compose pause
-    tar czf delay${delay_time}-loss${loss_pct}-logs.tar.gz ./logs
-    #docker-compose unpause
+    tar czf ${i}-delay${delay_time}-loss${loss_pct}-logs.tar.gz ./logs
 
 done
-
-#docker-compose kill

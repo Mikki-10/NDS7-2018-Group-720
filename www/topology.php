@@ -92,7 +92,7 @@ $ips = array(
 $RPC = new RPC();
 foreach ($ips as $key => $ip) 
 {
-	$connection = $RPC->request('{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}', $ip);
+	$connection[$key] = $RPC->request('{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}', $ip);
 }
 
 echo "<pre>"; var_dump($connection); echo "</pre>"; 

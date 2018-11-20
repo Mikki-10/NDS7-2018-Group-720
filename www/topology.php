@@ -243,8 +243,8 @@ foreach ($connections_uml as $source_node => $miners)
 	foreach ($miners as $key => $miner) 
 	{
 		$output["links"][$key] = array(
-										'source' => scrape_from($source_node, "_"),
-										'target' => scrape_from($miner, "_"),
+										'source' => intval(scrape_from($source_node, "_")),
+										'target' => intval(scrape_from($miner, "_")),
 										);
 	}
 }

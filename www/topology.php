@@ -236,16 +236,18 @@ echo '<img src="' . $encode_url . '">';
 $output = NULL;
 
 $i = 0;
+$j = 0;
 foreach ($connections_uml as $source_node => $miners) 
 {
 	$output["nodes"][$i] = array('name' => $source_node);
 	$i++;
 	foreach ($miners as $key => $miner) 
 	{
-		$output["links"][$key] = array(
+		$output["links"][$j] = array(
 										'source' => intval(scrape_from($source_node, "_")),
 										'target' => intval(scrape_from($miner, "_")),
 										);
+		$j++;
 	}
 }
 file_put_contents("graphFile.json", json_encode($output));

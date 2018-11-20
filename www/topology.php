@@ -61,7 +61,7 @@ function encode64($c) {
 $encode = encodep('Alice -> Bob: hello');
 //echo "http://www.plantuml.com/plantuml/uml/{$encode}";
 
-echo file_get_contents("https://www.plantuml.com/plantuml/svg/{$encode}");
+echo file_get_contents("http://www.plantuml.com/plantuml/svg/{$encode}");
 
 
 

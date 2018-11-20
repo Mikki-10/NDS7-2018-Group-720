@@ -156,10 +156,11 @@ echo "<pre>"; var_dump($connections_uml); echo "</pre>";
 $output = "";
 foreach ($connections_uml as $source_node => $miners) 
 {
+	$output = $output . "artifact $source_node\n";
 	foreach ($miners as $key => $miner) 
 	{
 		$output = $output . "$source_node -> $miner\n";
-	} 
+	}
 }
 
 echo "<pre>"; var_dump($output); echo "</pre>"; 

@@ -57,7 +57,7 @@ services:
       - VERBOSITY=5
 #      - NETEM=on
 #      - PACKET_LOSS=off
-#      - MEAN=1000
+#      - MEAN=10
 #      - VARIANCE=10 
 #      - LOSS=0.1
     volumes:
@@ -81,7 +81,7 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=1000
+      - MEAN=10
       - VARIANCE=0
       - LOSS=0
     volumes:
@@ -105,7 +105,7 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=1000
+      - MEAN=10
       - VARIANCE=0
       - LOSS=0
     volumes:
@@ -129,7 +129,7 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=1000
+      - MEAN=10
       - VARIANCE=0 
       - LOSS=0
     volumes:
@@ -153,7 +153,7 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=1000
+      - MEAN=10
       - VARIANCE=0
       - LOSS=0
     volumes:
@@ -162,150 +162,387 @@ services:
     cap_add:
       - NET_ADMIN
 
-#  miner5:
-#    build:
-#      context: ./dockerfiles/miner
-#    image: miner
-#    depends_on:
-#      - webstats-frontend
-#    container_name: miner5
-#    hostname: miner5
-#    cpu_quota: 50000
-#    environment:
-#      - DOCKER_NAME=miner5
-#      - LOGGING=on
-#      - VERBOSITY=5
-#      - NETEM=on
-#      - PACKET_LOSS=on
-#      - MEAN=1000
-#      - VARIANCE=10 
-#      - LOSS=0.1
-#    volumes:
-#      - ./logs/:/logpath/
-#      - ./gethdata/miner5:/gethdata
-#    cap_add:
-#      - NET_ADMIN
+  miner5:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner5
+    hostname: miner5
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner5
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner5:/gethdata
+    cap_add:
+      - NET_ADMIN
 
-#
-#  miner6:
-#    build:
-#      context: ./dockerfiles/miner
-#    image: miner
-#    depends_on:
-#      - webstats-frontend
-#    container_name: miner6
-#    hostname: miner6
-#    cpu_quota: 50000
-#    environment:
-#      - DOCKER_NAME=miner6
-#      - LOGGING=on
-#      - VERBOSITY=5
-#      - NETEM=on
-#      - PACKET_LOSS=on
-#      - MEAN=1000
-#      - VARIANCE=10 
-#      - LOSS=0.1
-#    volumes:
-#      - ./logs/:/logpath/
-#      - ./gethdata/miner6:/gethdata
-#    cap_add:
-#      - NET_ADMIN
+  miner6:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner6
+    hostname: miner6
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner6
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner6:/gethdata
+    cap_add:
+      - NET_ADMIN
 
-#
-#  miner7:
-#    build:
-#      context: ./dockerfiles/miner
-#    image: miner
-#    depends_on:
-#      - webstats-frontend
-#    container_name: miner7
-#    hostname: miner7
-#    cpu_quota: 50000
-#    environment:
-#      - DOCKER_NAME=miner7
-#      - LOGGING=on
-#      - VERBOSITY=5
-#      - NETEM=on
-#      - PACKET_LOSS=on
-#      - MEAN=1000
-#      - VARIANCE=10 
-#      - LOSS=0.1
-#    volumes:
-#      - ./logs/:/logpath/
-#      - ./gethdata/miner7:/gethdata
-#    cap_add:
-#      - NET_ADMIN
+  miner7:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner7
+    hostname: miner7
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner7
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner7:/gethdata
+    cap_add:
+      - NET_ADMIN
 
-#
-#  miner8:
-#    build:
-#      context: ./dockerfiles/miner
-#    image: miner
-#    depends_on:
-#      - webstats-frontend
-#    container_name: miner8
-#    hostname: miner8
-#    cpu_quota: 50000
-#    environment:
-#      - DOCKER_NAME=miner8
-#      - LOGGING=on
-#      - VERBOSITY=5
-#      - NETEM=on
-#      - PACKET_LOSS=on
-#      - MEAN=1000
-#      - VARIANCE=10 
-#      - LOSS=0.1
-#    volumes:
-#      - ./logs/:/logpath/
-#      - ./gethdata/miner8:/gethdata
-#    cap_add:
-#      - NET_ADMIN
+  miner8:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner8
+    hostname: miner8
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner8
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner8:/gethdata
+    cap_add:
+      - NET_ADMIN
 
-#
-#  miner9:
-#    build:
-#      context: ./dockerfiles/miner
-#    image: miner
-#    depends_on:
-#      - webstats-frontend
-#    container_name: miner9
-#    hostname: miner9
-#    cpu_quota: 50000
-#    environment:
-#      - DOCKER_NAME=miner9
-#      - LOGGING=on
-#      - VERBOSITY=5
-#      - NETEM=on
-#      - PACKET_LOSS=on
-#      - MEAN=1000
-#      - VARIANCE=10 
-#      - LOSS=0.1
-#    volumes:
-#      - ./logs/:/logpath/
-#      - ./gethdata/miner9:/gethdata
-#    cap_add:
-#      - NET_ADMIN
-#
-#  miner10:
-#    build:
-#      context: ./dockerfiles/miner
-#    image: miner
-#    depends_on:
-#      - webstats-frontend
-#    container_name: miner10
-#    hostname: miner10
-#    cpu_quota: 50000
-#    environment:
-#      - DOCKER_NAME=miner10
-#      - LOGGING=on
-#      - VERBOSITY=5
-#      - NETEM=on
-#      - PACKET_LOSS=on
-#      - MEAN=1000
-#      - VARIANCE=10
-#      - LOSS=0.1 
-#    volumes:
-#      - ./logs/:/logpath/
-#      - ./gethdata/miner10:/gethdata
-#    cap_add:
-#      - NET_ADMIN
+  miner9:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner9
+    hostname: miner9
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner9
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner9:/gethdata
+    cap_add:
+      - NET_ADMIN
+
+  miner10:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner10
+    hostname: miner10
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner10
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner10:/gethdata
+    cap_add:
+      - NET_ADMIN
+
+  miner11:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner11
+    hostname: miner11
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner11
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner11:/gethdata
+    cap_add:
+      - NET_ADMIN
+
+  miner12:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner12
+    hostname: miner12
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner12
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner12:/gethdata
+    cap_add:
+      - NET_ADMIN
+
+  miner13:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner13
+    hostname: miner13
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner13
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner13:/gethdata
+    cap_add:
+      - NET_ADMIN
+
+  miner14:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner14
+    hostname: miner14
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner14
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner14:/gethdata
+    cap_add:
+      - NET_ADMIN
+
+  miner15:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner15
+    hostname: miner15
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner15
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner15:/gethdata
+    cap_add:
+      - NET_ADMIN
+
+  miner16:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner16
+    hostname: miner16
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner16
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner16:/gethdata
+    cap_add:
+      - NET_ADMIN
+
+  miner17:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner17
+    hostname: miner17
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner17
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner17:/gethdata
+    cap_add:
+      - NET_ADMIN
+
+  miner18:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner18
+    hostname: miner18
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner18
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner18:/gethdata
+    cap_add:
+      - NET_ADMIN
+
+  miner19:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner19
+    hostname: miner19
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner19
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner19:/gethdata
+    cap_add:
+      - NET_ADMIN
+
+  miner20:
+    build:
+      context: ./dockerfiles/miner
+    image: miner
+    depends_on:
+      - node1
+    container_name: miner20
+    hostname: miner20
+    #cpu_quota: 50000
+    environment:
+      - DOCKER_NAME=miner20
+      - LOGGING=on
+      - VERBOSITY=5
+      - ACCOUNTPASS=1234
+      - NETEM=on
+      - MEAN=10
+      - VARIANCE=0
+      - LOSS=0
+    volumes:
+      - ./logs/:/logpath/
+      - ./gethdata/miner20:/gethdata
+    cap_add:
+      - NET_ADMIN
+

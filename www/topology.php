@@ -90,9 +90,14 @@ $ips = array(
 
 
 $RPC = new RPC();
-foreach ($ips as $key => $ip) 
+foreach ($ips as $miner => $ip) 
 {
-	$connection[$key] = $RPC->request('{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}', $ip);
+	$temp = $RPC->request('{"jsonrpc":"2.0","method":"admin_peers","params":[],"id":74}', $ip);
+	foreach ($temp["result"] as $key => $results) 
+	{
+		$connection[$miner][$key] = $results["network"]["remoteAddress"];
+	}
+	//$connection[$miner]
 }
 
 echo "<pre>"; var_dump($connection); echo "</pre>"; 

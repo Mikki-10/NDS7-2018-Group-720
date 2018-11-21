@@ -126,8 +126,8 @@ class TOOLS
 		<div id="container<?php echo $a_random_int;?>" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 		<script type="text/javascript">
-			var data = $.getJSON('http://192.168.20.3/explore/chart.json');
-			var data2 = $.getJSON('http://192.168.20.3/explore/chart.json');
+			//var data = $.getJSON('http://192.168.20.3/explore/chart.json');
+			//var data2 = $.getJSON('http://192.168.20.3/explore/chart.json');
 
 		    $(function (data, data2) {
 
@@ -190,11 +190,11 @@ class TOOLS
 		            series: [{
 		                type: 'area',
 		                name: 'Time between blocks',
-		                data: data
+		                data: $.getJSON('http://192.168.20.3/explore/chart.json')
 		            }, {
 		                type: 'area',
 		                name: 'Time between blocks',
-		                data: data2
+		                data: $.getJSON('http://192.168.20.3/explore/chart.json')
 		            }]
 		        });
 		    }

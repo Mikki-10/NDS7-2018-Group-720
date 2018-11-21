@@ -91,6 +91,7 @@ class TOOLS
 		}
 
 		file_put_contents("blocktime-filter.json", json_encode($time_filter));
+		file_put_contents("dif-filter.json", json_encode($dif_filter));
 
 		$i = 0;
 		foreach ($time_filter as $key => $value) 

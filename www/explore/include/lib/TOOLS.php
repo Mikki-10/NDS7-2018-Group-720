@@ -138,7 +138,7 @@ class TOOLS
 			*/
 
 			$.getJSON("http://192.168.20.3/explore/chart.json", function(data){
-			    $.getJSON("http://192.168.20.3/explore/chart.json", function(data2){
+			    .getJSON("http://192.168.20.3/explore/chart.json", function(data2){
 			    console.log(data);
 			    console.log(data2);
 				});

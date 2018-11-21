@@ -95,6 +95,7 @@ class TOOLS
 			}
 			else
 			{
+				array_push($value, 5)
 				$json_chart[$i] = $value;
 				$i++;
 			}

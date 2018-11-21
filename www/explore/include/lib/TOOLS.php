@@ -138,8 +138,8 @@ class TOOLS
 			*/
 
 		    $(function (data, data2) {
-		    	var data = $.getJSON('http://192.168.20.3/explore/chart.json');
-				var data2 = $.getJSON('http://192.168.20.3/explore/chart.json');
+		    	var data = getJSON('http://192.168.20.3/explore/chart.json');
+				var data2 = getJSON('http://192.168.20.3/explore/chart.json');
 		        
 		        Highcharts.chart('container<?php echo $a_random_int;?>', {
 		            chart: {

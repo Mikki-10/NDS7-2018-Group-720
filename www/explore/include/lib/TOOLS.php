@@ -214,6 +214,7 @@ class TOOLS
                             data: data[2]["responseJSON"]
                         }, {
                             type: 'area',
+                            yAxis: 1,
                             name: 'Time between blocks',
                             data: data2[2]["responseJSON"]
                         }]

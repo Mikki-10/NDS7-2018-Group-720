@@ -36,6 +36,7 @@ class TOOLS
 		if (file_exists("blocktime-filter.json")) 
 		{
 			$time_filter = json_decode(file_get_contents("blocktime-filter.json"), true);
+			$dif_filter = json_decode(file_get_contents("dif-filter.json"), true);
 			$max = max(array_keys($time_filter));
 
 			for ($i=$max; $i < $block_hight+1; $i++) 
@@ -59,6 +60,10 @@ class TOOLS
 											hexdec($block_data[$key+1]["result"]["timestamp"])*1000, 
 											hexdec($block_data[$key+1]["result"]["timestamp"])-hexdec($block["result"]["timestamp"])
 										);
+				$dif_filter[$key+1] = array(
+											hexdec($block_data[$key+1]["result"]["timestamp"])*1000, 
+											hexdec($block_data[$key+1]["result"]["difficulty"])
+										);
 			}
 		}
 
@@ -68,6 +73,7 @@ class TOOLS
 			{
 				// Must be a pause in the hole blockchain (1000 sec)
 				unset($time_filter[$key]);
+				unset($dif_filter[$key]);
 			}
 
 		}
@@ -96,8 +102,8 @@ class TOOLS
 			else
 			{
 				$json_chart[$i] = $value;
-				$value[1] = 23058117297;
-				$json_chart2[$i] = $value;
+
+				$json_chart2[$i] = $dif_filter[$key];
 				$i++;
 			}
 		}

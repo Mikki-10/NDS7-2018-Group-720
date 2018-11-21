@@ -144,12 +144,18 @@ class TOOLS
 		            xAxis: {
 		                type: 'datetime'
 		            },
-		            yAxis: {
+		            yAxis: [{
 		                title: {
 		                    text: 'Sec'
 		                },
 		                min: 0
-		            },
+		            }, {
+		                title: {
+		                    text: 'Dif'
+		                },
+		                opposite: true,
+		                min: 0
+		            }],
 		            legend: {
 		                enabled: false
 		            },

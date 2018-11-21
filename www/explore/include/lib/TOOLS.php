@@ -126,9 +126,23 @@ class TOOLS
 		<div id="container<?php echo $a_random_int;?>" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 		<script type="text/javascript">
-			//var data = $.getJSON('http://192.168.20.3/explore/chart.json');
-			//var data2 = $.getJSON('http://192.168.20.3/explore/chart.json');
+			/*
+			var data;
+			$.getJSON("http://192.168.20.3/explore/chart.json", function(json){
+			    data = json;
+			});
+			var data2;
+			$.getJSON("http://192.168.20.3/explore/chart.json", function(json){
+			    data2 = json;
+			});
+			*/
 
+			$.getJSON("http://192.168.20.3/explore/chart.json", function(data){
+			    $.getJSON("http://192.168.20.3/explore/chart.json", function(data2){
+			    console.log(data);
+			    console.log(data2);
+				});
+			});
 			/*
 			$(function() {
 				var data = $.getJSON('http://192.168.20.3/explore/chart.json');
@@ -138,8 +152,6 @@ class TOOLS
 			*/
 
 		    $(function (data, data2) {
-		    	var data = getJSON('http://192.168.20.3/explore/chart.json');
-				var data2 = getJSON('http://192.168.20.3/explore/chart.json');
 		        
 		        Highcharts.chart('container<?php echo $a_random_int;?>', {
 		            chart: {

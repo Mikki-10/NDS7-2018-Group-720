@@ -95,13 +95,15 @@ class TOOLS
 			}
 			else
 			{
-				array_push($value, 5);
 				$json_chart[$i] = $value;
+				$value[1] = 5;
+				$json_chart2[$i] = $value;
 				$i++;
 			}
 		}
 
 		file_put_contents("chart.json", json_encode($json_chart));
+		file_put_contents("chart2.json", json_encode($json_chart2));
 
 		$this->make_a_chart();
 
@@ -130,7 +132,7 @@ class TOOLS
                 var data = $.getJSON("http://192.168.20.3/explore/chart.json", function(json) {
                     return json;
                 });
-                var data2 = $.getJSON("http://192.168.20.3/explore/chart.json", function(json) {
+                var data2 = $.getJSON("http://192.168.20.3/explore/chart2.json", function(json) {
                     return json;
                 });
 

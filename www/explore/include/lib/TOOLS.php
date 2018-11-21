@@ -190,11 +190,11 @@ class TOOLS
 		            series: [{
 		                type: 'area',
 		                name: 'Time between blocks',
-		                data: $.getJSON('http://192.168.20.3/explore/chart.json')
+		                data: $.getJSON('http://192.168.20.3/explore/chart.json');
 		            }, {
 		                type: 'area',
 		                name: 'Time between blocks',
-		                data: $.getJSON('http://192.168.20.3/explore/chart.json')
+		                data: $.getJSON('http://192.168.20.3/explore/chart.json');
 		            }]
 		        });
 		    }

@@ -126,19 +126,20 @@ class TOOLS
 		<div id="container<?php echo $a_random_int;?>" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 		<script type="text/javascript">
+			
+			var data = $.getJSON("http://192.168.20.3/explore/chart.json", function(json){
+			    return json;
+			});
+			var data2 = $.getJSON("http://192.168.20.3/explore/chart.json", function(json){
+			    return json;
+			});
+			
+			//console.log(data);
+			//console.log(data2);
+			
 			/*
-			var data;
-			$.getJSON("http://192.168.20.3/explore/chart.json", function(json){
-			    data = json;
-			});
-			var data2;
-			$.getJSON("http://192.168.20.3/explore/chart.json", function(json){
-			    data2 = json;
-			});
-			*/
-
 			$.getJSON("http://192.168.20.3/explore/chart.json", function(data){
-			    .getJSON("http://192.168.20.3/explore/chart.json", function(data2){
+			    getJSON("http://192.168.20.3/explore/chart.json", function(data2){
 			    console.log(data);
 			    console.log(data2);
 				});
@@ -150,9 +151,10 @@ class TOOLS
 
 			});
 			*/
-
-		    $(function (data, data2) {
-		        
+		$.when(data, data2)
+		    .done(function (data, data2) {
+			//console.log(data[2]["responseJSON"]);
+			//console.log(data2[2]);
 		        Highcharts.chart('container<?php echo $a_random_int;?>', {
 		            chart: {
 		                zoomType: 'x'
@@ -212,11 +214,11 @@ class TOOLS
 		            series: [{
 		                type: 'area',
 		                name: 'Time between blocks',
-		                data: data
+		                data: data[2]["responseJSON"]
 		            }, {
 		                type: 'area',
 		                name: 'Time between blocks',
-		                data: data2
+		                data: data2[2]["responseJSON"]
 		            }]
 		        });
 		    }

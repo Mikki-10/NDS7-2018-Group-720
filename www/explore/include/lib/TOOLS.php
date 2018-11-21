@@ -52,16 +52,19 @@ class TOOLS
 			}
 		}
 
+		$timezone_fix = 1;
+		$timezone_fix = $timezone_fix * 60 * 60 * 1000;
+
 		foreach ($block_data as $key => $block) 
 		{
 			if (array_key_exists($key+1, $block_data)) 
 			{
 				$time_filter[$key+1] = array(
-											hexdec($block_data[$key+1]["result"]["timestamp"])*1000, 
+											hexdec($block_data[$key+1]["result"]["timestamp"])*1000*$timezone_fix, 
 											hexdec($block_data[$key+1]["result"]["timestamp"])-hexdec($block["result"]["timestamp"])
 										);
 				$dif_filter[$key+1] = array(
-											hexdec($block_data[$key+1]["result"]["timestamp"])*1000, 
+											hexdec($block_data[$key+1]["result"]["timestamp"])*1000*$timezone_fix, 
 											hexdec($block_data[$key+1]["result"]["difficulty"])
 										);
 			}

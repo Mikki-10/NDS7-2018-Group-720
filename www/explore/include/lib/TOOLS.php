@@ -96,7 +96,7 @@ class TOOLS
 			else
 			{
 				$json_chart[$i] = $value;
-				$value[1] = 5;
+				$value[1] = 23058117297;
 				$json_chart2[$i] = $value;
 				$i++;
 			}

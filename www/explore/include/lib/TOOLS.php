@@ -190,6 +190,10 @@ class TOOLS
 		                type: 'area',
 		                name: 'Time between blocks',
 		                data: data
+		            }, {
+		                type: 'area',
+		                name: 'Time between blocks',
+		                data: data
 		            }]
 		        });
 		    }

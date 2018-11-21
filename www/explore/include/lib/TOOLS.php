@@ -226,7 +226,7 @@ class TOOLS
                         }, {
                             type: 'spline',
                             yAxis: 1,
-                            name: 'Time between blocks',
+                            name: 'Difficulty',
                             data: data2[2]["responseJSON"]
                         }]
                     });

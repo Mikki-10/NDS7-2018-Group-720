@@ -126,9 +126,12 @@ class TOOLS
 		<div id="container<?php echo $a_random_int;?>" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 		<script type="text/javascript">
-		$.getJSON(
-		    'http://192.168.20.3/explore/chart.json',
-		    function (data) {
+			var data = $.getJSON('http://192.168.20.3/explore/chart.json');
+			var data2 = $.getJSON('http://192.168.20.3/explore/chart.json');
+
+			$.run(data, data2);
+
+		    function run (data, data2) {
 
 		        Highcharts.chart('container<?php echo $a_random_int;?>', {
 		            chart: {
@@ -193,11 +196,10 @@ class TOOLS
 		            }, {
 		                type: 'area',
 		                name: 'Time between blocks',
-		                data: data
+		                data: data2
 		            }]
 		        });
 		    }
-		);
 		</script>
 
 		<?php

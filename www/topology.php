@@ -99,7 +99,7 @@ class RPC
 	}
 }
 
-
+/*
 function encodep($text) {
 	 $data = utf8_encode($text);
 	 $compressed = gzdeflate($data, 9);
@@ -156,7 +156,7 @@ function encode64($c) {
 	 }
 	 return $str;
 }
-
+*/
 
 
 
@@ -210,6 +210,7 @@ foreach ($connections as $source_node => $node_con)
 
 //echo "<pre>"; var_dump($connections_uml); echo "</pre>"; 
 
+/*
 $output = "";
 foreach ($connections_uml as $source_node => $miners) 
 {
@@ -234,7 +235,7 @@ $encode_url = "https://www.plantuml.com/plantuml/svg/{$encode}";
 
 
 //echo '<img src="' . $encode_url . '">';
-
+*/
 
 foreach ($connections_uml as $source_node => $miners) 
 {
@@ -254,10 +255,10 @@ foreach ($connections_uml as $source_node => $miners)
 	foreach ($miners as $key => $miner) 
 	{
 		$output["links"][$j] = array(
-										'source' => intval(scrape_between($source_node, "_", " -")),
-										'target' => intval(scrape_from($miner, "_")),
-										'weight' => intval(scrape_between($source_node, "(", ")")),
-										);
+									'source' => intval(scrape_between($source_node, "_", " -")),
+									'target' => intval(scrape_from($miner, "_")),
+									'weight' => intval(scrape_between($source_node, "(", ")")),
+									);
 		$j++;
 	}
 }

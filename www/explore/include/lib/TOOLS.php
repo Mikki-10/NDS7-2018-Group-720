@@ -129,9 +129,7 @@ class TOOLS
 			var data = $.getJSON('http://192.168.20.3/explore/chart.json');
 			var data2 = $.getJSON('http://192.168.20.3/explore/chart.json');
 
-			$.run(data, data2);
-
-		    function run (data, data2) {
+		    $(function (data, data2) {
 
 		        Highcharts.chart('container<?php echo $a_random_int;?>', {
 		            chart: {
@@ -200,6 +198,7 @@ class TOOLS
 		            }]
 		        });
 		    }
+		    );
 		</script>
 
 		<?php

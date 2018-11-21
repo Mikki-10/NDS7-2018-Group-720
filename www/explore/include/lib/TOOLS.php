@@ -187,7 +187,7 @@ class TOOLS
                             min: 0
                         }, {
                             title: {
-                                text: 'Dif'
+                                text: 'Difficulty'
                             },
                             opposite: true,
                             min: 0

@@ -52,19 +52,16 @@ class TOOLS
 			}
 		}
 
-		$timezone_fix = 1;
-		$timezone_fix = $timezone_fix * 60 * 60 * 1000;
-
 		foreach ($block_data as $key => $block) 
 		{
 			if (array_key_exists($key+1, $block_data)) 
 			{
 				$time_filter[$key+1] = array(
-											hexdec($block_data[$key+1]["result"]["timestamp"])*1000+$timezone_fix, 
+											hexdec($block_data[$key+1]["result"]["timestamp"])*1000, 
 											hexdec($block_data[$key+1]["result"]["timestamp"])-hexdec($block["result"]["timestamp"])
 										);
 				$dif_filter[$key+1] = array(
-											hexdec($block_data[$key+1]["result"]["timestamp"])*1000+$timezone_fix, 
+											hexdec($block_data[$key+1]["result"]["timestamp"])*1000, 
 											hexdec($block_data[$key+1]["result"]["difficulty"])
 										);
 			}
@@ -97,6 +94,8 @@ class TOOLS
 		file_put_contents("dif-filter.json", json_encode($dif_filter));
 
 		$i = 0;
+		$timezone_fix = 1; //timezone dif in hours
+		$timezone_fix = $timezone_fix * 60 * 60 * 1000;
 		foreach ($time_filter as $key => $value) 
 		{
 			if ($value[0] == "" || $value[0] == 0 || $value[1] == "" || $value[1] == 0) 
@@ -105,9 +104,11 @@ class TOOLS
 			}
 			else
 			{
-				$json_chart[$i] = $value;
+				$json_chart[$i][0] = $value[0]+$timezone_fix;
+				$json_chart[$i][1] = $value[1];
 
-				$json_chart2[$i] = $dif_filter[$key];
+				$json_chart2[$i][0] = $dif_filter[$key][0]+$timezone_fix;
+				$json_chart2[$i][1] = $dif_filter[$key][1];
 				$i++;
 			}
 		}

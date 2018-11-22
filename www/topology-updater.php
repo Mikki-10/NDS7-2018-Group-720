@@ -281,7 +281,7 @@ foreach ($connections_uml as $source_node => $miners)
 
 $output = json_encode($output);
 
-file_put_contents("graphFile.json", $output);
+file_put_contents("/home/nds/NDS7-2018-Group-720/www/logs/graphFile.json", $output);
 
 $output_to_log = time() . ";" . $output . "\n";
 

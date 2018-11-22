@@ -66,7 +66,7 @@ class FRONTPAGE
 		//echo "<pre>"; var_dump($block_data); echo "</pre>";
 		echo '<div class="container"><br>';
 		echo "<h1>Recent blocks</h1>";
-		echo $average_dif . " / " . $average_time . "sek = " . $hashrate;
+		echo $average_dif . " / " . $average_time . " sek = " . $hashrate;
 		?>
 		<div class="table-responsive">
 		<table class="table table-hover">

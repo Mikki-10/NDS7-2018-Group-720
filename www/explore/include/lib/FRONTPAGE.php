@@ -22,12 +22,17 @@ class FRONTPAGE
 		//echo "<pre>"; var_dump($block); echo "</pre>";
 		$RPC = new RPC();
 		$block = $RPC->get_block_hight();
-		for ($i=$block-10; $i < $block+1; $i++) 
+		for ($i=$block-20; $i < $block+1; $i++) 
 		{ 
 			$block_data[$i] = $RPC->get_Block($i);
 		}
 
 		krsort($block_data);
+
+		foreach ($block_data as $key => $value) 
+		{
+			$block["result"]["difficulty"];
+		}
 
 		//echo "<pre>"; var_dump($block_data); echo "</pre>";
 		echo '<div class="container"><br>';

@@ -317,26 +317,13 @@ fill:#555;
 
 <script>
 
-var width = 1400,
-    height = 850
-
-var svg = d3.select("graph-container").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-var force = d3.layout.force()
-    .gravity(.5)
-    .distance(400)
-    .charge(-100)
-    .size([width, height]);
-
 var inter = setInterval(function() {
 				d3.selectAll('.graph-container svg').remove();
 				
 				var width = 1400,
 				    height = 850
 
-				var svg = d3.select("body").append("svg")
+				var svg = d3.select("graph-container").append("svg")
 				    .attr("width", width)
 				    .attr("height", height);
 

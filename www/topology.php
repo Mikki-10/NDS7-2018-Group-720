@@ -335,6 +335,12 @@ var inter = setInterval(function() {
 				var svg = d3.select("body").append("svg")
 				    .attr("width", width)
 				    .attr("height", height);
+
+				var force = d3.layout.force()
+				    .gravity(.5)
+				    .distance(400)
+				    .charge(-100)
+				    .size([width, height]);
 				
 				d3.select("svg").empty();
                 

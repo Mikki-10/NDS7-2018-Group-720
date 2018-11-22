@@ -328,7 +328,16 @@ var force = d3.layout.force()
     .size([width, height]);
 
 var inter = setInterval(function() {
+
+				var width = 1400,
+				    height = 850
+
+				var svg = d3.select("body").append("svg")
+				    .attr("width", width)
+				    .attr("height", height);
+				
 				d3.select("svg").empty();
+                
                 updateData();
         }, 1000); 
 

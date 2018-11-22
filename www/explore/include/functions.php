@@ -90,4 +90,22 @@ function build_table($array)
     echo "</table>";
 }
 
+
+function nice_number($n, $type) 
+{
+    // first strip any formatting;
+    $n = (0+str_replace(",", "", $n));
+
+    // is this a number?
+    if (!is_numeric($n)) return false;
+
+    // now filter it;
+    if ($n > 1000000000000) return round(($n/1000000000000), 2).' T' . $type;
+    elseif ($n > 1000000000) return round(($n/1000000000), 2).' G' . $type;
+    elseif ($n > 1000000) return round(($n/1000000), 2).' M' . $type;
+    elseif ($n > 1000) return round(($n/1000), 2).' K' . $type;
+
+    return number_format($n);
+}
+
 ?>

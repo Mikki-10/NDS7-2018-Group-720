@@ -57,10 +57,16 @@ class FRONTPAGE
 		    $average_dif = array_sum($difficulty)/count($difficulty);
 		}
 
+		$hashrate = $average_dif/$average_time;
+
+		$hashrate = nice_number($hashrate, "H/s");
+
+		$average_dif = nice_number($average_dif, "H");
+
 		//echo "<pre>"; var_dump($block_data); echo "</pre>";
 		echo '<div class="container"><br>';
 		echo "<h1>Recent blocks</h1>";
-		echo $average_dif . " / " . $average_time . " = " . $average_dif/$average_time;
+		echo $average_dif . " / " . $average_time . "sek = " . $hashrate;
 		?>
 		<div class="table-responsive">
 		<table class="table table-hover">

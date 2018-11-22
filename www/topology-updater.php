@@ -283,7 +283,7 @@ $output = json_encode($output);
 
 file_put_contents("graphFile.json", $output);
 
-$output_to_log = time() . ";" . $output;
+$output_to_log = time() . ";" . $output . "\n";
 
 file_put_contents("/home/nds/NDS7-2018-Group-720/www/logs/Miner-CON-".date('Y-m-d').".txt", $output_to_log, FILE_APPEND);
 

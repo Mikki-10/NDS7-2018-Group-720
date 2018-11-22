@@ -328,7 +328,7 @@ var force = d3.layout.force()
     .size([width, height]);
 
 var inter = setInterval(function() {
-				d3.select("svg").remove();
+				d3.select("svg").empty();
                 updateData();
         }, 1000); 
 

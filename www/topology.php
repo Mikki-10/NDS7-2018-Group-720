@@ -327,6 +327,13 @@ var force = d3.layout.force()
     .charge(-100)
     .size([width, height]);
 
+var inter = setInterval(function() {
+                updateData();
+        }, 1000); 
+
+function updateData() {
+
+
 d3.json("graphFile.json", function(json) {
   force
       .nodes(json.nodes)
@@ -362,5 +369,6 @@ d3.json("graphFile.json", function(json) {
     node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
   });
 });
+}
 
 </script>

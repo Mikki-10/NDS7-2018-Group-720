@@ -42,7 +42,7 @@ class FRONTPAGE
 				$var = "0";
 			}
 
-			$difficulty[$key] = $block["result"]["difficulty"];
+			$difficulty[$key] = hexdec($block["result"]["difficulty"]);
 		}
 
 		if(count($holder)) 

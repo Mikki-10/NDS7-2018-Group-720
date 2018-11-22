@@ -22,16 +22,51 @@ class FRONTPAGE
 		//echo "<pre>"; var_dump($block); echo "</pre>";
 		$RPC = new RPC();
 		$block = $RPC->get_block_hight();
-		for ($i=$block-10; $i < $block+1; $i++) 
+		for ($i=$block-20; $i < $block+1; $i++) 
 		{ 
 			$block_data[$i] = $RPC->get_Block($i);
 		}
 
 		krsort($block_data);
 
+		foreach ($block_data as $key => $block) 
+		{
+			if (array_key_exists($key-1, $block_data)) 
+			{
+				$var = hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]);
+				$holder[$key] = hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]);
+
+			}
+			else
+			{
+				$var = "0";
+			}
+
+			$difficulty[$key] = hexdec($block["result"]["difficulty"]);
+		}
+
+		if(count($holder)) 
+		{
+		    $holder = array_filter($holder);
+		    $average_time = array_sum($holder)/count($holder);
+		}
+
+		if(count($difficulty)) 
+		{
+		    $difficulty = array_filter($difficulty);
+		    $average_dif = array_sum($difficulty)/count($difficulty);
+		}
+
+		$hashrate = $average_dif/$average_time;
+
+		$hashrate = nice_number($hashrate, "H/s");
+
+		$average_dif = nice_number($average_dif, "H");
+
 		//echo "<pre>"; var_dump($block_data); echo "</pre>";
 		echo '<div class="container"><br>';
 		echo "<h1>Recent blocks</h1>";
+		echo $average_dif . " / " . $average_time . " sek = " . $hashrate;
 		?>
 		<div class="table-responsive">
 		<table class="table table-hover">

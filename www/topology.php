@@ -328,7 +328,8 @@ var force = d3.layout.force()
     .size([width, height]);
 
 var inter = setInterval(function() {
-
+				d3.select("svg").empty();
+				
 				var width = 1400,
 				    height = 850
 
@@ -341,8 +342,6 @@ var inter = setInterval(function() {
 				    .distance(400)
 				    .charge(-100)
 				    .size([width, height]);
-				
-				d3.select("svg").empty();
                 
                 updateData();
         }, 1000); 

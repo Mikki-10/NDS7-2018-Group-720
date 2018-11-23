@@ -24,7 +24,7 @@ loss_pct=0
 echo "Beginning test: $i with delay: $delay_time and loss: $loss_pct"
 #setDelay $delay_time $loss_pct
 
-sleep 1h
+sleep 10h
 
 tar czf ${i}-delay${delay_time}-loss${loss_pct}-logs.tar.gz ./logs
 

@@ -234,7 +234,7 @@ class TOOLS
                         exporting: {
 					        sourceWidth: 1110,
 					        sourceHeight: 400,
-					        scale: 1, //(default)
+					        //scale: 2, //(default)
 					        chartOptions: {
 					            subtitle: null
 					        }

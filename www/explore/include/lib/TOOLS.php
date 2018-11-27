@@ -229,7 +229,16 @@ class TOOLS
                             yAxis: 1,
                             name: 'Difficulty',
                             data: data2[2]["responseJSON"]
-                        }]
+                        }],
+
+                        exporting: {
+					        sourceWidth: 1000,
+					        sourceHeight: 600,
+					        //scale: 2, //(default)
+					        chartOptions: {
+					            subtitle: null
+					        }
+					    }
                     });
                 });
             </script>

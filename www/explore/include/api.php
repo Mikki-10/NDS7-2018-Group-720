@@ -23,7 +23,7 @@ elseif (isset($_GET["tools"]))
 elseif (isset($_GET["clean"])) 
 {
 	new CLEAN();
-	header('Location: /');
+	//header('Location: /explore');
 }
 else
 {

@@ -106,6 +106,9 @@
       }
       ?>
       </li>
+      <li class="nav-item">
+      	<a class="nav-link" href="?clean=1">Clean cache</a>
+      </li>
     </ul>
   </div>
   </div>

@@ -1,15 +1,15 @@
-for file in ./*.tar.gz
-do
-	name=$(basename -s ".tar.gz" $file)
-	mkdir $name
-	tar -xf $file -C $name
-
-	./ethlogparser -s -i $name/logs/ | grep -v ";node" | sort > output/$name.csv
-
-done
-
-rm output/miner*.csv
-rm output/node*.csv
+#for file in ./*.tar.gz
+#do
+#	#name=$(basename -s ".tar.gz" $file)
+#	#mkdir $name
+#	#tar -xf $file -C $name
+#
+#	./ethlogparser -s -i $name/logs/ | grep -v ";node" | sort > output/$name.csv
+#
+#done
+#
+#rm output/miner*.csv
+#rm output/node*.csv
 
 files=$(find ./output -iname "*.csv" | sort --version-sort | cut -d"/" -f3)
 

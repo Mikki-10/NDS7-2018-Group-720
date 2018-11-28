@@ -24,7 +24,7 @@ end
 
 inputFiles = newinput;
 
-timeWindow = duration(8,0,0);
+timeWindow = duration(15,0,0);
 
 results = repmat(struct('name', '', 'fork_count', 0, 'mined_count', 0, 'fork_chance', 0, 'block_time', seconds(0)), length(inputFiles), 1);
 

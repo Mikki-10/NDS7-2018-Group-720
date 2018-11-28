@@ -132,6 +132,7 @@ class TOOLS
 		<script src="https://code.highcharts.com/highcharts.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
 		<script src="https://code.highcharts.com/modules/export-data.js"></script>
+		<script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
 
 		<?php
 		$a_random_int = random_int(1000, 10000);
@@ -228,7 +229,16 @@ class TOOLS
                             yAxis: 1,
                             name: 'Difficulty',
                             data: data2[2]["responseJSON"]
-                        }]
+                        }],
+
+                        exporting: {
+					        sourceWidth: 1110,
+					        sourceHeight: 400,
+					        //scale: 2, //(default)
+					        chartOptions: {
+					            subtitle: null
+					        }
+					    }
                     });
                 });
             </script>

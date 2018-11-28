@@ -14,18 +14,16 @@ setDelay() {
 
 tar czf 0-startup-logs.tar.gz ./logs
 
-i=1
+for i in {1..10}
+do
 
-#for i in {1..10}
-#do
+    delay_time=$((40*$i))
+    loss_pct=0
+    echo "Beginning test: $i with delay: $delay_time and loss: $loss_pct"
+    setDelay $delay_time $loss_pct
 
-delay_time=$((25*$i))
-loss_pct=0
-echo "Beginning test: $i with delay: $delay_time and loss: $loss_pct"
-#setDelay $delay_time $loss_pct
+    sleep 1h
 
-sleep 10h
+    tar czf ${i}-delay${delay_time}-loss${loss_pct}-logs.tar.gz ./logs
 
-tar czf ${i}-delay${delay_time}-loss${loss_pct}-logs.tar.gz ./logs
-
-#done
+done

@@ -20,6 +20,11 @@ elseif (isset($_GET["tools"]))
 {
 	new TOOLS();
 }
+elseif (isset($_GET["clean"])) 
+{
+	new CLEAN();
+	header('Location: '.$_SERVER['HTTP_HOST'].'/explore');
+}
 else
 {
 	new FRONTPAGE();

@@ -23,7 +23,7 @@ elseif (isset($_GET["tools"]))
 elseif (isset($_GET["clean"])) 
 {
 	new CLEAN();
-	header('Location: '.$_SERVER['HTTP_HOST'].'/explore');
+	header('Location: /');
 }
 else
 {

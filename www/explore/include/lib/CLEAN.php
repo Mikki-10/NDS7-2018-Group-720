@@ -13,7 +13,7 @@ class CLEAN
 
 	function start()
 	{
-		$files = scandir(dirname(__FILE__));
+		$files = scandir(dirname(__FILE__) . "/../../");
 
 		echo "<pre>"; var_dump(dirname(__FILE__) . "/../../"); echo "</pre>";
 		echo "<pre>"; var_dump($files); echo "</pre>";

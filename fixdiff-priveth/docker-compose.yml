@@ -55,7 +55,7 @@ services:
       - DOCKER_NAME=node1
       - LOGGING=on
       - VERBOSITY=5
-#      - NETEM=off
+#      - NETEM=on
 #      - PACKET_LOSS=off
 #      - MEAN=0
 #      - VARIANCE=10 
@@ -81,7 +81,7 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=100
+      - MEAN=0
       - VARIANCE=0
       - LOSS=0
     volumes:
@@ -104,7 +104,7 @@ services:
       - LOGGING=on
       - VERBOSITY=5
       - ACCOUNTPASS=1234
-      - NETEM=off
+      - NETEM=on
       - MEAN=0
       - VARIANCE=0
       - LOSS=0
@@ -128,7 +128,7 @@ services:
 #      - LOGGING=on
 #      - VERBOSITY=5
 #      - ACCOUNTPASS=1234
-#      - NETEM=off
+#      - NETEM=on
 #      - MEAN=0
 #      - VARIANCE=0 
 #      - LOSS=0
@@ -152,7 +152,7 @@ services:
 #      - LOGGING=on
 #      - VERBOSITY=5
 #      - ACCOUNTPASS=1234
-#      - NETEM=off
+#      - NETEM=on
 #      - MEAN=0
 #      - VARIANCE=0
 #      - LOSS=0
@@ -176,7 +176,7 @@ services:
 #      - LOGGING=on
 #      - VERBOSITY=5
 #      - ACCOUNTPASS=1234
-#      - NETEM=off
+#      - NETEM=on
 #      - MEAN=0
 #      - VARIANCE=0
 #      - LOSS=0
@@ -200,7 +200,7 @@ services:
 #      - LOGGING=on
 #      - VERBOSITY=5
 #      - ACCOUNTPASS=1234
-#      - NETEM=off
+#      - NETEM=on
 #      - MEAN=0
 #      - VARIANCE=0
 #      - LOSS=0
@@ -224,7 +224,7 @@ services:
 #      - LOGGING=on
 #      - VERBOSITY=5
 #      - ACCOUNTPASS=1234
-#      - NETEM=off
+#      - NETEM=on
 #      - MEAN=0
 #      - VARIANCE=0
 #      - LOSS=0
@@ -248,7 +248,7 @@ services:
 #      - LOGGING=on
 #      - VERBOSITY=5
 #      - ACCOUNTPASS=1234
-#      - NETEM=off
+#      - NETEM=on
 #      - MEAN=0
 #      - VARIANCE=0
 #      - LOSS=0
@@ -272,7 +272,7 @@ services:
 #      - LOGGING=on
 #      - VERBOSITY=5
 #      - ACCOUNTPASS=1234
-#      - NETEM=off
+#      - NETEM=on
 #      - MEAN=0
 #      - VARIANCE=0
 #      - LOSS=0
@@ -296,7 +296,7 @@ services:
 #      - LOGGING=on
 #      - VERBOSITY=5
 #      - ACCOUNTPASS=1234
-#      - NETEM=off
+#      - NETEM=on
 #      - MEAN=0
 #      - VARIANCE=0
 #      - LOSS=0

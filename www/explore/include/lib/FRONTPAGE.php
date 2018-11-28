@@ -22,6 +22,7 @@ class FRONTPAGE
 		//echo "<pre>"; var_dump($block); echo "</pre>";
 		$RPC = new RPC();
 		$block = $RPC->get_block_hight();
+
 		for ($i=$block-20; $i < $block+1; $i++) 
 		{ 
 			$block_data[$i] = $RPC->get_Block($i);
@@ -31,18 +32,20 @@ class FRONTPAGE
 
 		foreach ($block_data as $key => $block) 
 		{
-			if (array_key_exists($key-1, $block_data)) 
+			if (is_array($block)) 
 			{
-				$var = hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]);
-				$holder[$key] = hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]);
+				if (array_key_exists($key-1, $block_data)) 
+				{
+					$var = hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]);
+					$holder[$key] = hexdec($block["result"]["timestamp"])-hexdec($block_data[$key-1]["result"]["timestamp"]);
+				}
+				else
+				{
+					$var = "0";
+				}
 
+				$difficulty[$key] = hexdec($block["result"]["difficulty"]);
 			}
-			else
-			{
-				$var = "0";
-			}
-
-			$difficulty[$key] = hexdec($block["result"]["difficulty"]);
 		}
 
 		if(count($holder)) 

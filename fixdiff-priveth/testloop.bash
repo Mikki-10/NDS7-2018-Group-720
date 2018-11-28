@@ -8,7 +8,7 @@ setDelay() {
 
     for c in $containers
     do
-            docker exec -d $c tc qdisc change dev eth0 root netem delay ${DELAY}ms loss ${LOSS}%
+            docker exec $c tc qdisc change dev eth0 root netem delay ${DELAY}ms loss ${LOSS}%
     done
 }
 

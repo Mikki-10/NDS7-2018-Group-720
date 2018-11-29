@@ -19,7 +19,7 @@ do
     for i in {1..11}
     do
 
-        delay_time=$((40*$i-1))
+        delay_time=$(((40*$i)-1))
         loss_pct=0
         echo "Beginning test: $i with delay: $delay_time and loss: $loss_pct"
         setDelay $delay_time $loss_pct

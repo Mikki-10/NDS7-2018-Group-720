@@ -81,7 +81,7 @@ services:
       - VERBOSITY=5
       - ACCOUNTPASS=1234
       - NETEM=on
-      - MEAN=0
+      - MEAN=800
       - VARIANCE=0
       - LOSS=0
     volumes:

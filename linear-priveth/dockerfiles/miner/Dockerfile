@@ -1,4 +1,4 @@
-FROM ethereum/client-go
+FROM fixdiff-geth
 
 RUN mkdir /gethinit
 RUN mkdir /logpath

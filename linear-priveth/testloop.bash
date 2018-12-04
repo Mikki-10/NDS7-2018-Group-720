@@ -17,7 +17,7 @@ do
     echo "Beginning repeat " $repeat
     tar czf 0-startup-logs.tar.gz ./logs
 
-    for i in {1..2}
+    for i in {1..11}
     do
         echo "Beginning test " $i
         delay_time=$((400*($i-1)))
@@ -25,7 +25,7 @@ do
         echo "Beginning test: $i with delay: $delay_time and loss: $loss_pct"
         setDelay $delay_time $loss_pct
 
-        sleep 5h
+        sleep 1h
 
         tar czf ${i}-line-delay${delay_time}-loss${loss_pct}-logs.tar.gz ./logs
         echo "End of teset " $i

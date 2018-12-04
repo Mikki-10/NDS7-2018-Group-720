@@ -46,7 +46,7 @@ var inter = setInterval(function() {
 				d3.selectAll("svg > *").remove();
                 
                 updateData();
-        }, 5000); 
+        }, 15000); 
 
 function updateData() {
 

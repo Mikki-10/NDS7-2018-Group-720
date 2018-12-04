@@ -1,5 +1,5 @@
 <?php
 
-define("RPC_NODE", "172.19.0.4:8545");
+define("RPC_NODE", "172.20.0.4:8545");
 
 ?>

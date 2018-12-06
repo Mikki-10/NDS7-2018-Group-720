@@ -17,7 +17,7 @@ do
     echo "Beginning repeat " $repeat
     tar czf 0-startup-logs.tar.gz ./logs
 
-    for i in {0..10}
+    for i in {1..11}
     do
         echo "Beginning test " $i
         delay_time=50

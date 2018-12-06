@@ -1,4 +1,4 @@
-files=$(ls subtracted-fri-30-2/*.csv | sort --version-sort)
+files=$(ls subtracted-linear-thu-6-dec-0-400ms-3/*.csv | sort --version-sort)
 
 for f in $files
 do
@@ -12,7 +12,7 @@ do
 		resolution=$(ggrep $cs $f | ggrep "Chain split" | tail -n -1)
 		endTimestamp=$(echo $resolution | cut -d";" -f1)
 		dropHash=$(echo $resolution | cut -d";" -f7)
-
+		dropLength=$(echo $resolution | cut -d";" -f6)
 		#echo $resolution
 		#echo $endTimestamp
 		#echo $dropHash
@@ -30,9 +30,9 @@ do
 
 		lifetime=$( awk "BEGIN {print ($endTime-$minedTime)/1000}" )
 
-		printf "\tChain split by %s: %s - %s %s\n" $dropHash $lifetime "${minedTimestamp}" "${endTimestamp}"
+		printf "\tChain split by %s: %s length: %s\n" $dropHash $lifetime $dropLength
 
-		echo "${run_name},${lifetime}" >> forklifetime/durp.csv
+		echo "${run_name},${lifetime},${dropLength}" >> forklifetime/durp.csv
 	done
 
 done

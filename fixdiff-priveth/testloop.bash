@@ -14,21 +14,21 @@ setDelay() {
 
 for repeat in {1..3}
 do
+    echo "Beginning repeat " $repeat
     tar czf 0-startup-logs.tar.gz ./logs
 
-    for i in {1..2}
+    for i in {1..11}
     do
+        echo "Beginning test " $i
+        delay_time=50
+        loss_pct=$(($i-1))
+        echo "Beginning test: $i with delay: $delay_time and loss: $loss_pct"
+        setDelay $delay_time $loss_pct
 
-        #delay_time=$((800*($i)))
-        #loss_pct=0
-        #echo "Beginning test: $i with delay: $delay_time and loss: $loss_pct"
-        #setDelay $delay_time $loss_pct
+        sleep 1h
 
-        sleep 10h
-
-        #tar czf ${i}-delay${delay_time}-loss${loss_pct}-logs.tar.gz ./logs
-        tar czf ${i}-island-delay800-loss0-logs.tar.gz ./logs
-
+        tar czf ${i}-delay${delay_time}-loss${loss_pct}-logs.tar.gz ./logs
+        echo "End of teset " $i
     done
 
     mkdir $repeat-test-run

@@ -36,5 +36,5 @@ else
         --rpcapi="db,eth,net,web3,personal,miner,admin" \
         --networkid=45686 \
         --verbosity 4 \
-        --rpccorsdomain "http://$(hostname -i):8000" \
+        --rpccorsdomain "http://$(hostname -i):8000"
 fi

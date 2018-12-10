@@ -162,10 +162,10 @@ main (int argc, char *argv[])
   //
 
   // Configurations
-  uint32_t burst = 1000;//tokenbucket burst parameter
+  uint32_t burst = 10000;//tokenbucket burst parameter
   uint32_t mtu = 0;
-  DataRate rate = DataRate ("100Mbps");
-  DataRate peakRate = DataRate ("100Mbps");
+  DataRate rate = DataRate ("48Mbps");
+  DataRate peakRate = 0;
 
   TrafficControlHelper tch;
   tch.SetRootQueueDisc ("ns3::TbfQueueDisc",
@@ -251,6 +251,7 @@ main (int argc, char *argv[])
   Ptr<OutputStreamWrapper> outFile = ascii.CreateFileStream("tocken-bucket-on-t2.tr");
   /*>>> Are we interested in tracing multiple queues? should they be printed to different files? <<<*/
   Ptr<QueueDisc> q = qdiscs.Get (0);
+  Ptr<QueueDisc> q2 = qdiscs.Get (1);
     /*>>> Any other queues we want to track? <<<*/
 
   // Setup tracing of the tocken bucket related events

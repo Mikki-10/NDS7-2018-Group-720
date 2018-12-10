@@ -261,9 +261,20 @@ main (int argc, char *argv[])
   /*>>> any other things we could be interested in tracing? <<<*/
 
   // Trace the csma events on t0 (the first wheel)
-  Ptr<OutputStreamWrapper> outFile1 = ascii.CreateFileStream("t0.tr");  
+  Ptr<OutputStreamWrapper> outFile1 = ascii.CreateFileStream("wheel1.tr");  
   csma.EnableAscii (outFile1,terminalDevices.Get(0));
-
+  // Trace the csma events on t1 (the 2nd wheel)
+  Ptr<OutputStreamWrapper> outFile1 = ascii.CreateFileStream("wheel2.tr");  
+  csma.EnableAscii (outFile1,terminalDevices.Get(1));
+  // Trace the csma events on t4 (the 3rd wheel)
+  Ptr<OutputStreamWrapper> outFile1 = ascii.CreateFileStream("wheel3.tr");  
+  csma.EnableAscii (outFile1,terminalDevices.Get(4));
+  // Trace the csma events on t5 (the 4th wheel)
+  Ptr<OutputStreamWrapper> outFile1 = ascii.CreateFileStream("wheel4.tr");  
+  csma.EnableAscii (outFile1,terminalDevices.Get(5));
+  // Trace the csma events on t4 (ESP)
+  Ptr<OutputStreamWrapper> outFile1 = ascii.CreateFileStream("esp.tr");  
+  csma.EnableAscii (outFile1,terminalDevices.Get(6));
   //
   // Now, do the actual simulation.
   //

@@ -1,37 +1,57 @@
 # REMOVE HEAD WHEN DONE!!!!!!!!
 
-file="subtracted-fri-30-2/11-delay400-loss0-logs.csv"
+count_forks() {
+    fork_count=0
 
-common_blocks=$(ggrep "Chain split" $file | cut -d";" -f5 | uniq)
+    arr=("$@")
 
-
-for cb in $common_blocks
-do
-    drop_hashes=( $(ggrep "Chain split" $file | ggrep $cb | cut -d";" -f7 | uniq) )
-    add_hashes=( $(ggrep "Chain split" $file | ggrep $cb | cut -d";" -f9 | uniq) )
-
-    all_hashes=("${drop_hashes[@]}" "${add_hashes[@]}")
-
-    all_hashes=($(echo "${all_hashes[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
-
-    echo "hash array: " "${all_hashes[@]}"
-
-    heights=()
-    for h in "${all_hashes[@]}"
+    for cb in "${arr[@]}"
     do
-        heights+=( $(ggrep $h $file | ggrep "Propagated block" | cut -d";" -f4 | sort -r | head -n 1) )
+        drop_hashes=( $(ggrep "Chain split" $f | ggrep $cb | cut -d";" -f7 | uniq) )
+        add_hashes=( $(ggrep "Chain split" $f | ggrep $cb | cut -d";" -f9 | uniq) )
+
+        all_hashes=("${drop_hashes[@]}" "${add_hashes[@]}")
+
+        all_hashes=($(echo "${all_hashes[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
+
+        #echo "hash array: " "${all_hashes[@]}"
+
+        heights=()
+        for h in "${all_hashes[@]}"
+        do
+            heights+=( $(ggrep $h $f | ggrep "Propagated block" | cut -d";" -f4 | sort -r | head -n 1) )
+        done
+
+        #echo "height array: " "${heights[@]}"
+        max=$(echo "${heights[@]}" | tr " " "\n" | sort | uniq -c | cut -d" " -f4 | sort -r | head -n 1)
+
+        #echo "Max: " $max
+
+        if [ $max -eq 1 ]
+        then
+            max=2
+        fi
+
+        fork_count=$(($fork_count+$max-1))
+
+        #printf "\n"
+
     done
 
-    echo "height array: " "${heights[@]}"
-    max=$(echo "${heights[@]}" | tr " " "\n" | sort | uniq -c | cut -d" " -f4 | sort -r | head -n 1)
+    echo $fork_count
 
-    echo "Max: " $max
+}
 
-    fork_count=$(($fork_count+$max-1))
+files=$(ls subtracted-fri-30-2/*.csv | sort --version-sort)
 
-
-    printf "\n"
-
+for f in $files
+do
+	run_name=$(echo $f | cut -d"/" -f2)
+    common_blocks=($(ggrep "Chain split" $f | cut -d";" -f5 | uniq))
+    forks=$(count_forks "${common_blocks[@]}")
+    mined=$(ggrep "mined potential" $f | cut -d";" -f5 | uniq | wc -l)
+	pct_forks=$( awk "BEGIN {print ($forks/$mined)*100.0}" )
+	blocktime=$(tail -n +2 $f | ggrep "mined" | cut -d";" -f1 | xargs -I {} gdate -d "{}" +"%s%N" | cut -b1-13 | ruby average.rb)
+	echo "Run: " $run_name " Forks: " $forks " mined: " $mined " %_forks: " $pct_forks " blocktime: " $blocktime
+	echo $run_name,$forks,$mined,$pct_forks,$blocktime >> plotdata-altforks-fri-30-2.csv
 done
-
-echo $fork_count

@@ -164,6 +164,7 @@ main (int argc, char *argv[])
   // Configurations
   uint32_t burst = 1000;//tokenbucket burst parameter (original value 10000)
   uint32_t mtu = 0;
+  uint32_t maxS = 6;
   DataRate rate = DataRate ("24Mbps"); //original value 48Mbps
   DataRate peakRate = 0;
 
@@ -172,9 +173,9 @@ main (int argc, char *argv[])
                         "Burst", UintegerValue (burst),
                         "Mtu", UintegerValue (mtu),
                         "Rate", DataRateValue (DataRate (rate)),
-                        "PeakRate", DataRateValue (DataRate (peakRate)));
-  // Install tocken bucket on the net device connecting t2 and t3 to the first switch
-  tch.SetTxQueueIndex(5);
+                        "PeakRate", DataRateValue (DataRate (peakRate)),
+                        "MaxSize", UintegerValue(maxS));
+  // Install tocken bucket on the net device connecting t2 and
   QueueDiscContainer qdiscs = tch.Install (NetDeviceContainer (terminals.Get (2)->GetDevice(0), terminals.Get (3)->GetDevice(0)));
 
 

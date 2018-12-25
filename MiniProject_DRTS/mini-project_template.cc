@@ -164,7 +164,7 @@ main (int argc, char *argv[])
   // Configurations
   uint32_t burst = 1000;//tokenbucket burst parameter (original value 10000)
   uint32_t mtu = 0;
-  QueueSize maxS = "6p";
+  QueueSize maxS = QueueSize("6p");
   DataRate rate = DataRate ("24Mbps"); //original value 48Mbps
   DataRate peakRate = 0;
 

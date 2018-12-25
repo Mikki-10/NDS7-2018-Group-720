@@ -162,9 +162,9 @@ main (int argc, char *argv[])
   //
 
   // Configurations
-  uint32_t burst = 10000;//tokenbucket burst parameter
+  uint32_t burst = 1000;//tokenbucket burst parameter (original value 10000)
   uint32_t mtu = 0;
-  DataRate rate = DataRate ("48Mbps");
+  DataRate rate = DataRate ("24Mbps"); //original value 48Mbps
   DataRate peakRate = 0;
 
   TrafficControlHelper tch;

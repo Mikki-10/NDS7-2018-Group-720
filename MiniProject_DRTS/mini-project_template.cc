@@ -174,6 +174,7 @@ main (int argc, char *argv[])
                         "Rate", DataRateValue (DataRate (rate)),
                         "PeakRate", DataRateValue (DataRate (peakRate)));
   // Install tocken bucket on the net device connecting t2 and t3 to the first switch
+  tch.SetTxQueueIndex(5);
   QueueDiscContainer qdiscs = tch.Install (NetDeviceContainer (terminals.Get (2)->GetDevice(0), terminals.Get (3)->GetDevice(0)));
 
 

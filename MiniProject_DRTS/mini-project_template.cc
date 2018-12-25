@@ -264,17 +264,17 @@ main (int argc, char *argv[])
   Ptr<OutputStreamWrapper> outFile1 = ascii.CreateFileStream("wheel1.tr");  
   csma.EnableAscii (outFile1,terminalDevices.Get(0));
   // Trace the csma events on t1 (the 2nd wheel)
-  Ptr<OutputStreamWrapper> outFile1 = ascii.CreateFileStream("wheel2.tr");  
-  csma.EnableAscii (outFile1,terminalDevices.Get(1));
+  Ptr<OutputStreamWrapper> outFile2 = ascii.CreateFileStream("wheel2.tr");  
+  csma.EnableAscii (outFile2,terminalDevices.Get(1));
   // Trace the csma events on t4 (the 3rd wheel)
-  Ptr<OutputStreamWrapper> outFile1 = ascii.CreateFileStream("wheel3.tr");  
-  csma.EnableAscii (outFile1,terminalDevices.Get(4));
+  Ptr<OutputStreamWrapper> outFile3 = ascii.CreateFileStream("wheel3.tr");  
+  csma.EnableAscii (outFile3,terminalDevices.Get(4));
   // Trace the csma events on t5 (the 4th wheel)
-  Ptr<OutputStreamWrapper> outFile1 = ascii.CreateFileStream("wheel4.tr");  
-  csma.EnableAscii (outFile1,terminalDevices.Get(5));
+  Ptr<OutputStreamWrapper> outFile4 = ascii.CreateFileStream("wheel4.tr");  
+  csma.EnableAscii (outFile4,terminalDevices.Get(5));
   // Trace the csma events on t4 (ESP)
-  Ptr<OutputStreamWrapper> outFile1 = ascii.CreateFileStream("esp.tr");  
-  csma.EnableAscii (outFile1,terminalDevices.Get(6));
+  Ptr<OutputStreamWrapper> outFile5 = ascii.CreateFileStream("esp.tr");  
+  csma.EnableAscii (outFile5,terminalDevices.Get(6));
   //
   // Now, do the actual simulation.
   //

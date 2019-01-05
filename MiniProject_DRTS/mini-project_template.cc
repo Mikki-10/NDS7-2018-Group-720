@@ -249,7 +249,7 @@ main (int argc, char *argv[])
   // the first one in the queueDiscContainer 'qdiscs'
 
   // Create stream to file
-  //AsciiTraceHelper ascii;
+  AsciiTraceHelper ascii;
   //Ptr<OutputStreamWrapper> outFile = ascii.CreateFileStream("tocken-bucket-on-t2.tr");
   /*>>> Are we interested in tracing multiple queues? should they be printed to different files? <<<*/
   //Ptr<QueueDisc> q = qdiscs.Get (0);

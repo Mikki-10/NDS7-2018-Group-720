@@ -164,8 +164,8 @@ main (int argc, char *argv[])
   // Configurations
   uint32_t burst = 10000;//tokenbucket burst parameter (original value 10000)
   uint32_t mtu = 0;
-  //QueueSize maxS = QueueSize("8p");
-  DataRate rate = DataRate ("150Mbps"); //original value 48Mbps
+  QueueSize maxS = QueueSize("8p");
+  DataRate rate = DataRate ("12Mbps"); //original value 48Mbps
   DataRate peakRate = 0;
 
   TrafficControlHelper tch;
@@ -173,8 +173,8 @@ main (int argc, char *argv[])
                         "Burst", UintegerValue (burst),
                         "Mtu", UintegerValue (mtu),
                         "Rate", DataRateValue (DataRate (rate)),
-                        "PeakRate", DataRateValue (DataRate (peakRate))
-                        /*"MaxSize", QueueSizeValue(QueueSize(maxS)))*/);
+                        "PeakRate", DataRateValue (DataRate (peakRate)),
+                        "MaxSize", QueueSizeValue(QueueSize(maxS)));
   // Install tocken bucket on the net device connecting t2 and
   QueueDiscContainer qdiscs = tch.Install (NetDeviceContainer (terminals.Get (2)->GetDevice(0), terminals.Get (3)->GetDevice(0)));
 

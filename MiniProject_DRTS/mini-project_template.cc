@@ -173,7 +173,7 @@ main (int argc, char *argv[])
                         "Burst", UintegerValue (burst),
                         "Mtu", UintegerValue (mtu),
                         "Rate", DataRateValue (DataRate (rate)),
-                        "PeakRate", DataRateValue (DataRate (peakRate)),
+                        "PeakRate", DataRateValue (DataRate (peakRate))
                         /*"MaxSize", QueueSizeValue(QueueSize(maxS)))*/;
   // Install tocken bucket on the net device connecting t2 and
   QueueDiscContainer qdiscs = tch.Install (NetDeviceContainer (terminals.Get (2)->GetDevice(0), terminals.Get (3)->GetDevice(0)));

@@ -287,7 +287,7 @@ main (int argc, char *argv[])
 
   // The queueDisc in the tocken bucket gathers statistics. These can be printed 
   // for inspection.
-  std::cout << std::endl << "*** TC Layer statistics ***" << std::endl;
-  std::cout << q->GetStats () << std::endl;
+  //std::cout << std::endl << "*** TC Layer statistics ***" << std::endl;
+  //std::cout << q->GetStats () << std::endl;
   NS_LOG_INFO ("Done.");
 }

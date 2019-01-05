@@ -205,14 +205,14 @@ main (int argc, char *argv[])
   
   OnOffHelper rearCamera ("ns3::UdpSocketFactory", 
                      Address (InetSocketAddress (Ipv4Address ("10.1.1.9"), port)));
-  rearCamera.SetConstantRate (DataRate ("10Mbps"));
+  rearCamera.SetConstantRate (DataRate ("20Mbps"));
   rearCamera.SetAttribute ("PacketSize",UintegerValue (1400));
   rearCamera.SetAttribute ("OnTime",  StringValue ("ns3::ConstantRandomVariable[Constant=0.00112]")); // 11200/10000000 [s]
   rearCamera.SetAttribute ("OffTime", StringValue ("ns3::ExponentialRandomVariable[Mean=0.00088]")); // 0.002-ontime 
   
   OnOffHelper multiMedia ("ns3::UdpSocketFactory", 
                      Address (InetSocketAddress (Ipv4Address ("10.1.1.9"), port)));
-  multiMedia.SetConstantRate (DataRate ("10Mbps"));
+  multiMedia.SetConstantRate (DataRate ("20Mbps"));
   multiMedia.SetAttribute ("PacketSize",UintegerValue (1400));
   multiMedia.SetAttribute ("OnTime",  StringValue ("ns3::ConstantRandomVariable[Constant=0.00112]"));// 11200/10000000 [s]
   multiMedia.SetAttribute ("OffTime", StringValue ("ns3::ExponentialRandomVariable[Mean=0.00138]"));// 0.0025-ontime 

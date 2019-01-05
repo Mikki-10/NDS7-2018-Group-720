@@ -249,17 +249,17 @@ main (int argc, char *argv[])
   // the first one in the queueDiscContainer 'qdiscs'
 
   // Create stream to file
-  AsciiTraceHelper ascii;
-  Ptr<OutputStreamWrapper> outFile = ascii.CreateFileStream("tocken-bucket-on-t2.tr");
+  //AsciiTraceHelper ascii;
+  //Ptr<OutputStreamWrapper> outFile = ascii.CreateFileStream("tocken-bucket-on-t2.tr");
   /*>>> Are we interested in tracing multiple queues? should they be printed to different files? <<<*/
-  Ptr<QueueDisc> q = qdiscs.Get (0);
-  Ptr<QueueDisc> q2 = qdiscs.Get (1);
+  //Ptr<QueueDisc> q = qdiscs.Get (0);
+  //Ptr<QueueDisc> q2 = qdiscs.Get (1);
     /*>>> Any other queues we want to track? <<<*/
 
   // Setup tracing of the tocken bucket related events
-  q->TraceConnectWithoutContext ("Enqueue", MakeBoundCallback (&PacketEnqueued, outFile));
-  q->TraceConnectWithoutContext ("Dequeue", MakeBoundCallback (&PacketDequeued, outFile));
-  q->TraceConnectWithoutContext ("Drop", MakeBoundCallback (&PacketDropped, outFile));
+  //q->TraceConnectWithoutContext ("Enqueue", MakeBoundCallback (&PacketEnqueued, outFile));
+  //q->TraceConnectWithoutContext ("Dequeue", MakeBoundCallback (&PacketDequeued, outFile));
+  //q->TraceConnectWithoutContext ("Drop", MakeBoundCallback (&PacketDropped, outFile));
   /*>>> any other things we could be interested in tracing? <<<*/
 
   // Trace the csma events on t0 (the first wheel)

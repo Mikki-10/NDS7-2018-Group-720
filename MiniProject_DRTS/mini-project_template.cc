@@ -165,7 +165,7 @@ main (int argc, char *argv[])
   uint32_t burst = 10000;//tokenbucket burst parameter (original value 10000)
   uint32_t mtu = 0;
   QueueSize maxS = QueueSize("8p");
-  DataRate rate = DataRate ("48Mbps"); 
+  DataRate rate = DataRate ("48Mbps"); //original value 48Mbps
   DataRate peakRate = 0;
 
   TrafficControlHelper tch;
@@ -176,7 +176,7 @@ main (int argc, char *argv[])
                         "PeakRate", DataRateValue (DataRate (peakRate)),
                         "MaxSize", QueueSizeValue(QueueSize(maxS)));
   // Install tocken bucket on the net device connecting t2 and
-  //QueueDiscContainer qdiscs = tch.Install (NetDeviceContainer (terminals.Get (2)->GetDevice(0), terminals.Get (3)->GetDevice(0)));
+  QueueDiscContainer qdiscs = tch.Install (NetDeviceContainer (terminals.Get (2)->GetDevice(0), terminals.Get (3)->GetDevice(0)));
 
 
   // We've got the "hardware" in place.  Now we need to add IP addresses.
@@ -205,14 +205,14 @@ main (int argc, char *argv[])
   
   OnOffHelper rearCamera ("ns3::UdpSocketFactory", 
                      Address (InetSocketAddress (Ipv4Address ("10.1.1.9"), port)));
-  rearCamera.SetConstantRate (DataRate ("20Mbps"));
+  rearCamera.SetConstantRate (DataRate ("10Mbps"));
   rearCamera.SetAttribute ("PacketSize",UintegerValue (1400));
   rearCamera.SetAttribute ("OnTime",  StringValue ("ns3::ConstantRandomVariable[Constant=0.00112]")); // 11200/10000000 [s]
   rearCamera.SetAttribute ("OffTime", StringValue ("ns3::ExponentialRandomVariable[Mean=0.00088]")); // 0.002-ontime 
   
   OnOffHelper multiMedia ("ns3::UdpSocketFactory", 
                      Address (InetSocketAddress (Ipv4Address ("10.1.1.9"), port)));
-  multiMedia.SetConstantRate (DataRate ("20Mbps"));
+  multiMedia.SetConstantRate (DataRate ("10Mbps"));
   multiMedia.SetAttribute ("PacketSize",UintegerValue (1400));
   multiMedia.SetAttribute ("OnTime",  StringValue ("ns3::ConstantRandomVariable[Constant=0.00112]"));// 11200/10000000 [s]
   multiMedia.SetAttribute ("OffTime", StringValue ("ns3::ExponentialRandomVariable[Mean=0.00138]"));// 0.0025-ontime 
@@ -250,16 +250,16 @@ main (int argc, char *argv[])
 
   // Create stream to file
   AsciiTraceHelper ascii;
-  //Ptr<OutputStreamWrapper> outFile = ascii.CreateFileStream("tocken-bucket-on-t2.tr");
+  Ptr<OutputStreamWrapper> outFile = ascii.CreateFileStream("tocken-bucket-on-t2.tr");
   /*>>> Are we interested in tracing multiple queues? should they be printed to different files? <<<*/
-  //Ptr<QueueDisc> q = qdiscs.Get (0);
-  //Ptr<QueueDisc> q2 = qdiscs.Get (1);
+  Ptr<QueueDisc> q = qdiscs.Get (0);
+  Ptr<QueueDisc> q2 = qdiscs.Get (1);
     /*>>> Any other queues we want to track? <<<*/
 
   // Setup tracing of the tocken bucket related events
-  //q->TraceConnectWithoutContext ("Enqueue", MakeBoundCallback (&PacketEnqueued, outFile));
-  //q->TraceConnectWithoutContext ("Dequeue", MakeBoundCallback (&PacketDequeued, outFile));
-  //q->TraceConnectWithoutContext ("Drop", MakeBoundCallback (&PacketDropped, outFile));
+  q->TraceConnectWithoutContext ("Enqueue", MakeBoundCallback (&PacketEnqueued, outFile));
+  q->TraceConnectWithoutContext ("Dequeue", MakeBoundCallback (&PacketDequeued, outFile));
+  q->TraceConnectWithoutContext ("Drop", MakeBoundCallback (&PacketDropped, outFile));
   /*>>> any other things we could be interested in tracing? <<<*/
 
   // Trace the csma events on t0 (the first wheel)
@@ -287,7 +287,7 @@ main (int argc, char *argv[])
 
   // The queueDisc in the tocken bucket gathers statistics. These can be printed 
   // for inspection.
-  //std::cout << std::endl << "*** TC Layer statistics ***" << std::endl;
-  //std::cout << q->GetStats () << std::endl;
+  std::cout << std::endl << "*** TC Layer statistics ***" << std::endl;
+  std::cout << q->GetStats () << std::endl;
   NS_LOG_INFO ("Done.");
 }

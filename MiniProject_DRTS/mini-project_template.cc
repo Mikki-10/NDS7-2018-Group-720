@@ -289,5 +289,9 @@ main (int argc, char *argv[])
   // for inspection.
   std::cout << std::endl << "*** TC Layer statistics ***" << std::endl;
   std::cout << q->GetStats () << std::endl;
+  //NS_LOG_INFO ("Done.");
+
+  std::cout << std::endl << "*** TC Layer statistics for the second***" << std::endl;
+  std::cout << q2->GetStats () << std::endl;
   NS_LOG_INFO ("Done.");
 }
